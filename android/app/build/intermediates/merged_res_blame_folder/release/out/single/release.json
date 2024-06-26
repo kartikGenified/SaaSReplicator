@@ -1,0 +1,582 @@
+[
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_wallet.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_wallet.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_uploadicon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_uploadicon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_rightarrow.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_rightarrow.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_blackback.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_blackback.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-xhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-xhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-xxhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-xxhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_arrowdown.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_arrowdown.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_reedem2.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_reedem2.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_warranty_icon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_warranty_icon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_ozonewhitelogo.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_ozonewhitelogo.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_qrquestionmark.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_qrquestionmark.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_redeemcashback.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_redeemcashback.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-hdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-hdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_insta.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_insta.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_whitemobile.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_whitemobile.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_cashbackblack.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_cashbackblack.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_listwhite.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_listwhite.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_passbook_icon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_passbook_icon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_redeemed_icon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_redeemed_icon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_voucherbackground.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_voucherbackground.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_total_inactive.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_total_inactive.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_logoozone.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_logoozone.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_clock.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_clock.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_delete.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_delete.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_referal.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_referal.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_gift1.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_gift1.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-xxxhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-xxxhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_eye.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_eye.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_wheelback.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_wheelback.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_spin.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_spin.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_qrcancel.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_qrcancel.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-xxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-xxhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_plus.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_plus.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_splash2.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_splash2.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_circulartickgrey.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_circulartickgrey.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_support.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_support.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_tickblue.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_tickblue.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_tamillanguage.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_tamillanguage.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_gif_nodata.gif.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_gif_nodata.gif"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_demoicon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_demoicon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_qrgallery.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_qrgallery.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_reward_dashboard.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_reward_dashboard.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_coin.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_coin.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_magicbox.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_magicbox.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_platinum.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_platinum.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_cashbackpoints.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_cashbackpoints.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-hdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-hdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_date.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_date.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_gonext.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_gonext.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_usergreen.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_usergreen.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_plane.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_plane.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_qrhowto.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_qrhowto.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_customersupportnew.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_customersupportnew.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_loc.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_loc.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_settings.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_settings.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_devicelocation.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_devicelocation.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-xhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-xhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_languageenglish.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_languageenglish.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_productvideo.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_productvideo.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_next.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_next.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_bankaccount.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_bankaccount.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_giftwhite.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_giftwhite.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-ldpi_ic_launcher.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-ldpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_upi.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_upi.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_website.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_website.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_reward.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_reward.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_list.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_list.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable_rn_edit_text_material.xml.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/drawable/rn_edit_text_material.xml"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_greentick.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_greentick.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_referandearn.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_referandearn.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_gif_ozostars.gif.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_gif_ozostars.gif"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_blueenvelope.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_blueenvelope.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_feed_back.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_feed_back.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_celebrationbackground.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_celebrationbackground.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_coinstack.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_coinstack.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_howtoscan.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_howtoscan.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_box.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_box.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_otpscreenimage.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_otpscreenimage.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_points.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_points.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_greenrupee.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_greenrupee.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_voucher1.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_voucher1.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_whitemail.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_whitemail.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_languagehindi.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_languagehindi.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_total_active.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_total_active.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_greendownload.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_greendownload.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_coinbag.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_coinbag.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_cancel.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_cancel.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_scannedhistory.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_scannedhistory.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_datanotfound.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_datanotfound.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_gridwhite.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_gridwhite.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_twitter.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_twitter.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_wheel.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_wheel.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_aslivsnakli.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_aslivsnakli.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_telugulanguage.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_telugulanguage.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_genuine.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_genuine.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-xxxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-xxxhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_qrtorch.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_qrtorch.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_fb.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_fb.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_genuinelogo.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_genuinelogo.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_shared_point.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_shared_point.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_money.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_money.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_whitearrowright.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_whitearrowright.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_scanned.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_scanned.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_usergrey.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_usergrey.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-ldpi_ic_launcher_round.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-ldpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_youtube.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_youtube.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_bluechecked.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_bluechecked.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_cashback.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_cashback.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backiconmask.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backiconmask.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_gold.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_gold.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_rewardifydescription.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_rewardifydescription.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_gif_loader.gif.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_gif_loader.gif"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-ldpi_ic_launcher_foreground.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-ldpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_boxreward.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_boxreward.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_grid.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_grid.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_refericon.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_refericon.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_kyc.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_kyc.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_categories.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_categories.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_enablecameramessage.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_enablecameramessage.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_feedback.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_feedback.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_verified.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_verified.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_voucher.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_voucher.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_notismall.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_notismall.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_mobileblack.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_mobileblack.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_minus_wallet.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_minus_wallet.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_genderblack.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_genderblack.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_warrantyreport.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_warrantyreport.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.netcarrots.ozone.app-main-53:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_images_total_influencer.png.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_total_influencer.png"
+    }
+]

@@ -1,0 +1,785 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.netcarrots.ozone"
+4    android:versionCode="70021"
+5    android:versionName="70021" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:3:5-67
+11-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.CAMERA" />
+12-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:4:5-65
+12-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:4:22-62
+13    <uses-permission android:name="android.permission.VIBRATE" />
+13-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:5:5-65
+13-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:5:22-63
+14    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+14-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:6:5-80
+14-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:6:22-77
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:7:5-79
+15-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:7:22-76
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:8:1-77
+16-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:8:18-74
+17    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+17-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:9:5-76
+17-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:9:22-74
+18
+19    <!-- Include this only if you are planning to use the microphone for video recording -->
+20    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+20-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:13:1-66
+20-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:13:18-64
+21    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+21-->[:react-native-community_netinfo] /Users/genefied/RNProjects/ozone/node_modules/@react-native-community/netinfo/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-79
+21-->[:react-native-community_netinfo] /Users/genefied/RNProjects/ozone/node_modules/@react-native-community/netinfo/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:22-76
+22    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+22-->[:react-native-community_netinfo] /Users/genefied/RNProjects/ozone/node_modules/@react-native-community/netinfo/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:5-76
+22-->[:react-native-community_netinfo] /Users/genefied/RNProjects/ozone/node_modules/@react-native-community/netinfo/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:22-73
+23    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required to to download files without a notification -->
+23-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-68
+23-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:22-65
+24    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+24-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:32:5-88
+24-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:32:22-85
+25
+26    <uses-feature
+26-->[:react-native-camera] /Users/genefied/RNProjects/ozone/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:9:5-11:36
+27        android:name="android.hardware.camera"
+27-->[:react-native-camera] /Users/genefied/RNProjects/ozone/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:10:9-47
+28        android:required="false" />
+28-->[:react-native-camera] /Users/genefied/RNProjects/ozone/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:11:9-33
+29    <uses-feature
+29-->[:react-native-camera] /Users/genefied/RNProjects/ozone/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:12:5-14:36
+30        android:name="android.hardware.camera.autofocus"
+30-->[:react-native-camera] /Users/genefied/RNProjects/ozone/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:13:9-57
+31        android:required="false" />
+31-->[:react-native-camera] /Users/genefied/RNProjects/ozone/node_modules/react-native-camera/android/build/intermediates/merged_manifest/generalRelease/AndroidManifest.xml:14:9-33
+32
+33    <queries>
+33-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-11:15
+34        <intent>
+34-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-10:18
+35            <action android:name="android.media.action.IMAGE_CAPTURE" />
+35-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-73
+35-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:21-70
+36        </intent>
+37    </queries>
+38
+39    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+39-->[:react-native-keychain] /Users/genefied/RNProjects/ozone/node_modules/react-native-keychain/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-72
+39-->[:react-native-keychain] /Users/genefied/RNProjects/ozone/node_modules/react-native-keychain/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:22-69
+40    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+40-->[:react-native-keychain] /Users/genefied/RNProjects/ozone/node_modules/react-native-keychain/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:5-74
+40-->[:react-native-keychain] /Users/genefied/RNProjects/ozone/node_modules/react-native-keychain/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:22-71
+41    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+41-->[:react-native-android-location-services-dialog-box] /Users/genefied/RNProjects/ozone/node_modules/react-native-android-location-services-dialog-box/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-81
+41-->[:react-native-android-location-services-dialog-box] /Users/genefied/RNProjects/ozone/node_modules/react-native-android-location-services-dialog-box/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:7:22-78
+42    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+42-->[com.google.android.gms:play-services-iid:17.0.0] /Users/genefied/.gradle/caches/transforms-3/4e71fd688a5edaba2e95a545ae7a8f02/transformed/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:5-82
+42-->[com.google.android.gms:play-services-iid:17.0.0] /Users/genefied/.gradle/caches/transforms-3/4e71fd688a5edaba2e95a545ae7a8f02/transformed/jetified-play-services-iid-17.0.0/AndroidManifest.xml:23:22-79
+43    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+43-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:25:5-79
+43-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:25:22-76
+44    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_ATTRIBUTION" />
+44-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:26:5-88
+44-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:26:22-85
+45    <uses-permission android:name="android.permission.ACCESS_ADSERVICES_AD_ID" />
+45-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:27:5-82
+45-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:27:22-79
+46    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+46-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:26:5-110
+46-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:26:22-107
+47
+48    <permission
+48-->[androidx.core:core:1.12.0] /Users/genefied/.gradle/caches/transforms-3/7c6725a93d10e87e346a402d5b92b8f8/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+49        android:name="com.netcarrots.ozone.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+49-->[androidx.core:core:1.12.0] /Users/genefied/.gradle/caches/transforms-3/7c6725a93d10e87e346a402d5b92b8f8/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+50        android:protectionLevel="signature" />
+50-->[androidx.core:core:1.12.0] /Users/genefied/.gradle/caches/transforms-3/7c6725a93d10e87e346a402d5b92b8f8/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+51
+52    <uses-permission android:name="com.netcarrots.ozone.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+52-->[androidx.core:core:1.12.0] /Users/genefied/.gradle/caches/transforms-3/7c6725a93d10e87e346a402d5b92b8f8/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+52-->[androidx.core:core:1.12.0] /Users/genefied/.gradle/caches/transforms-3/7c6725a93d10e87e346a402d5b92b8f8/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+53
+54    <application
+54-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:14:5-36:19
+55        android:name="com.netcarrots.ozone.MainApplication"
+55-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:15:7-38
+56        android:allowBackup="false"
+56-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:19:7-34
+57        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+57-->[androidx.core:core:1.12.0] /Users/genefied/.gradle/caches/transforms-3/7c6725a93d10e87e346a402d5b92b8f8/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+58        android:extractNativeLibs="false"
+59        android:icon="@mipmap/ic_launcher"
+59-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:17:7-41
+60        android:label="@string/app_name"
+60-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:16:7-39
+61        android:roundIcon="@mipmap/ic_launcher_round"
+61-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:18:7-52
+62        android:theme="@style/AppTheme"
+62-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:20:7-38
+63        android:usesCleartextTraffic="true" >
+63-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:21:7-42
+64        <activity
+64-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:24:7-35:18
+65            android:name="com.netcarrots.ozone.MainActivity"
+65-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:25:9-37
+66            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+66-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:27:9-118
+67            android:exported="true"
+67-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:30:9-32
+68            android:label="@string/app_name"
+68-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:26:9-41
+69            android:launchMode="singleTask"
+69-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:28:9-40
+70            android:windowSoftInputMode="adjustResize" >
+70-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:29:9-51
+71            <intent-filter>
+71-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:31:9-34:25
+72                <action android:name="android.intent.action.MAIN" />
+72-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:32:13-65
+72-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:32:21-62
+73
+74                <category android:name="android.intent.category.LAUNCHER" />
+74-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:33:13-73
+74-->/Users/genefied/RNProjects/ozone/android/app/src/main/AndroidManifest.xml:33:23-70
+75            </intent-filter>
+76        </activity>
+77
+78        <meta-data
+78-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:9-14:36
+79            android:name="firebase_analytics_collection_enabled"
+79-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-65
+80            android:value="true" />
+80-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:13-33
+81        <meta-data
+81-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:9-17:37
+82            android:name="firebase_analytics_collection_deactivated"
+82-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-69
+83            android:value="false" />
+83-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-34
+84        <meta-data
+84-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:9-20:36
+85            android:name="google_analytics_adid_collection_enabled"
+85-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-68
+86            android:value="true" />
+86-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-33
+87        <meta-data
+87-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:9-23:36
+88            android:name="google_analytics_ssaid_collection_enabled"
+88-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:13-69
+89            android:value="true" />
+89-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:23:13-33
+90        <meta-data
+90-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:24:9-26:36
+91            android:name="google_analytics_automatic_screen_reporting_enabled"
+91-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-79
+92            android:value="true" />
+92-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-33
+93        <meta-data
+93-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:9-29:36
+94            android:name="google_analytics_default_allow_analytics_storage"
+94-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:13-76
+95            android:value="true" />
+95-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-33
+96        <meta-data
+96-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:30:9-32:36
+97            android:name="google_analytics_default_allow_ad_storage"
+97-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:31:13-69
+98            android:value="true" />
+98-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:32:13-33
+99        <meta-data
+99-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:33:9-35:36
+100            android:name="google_analytics_default_allow_ad_user_data"
+100-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:34:13-71
+101            android:value="true" />
+101-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:35:13-33
+102        <meta-data
+102-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:36:9-38:36
+103            android:name="google_analytics_default_allow_ad_personalization_signals"
+103-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:37:13-85
+104            android:value="true" /> <!-- Disable crashlytics by default so we can custom init with CrashlyticsNdk support -->
+104-->[:react-native-firebase_analytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/analytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:38:13-33
+105        <meta-data
+105-->[:react-native-firebase_crashlytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/crashlytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:9-12:37
+106            android:name="firebase_crashlytics_collection_enabled"
+106-->[:react-native-firebase_crashlytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/crashlytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-67
+107            android:value="false" />
+107-->[:react-native-firebase_crashlytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/crashlytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-34
+108
+109        <provider
+109-->[:react-native-firebase_crashlytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/crashlytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:9-18:38
+110            android:name="io.invertase.firebase.crashlytics.ReactNativeFirebaseCrashlyticsInitProvider"
+110-->[:react-native-firebase_crashlytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/crashlytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:13-104
+111            android:authorities="com.netcarrots.ozone.reactnativefirebasecrashlyticsinitprovider"
+111-->[:react-native-firebase_crashlytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/crashlytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-94
+112            android:exported="false"
+112-->[:react-native-firebase_crashlytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/crashlytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-37
+113            android:initOrder="98" />
+113-->[:react-native-firebase_crashlytics] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/crashlytics/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-35
+114
+115        <service
+115-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:9-14:40
+116            android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingHeadlessService"
+116-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-103
+117            android:exported="false" />
+117-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:13-37
+118        <service
+118-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:9-21:19
+119            android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingService"
+119-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-95
+120            android:exported="false" >
+120-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-37
+121            <intent-filter>
+121-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-20:29
+122                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+122-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:17-78
+122-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:25-75
+123            </intent-filter>
+124        </service>
+125
+126        <receiver
+126-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:23:9-30:20
+127            android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingReceiver"
+127-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-96
+128            android:exported="true"
+128-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-36
+129            android:permission="com.google.android.c2dm.permission.SEND" >
+129-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-73
+130            <intent-filter>
+130-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-29:29
+131                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+131-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:17-81
+131-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:25-78
+132            </intent-filter>
+133        </receiver>
+134
+135        <meta-data
+135-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:32:9-34:36
+136            android:name="firebase_messaging_auto_init_enabled"
+136-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:33:13-64
+137            android:value="true" />
+137-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:34:13-33
+138        <meta-data
+138-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:35:9-37:32
+139            android:name="com.google.firebase.messaging.default_notification_channel_id"
+139-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:36:13-89
+140            android:value="" />
+140-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:37:13-29
+141        <meta-data
+141-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:38:9-40:47
+142            android:name="com.google.firebase.messaging.default_notification_color"
+142-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:39:13-84
+143            android:resource="@color/white" />
+143-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:40:13-44
+144        <meta-data
+144-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:9-11:36
+145            android:name="app_data_collection_default_enabled"
+145-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-63
+146            android:value="true" />
+146-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-33
+147
+148        <service
+148-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:9-21:19
+149            android:name="com.google.firebase.components.ComponentDiscoveryService"
+149-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:13-84
+150            android:directBootAware="true"
+150-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:13-43
+151            android:exported="false" >
+151-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-37
+152            <meta-data
+152-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-20:85
+153                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
+153-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:17-120
+154                android:value="com.google.firebase.components.ComponentRegistrar" />
+154-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:17-82
+155            <meta-data
+155-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:57:13-59:85
+156                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+156-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:58:17-122
+157                android:value="com.google.firebase.components.ComponentRegistrar" />
+157-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:59:17-82
+158            <meta-data
+158-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:60:13-62:85
+159                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+159-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:61:17-119
+160                android:value="com.google.firebase.components.ComponentRegistrar" />
+160-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:62:17-82
+161            <meta-data
+161-->[com.google.firebase:firebase-crashlytics-ndk:18.6.1] /Users/genefied/.gradle/caches/transforms-3/427192e9cb3796e96cf0428a7dc2316a/transformed/jetified-firebase-crashlytics-ndk-18.6.1/AndroidManifest.xml:32:13-34:85
+162                android:name="com.google.firebase.components:com.google.firebase.crashlytics.ndk.CrashlyticsNdkRegistrar"
+162-->[com.google.firebase:firebase-crashlytics-ndk:18.6.1] /Users/genefied/.gradle/caches/transforms-3/427192e9cb3796e96cf0428a7dc2316a/transformed/jetified-firebase-crashlytics-ndk-18.6.1/AndroidManifest.xml:33:17-122
+163                android:value="com.google.firebase.components.ComponentRegistrar" />
+163-->[com.google.firebase:firebase-crashlytics-ndk:18.6.1] /Users/genefied/.gradle/caches/transforms-3/427192e9cb3796e96cf0428a7dc2316a/transformed/jetified-firebase-crashlytics-ndk-18.6.1/AndroidManifest.xml:34:17-82
+164            <meta-data
+164-->[com.google.firebase:firebase-crashlytics:18.6.1] /Users/genefied/.gradle/caches/transforms-3/49d1cf2d0f9015e6fc648cc00f1e6d55/transformed/jetified-firebase-crashlytics-18.6.1/AndroidManifest.xml:15:13-17:85
+165                android:name="com.google.firebase.components:com.google.firebase.crashlytics.FirebaseCrashlyticsKtxRegistrar"
+165-->[com.google.firebase:firebase-crashlytics:18.6.1] /Users/genefied/.gradle/caches/transforms-3/49d1cf2d0f9015e6fc648cc00f1e6d55/transformed/jetified-firebase-crashlytics-18.6.1/AndroidManifest.xml:16:17-126
+166                android:value="com.google.firebase.components.ComponentRegistrar" />
+166-->[com.google.firebase:firebase-crashlytics:18.6.1] /Users/genefied/.gradle/caches/transforms-3/49d1cf2d0f9015e6fc648cc00f1e6d55/transformed/jetified-firebase-crashlytics-18.6.1/AndroidManifest.xml:17:17-82
+167            <meta-data
+167-->[com.google.firebase:firebase-crashlytics:18.6.1] /Users/genefied/.gradle/caches/transforms-3/49d1cf2d0f9015e6fc648cc00f1e6d55/transformed/jetified-firebase-crashlytics-18.6.1/AndroidManifest.xml:18:13-20:85
+168                android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
+168-->[com.google.firebase:firebase-crashlytics:18.6.1] /Users/genefied/.gradle/caches/transforms-3/49d1cf2d0f9015e6fc648cc00f1e6d55/transformed/jetified-firebase-crashlytics-18.6.1/AndroidManifest.xml:19:17-115
+169                android:value="com.google.firebase.components.ComponentRegistrar" />
+169-->[com.google.firebase:firebase-crashlytics:18.6.1] /Users/genefied/.gradle/caches/transforms-3/49d1cf2d0f9015e6fc648cc00f1e6d55/transformed/jetified-firebase-crashlytics-18.6.1/AndroidManifest.xml:20:17-82
+170            <meta-data
+170-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:37:13-39:85
+171                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+171-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:38:17-139
+172                android:value="com.google.firebase.components.ComponentRegistrar" />
+172-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:39:17-82
+173            <meta-data
+173-->[com.google.firebase:firebase-sessions:1.2.1] /Users/genefied/.gradle/caches/transforms-3/e3ed527330919e81ec0ade7bfab8be9e/transformed/jetified-firebase-sessions-1.2.1/AndroidManifest.xml:29:13-31:85
+174                android:name="com.google.firebase.components:com.google.firebase.sessions.FirebaseSessionsRegistrar"
+174-->[com.google.firebase:firebase-sessions:1.2.1] /Users/genefied/.gradle/caches/transforms-3/e3ed527330919e81ec0ade7bfab8be9e/transformed/jetified-firebase-sessions-1.2.1/AndroidManifest.xml:30:17-117
+175                android:value="com.google.firebase.components.ComponentRegistrar" />
+175-->[com.google.firebase:firebase-sessions:1.2.1] /Users/genefied/.gradle/caches/transforms-3/e3ed527330919e81ec0ade7bfab8be9e/transformed/jetified-firebase-sessions-1.2.1/AndroidManifest.xml:31:17-82
+176            <meta-data
+176-->[com.google.firebase:firebase-installations:17.2.0] /Users/genefied/.gradle/caches/transforms-3/f5b85127eabcea20190295a48b1e6f64/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:15:13-17:85
+177                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+177-->[com.google.firebase:firebase-installations:17.2.0] /Users/genefied/.gradle/caches/transforms-3/f5b85127eabcea20190295a48b1e6f64/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:16:17-130
+178                android:value="com.google.firebase.components.ComponentRegistrar" />
+178-->[com.google.firebase:firebase-installations:17.2.0] /Users/genefied/.gradle/caches/transforms-3/f5b85127eabcea20190295a48b1e6f64/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:17:17-82
+179            <meta-data
+179-->[com.google.firebase:firebase-installations:17.2.0] /Users/genefied/.gradle/caches/transforms-3/f5b85127eabcea20190295a48b1e6f64/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:18:13-20:85
+180                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+180-->[com.google.firebase:firebase-installations:17.2.0] /Users/genefied/.gradle/caches/transforms-3/f5b85127eabcea20190295a48b1e6f64/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:19:17-127
+181                android:value="com.google.firebase.components.ComponentRegistrar" />
+181-->[com.google.firebase:firebase-installations:17.2.0] /Users/genefied/.gradle/caches/transforms-3/f5b85127eabcea20190295a48b1e6f64/transformed/jetified-firebase-installations-17.2.0/AndroidManifest.xml:20:17-82
+182            <meta-data
+182-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/genefied/.gradle/caches/transforms-3/0829ea3690912a53a1307ef3ee18a623/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:12:13-14:85
+183                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+183-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/genefied/.gradle/caches/transforms-3/0829ea3690912a53a1307ef3ee18a623/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:13:17-116
+184                android:value="com.google.firebase.components.ComponentRegistrar" />
+184-->[com.google.firebase:firebase-common-ktx:20.4.2] /Users/genefied/.gradle/caches/transforms-3/0829ea3690912a53a1307ef3ee18a623/transformed/jetified-firebase-common-ktx-20.4.2/AndroidManifest.xml:14:17-82
+185            <meta-data
+185-->[com.google.firebase:firebase-common:20.4.2] /Users/genefied/.gradle/caches/transforms-3/c43743aadb13fd36eb0bb291c3157a5b/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:35:13-37:85
+186                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+186-->[com.google.firebase:firebase-common:20.4.2] /Users/genefied/.gradle/caches/transforms-3/c43743aadb13fd36eb0bb291c3157a5b/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:36:17-109
+187                android:value="com.google.firebase.components.ComponentRegistrar" />
+187-->[com.google.firebase:firebase-common:20.4.2] /Users/genefied/.gradle/caches/transforms-3/c43743aadb13fd36eb0bb291c3157a5b/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:37:17-82
+188            <meta-data
+188-->[com.google.firebase:firebase-datatransport:18.1.8] /Users/genefied/.gradle/caches/transforms-3/bd87473e937b1be66bfad673b427753d/transformed/jetified-firebase-datatransport-18.1.8/AndroidManifest.xml:27:13-29:85
+189                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+189-->[com.google.firebase:firebase-datatransport:18.1.8] /Users/genefied/.gradle/caches/transforms-3/bd87473e937b1be66bfad673b427753d/transformed/jetified-firebase-datatransport-18.1.8/AndroidManifest.xml:28:17-115
+190                android:value="com.google.firebase.components.ComponentRegistrar" />
+190-->[com.google.firebase:firebase-datatransport:18.1.8] /Users/genefied/.gradle/caches/transforms-3/bd87473e937b1be66bfad673b427753d/transformed/jetified-firebase-datatransport-18.1.8/AndroidManifest.xml:29:17-82
+191        </service>
+192
+193        <provider
+193-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:23:9-27:38
+194            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
+194-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:24:13-88
+195            android:authorities="com.netcarrots.ozone.reactnativefirebaseappinitprovider"
+195-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:13-86
+196            android:exported="false"
+196-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-37
+197            android:initOrder="99" />
+197-->[:react-native-firebase_app] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-35
+198        <provider
+198-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:35:9-43:20
+199            android:name="com.ReactNativeBlobUtil.Utils.FileProvider"
+199-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:36:13-70
+200            android:authorities="com.netcarrots.ozone.provider"
+200-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:37:13-60
+201            android:exported="false"
+201-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:38:13-37
+202            android:grantUriPermissions="true" >
+202-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:39:13-47
+203            <meta-data
+203-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:40:13-42:58
+204                android:name="android.support.FILE_PROVIDER_PATHS"
+204-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:41:17-67
+205                android:resource="@xml/provider_paths" />
+205-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:42:17-55
+206        </provider>
+207        <provider
+207-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:9-24:20
+208            android:name="com.reactnative.ivpusic.imagepicker.IvpusicImagePickerFileProvider"
+208-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-94
+209            android:authorities="com.netcarrots.ozone.provider"
+209-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-60
+210            android:exported="false"
+210-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-37
+211            android:grantUriPermissions="true" >
+211-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-47
+212            <meta-data
+212-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:40:13-42:58
+213                android:name="android.support.FILE_PROVIDER_PATHS"
+213-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:41:17-67
+214                android:resource="@xml/ivpusic_imagepicker_provider_paths" />
+214-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:42:17-55
+215        </provider>
+216
+217        <activity
+217-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:9-28:72
+218            android:name="com.yalantis.ucrop.UCropActivity"
+218-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-60
+219            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+219-->[:react-native-image-crop-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-crop-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:13-69
+220
+221        <provider
+221-->[:react-native-image-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-16:20
+222            android:name="com.imagepicker.ImagePickerProvider"
+222-->[:react-native-image-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-63
+223            android:authorities="com.netcarrots.ozone.imagepickerprovider"
+223-->[:react-native-image-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-71
+224            android:exported="false"
+224-->[:react-native-image-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-37
+225            android:grantUriPermissions="true" >
+225-->[:react-native-image-picker] /Users/genefied/RNProjects/ozone/node_modules/react-native-image-picker/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-47
+226            <meta-data
+226-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:40:13-42:58
+227                android:name="android.support.FILE_PROVIDER_PATHS"
+227-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:41:17-67
+228                android:resource="@xml/imagepicker_provider_paths" />
+228-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:42:17-55
+229        </provider> <!-- A proxy-service that gives the library an opportunity to do some work before launching/resuming the actual application task. -->
+230        <service android:name="com.wix.reactnativenotifications.core.ProxyService" />
+230-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:10:9-86
+230-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:10:18-83
+231        <service
+231-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:11:9-18:19
+232            android:name="com.wix.reactnativenotifications.fcm.FcmInstanceIdListenerService"
+232-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:12:13-93
+233            android:exported="true" >
+233-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:13:13-36
+234            <intent-filter>
+234-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:14:13-17:29
+235                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+235-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:17-78
+235-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:25-75
+236                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+236-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:16:17-80
+236-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:16:25-77
+237            </intent-filter>
+238        </service>
+239        <service
+239-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:19:9-22:72
+240            android:name="com.wix.reactnativenotifications.fcm.FcmInstanceIdRefreshHandlerService"
+240-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:20:13-99
+241            android:exported="false"
+241-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:21:13-37
+242            android:permission="android.permission.BIND_JOB_SERVICE" />
+242-->[:react-native-notifications] /Users/genefied/RNProjects/ozone/node_modules/react-native-notifications/lib/android/app/build/intermediates/merged_manifest/reactNative60Release/AndroidManifest.xml:22:13-69
+243
+244        <provider
+244-->[:react-native-share] /Users/genefied/RNProjects/ozone/node_modules/react-native-share/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-16:20
+245            android:name="cl.json.RNShareFileProvider"
+245-->[:react-native-share] /Users/genefied/RNProjects/ozone/node_modules/react-native-share/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-55
+246            android:authorities="com.netcarrots.ozone.rnshare.fileprovider"
+246-->[:react-native-share] /Users/genefied/RNProjects/ozone/node_modules/react-native-share/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-72
+247            android:exported="false"
+247-->[:react-native-share] /Users/genefied/RNProjects/ozone/node_modules/react-native-share/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-37
+248            android:grantUriPermissions="true" >
+248-->[:react-native-share] /Users/genefied/RNProjects/ozone/node_modules/react-native-share/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-47
+249            <meta-data
+249-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:40:13-42:58
+250                android:name="android.support.FILE_PROVIDER_PATHS"
+250-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:41:17-67
+251                android:resource="@xml/share_download_paths" />
+251-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:42:17-55
+252        </provider>
+253        <provider
+253-->[:react-native-webview] /Users/genefied/RNProjects/ozone/node_modules/react-native-webview/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-16:20
+254            android:name="com.reactnativecommunity.webview.RNCWebViewFileProvider"
+254-->[:react-native-webview] /Users/genefied/RNProjects/ozone/node_modules/react-native-webview/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-83
+255            android:authorities="com.netcarrots.ozone.fileprovider"
+255-->[:react-native-webview] /Users/genefied/RNProjects/ozone/node_modules/react-native-webview/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-64
+256            android:exported="false"
+256-->[:react-native-webview] /Users/genefied/RNProjects/ozone/node_modules/react-native-webview/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-37
+257            android:grantUriPermissions="true" >
+257-->[:react-native-webview] /Users/genefied/RNProjects/ozone/node_modules/react-native-webview/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-47
+258            <meta-data
+258-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:40:13-42:58
+259                android:name="android.support.FILE_PROVIDER_PATHS"
+259-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:41:17-67
+260                android:resource="@xml/file_provider_paths" />
+260-->[:react-native-blob-util] /Users/genefied/RNProjects/ozone/node_modules/react-native-blob-util/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:42:17-55
+261        </provider>
+262
+263        <activity
+263-->[com.google.android.gms:play-services-auth:20.7.0] /Users/genefied/.gradle/caches/transforms-3/8418d52060f0607abc09333de6b79b27/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
+264            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+264-->[com.google.android.gms:play-services-auth:20.7.0] /Users/genefied/.gradle/caches/transforms-3/8418d52060f0607abc09333de6b79b27/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
+265            android:excludeFromRecents="true"
+265-->[com.google.android.gms:play-services-auth:20.7.0] /Users/genefied/.gradle/caches/transforms-3/8418d52060f0607abc09333de6b79b27/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
+266            android:exported="false"
+266-->[com.google.android.gms:play-services-auth:20.7.0] /Users/genefied/.gradle/caches/transforms-3/8418d52060f0607abc09333de6b79b27/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
+267            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+267-->[com.google.android.gms:play-services-auth:20.7.0] /Users/genefied/.gradle/caches/transforms-3/8418d52060f0607abc09333de6b79b27/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
+268        <!--
+269            Service handling Google Sign-In user revocation. For apps that do not integrate with
+270            Google Sign-In, this service will never be started.
+271        -->
+272        <service
+272-->[com.google.android.gms:play-services-auth:20.7.0] /Users/genefied/.gradle/caches/transforms-3/8418d52060f0607abc09333de6b79b27/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
+273            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+273-->[com.google.android.gms:play-services-auth:20.7.0] /Users/genefied/.gradle/caches/transforms-3/8418d52060f0607abc09333de6b79b27/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
+274            android:exported="true"
+274-->[com.google.android.gms:play-services-auth:20.7.0] /Users/genefied/.gradle/caches/transforms-3/8418d52060f0607abc09333de6b79b27/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
+275            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+275-->[com.google.android.gms:play-services-auth:20.7.0] /Users/genefied/.gradle/caches/transforms-3/8418d52060f0607abc09333de6b79b27/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
+276            android:visibleToInstantApps="true" />
+276-->[com.google.android.gms:play-services-auth:20.7.0] /Users/genefied/.gradle/caches/transforms-3/8418d52060f0607abc09333de6b79b27/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
+277
+278        <meta-data
+278-->[com.github.bumptech.glide:okhttp3-integration:4.12.0] /Users/genefied/.gradle/caches/transforms-3/460e0a490441386eb93434da563c063c/transformed/jetified-okhttp3-integration-4.12.0/AndroidManifest.xml:11:9-13:43
+279            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+279-->[com.github.bumptech.glide:okhttp3-integration:4.12.0] /Users/genefied/.gradle/caches/transforms-3/460e0a490441386eb93434da563c063c/transformed/jetified-okhttp3-integration-4.12.0/AndroidManifest.xml:12:13-84
+280            android:value="GlideModule" />
+280-->[com.github.bumptech.glide:okhttp3-integration:4.12.0] /Users/genefied/.gradle/caches/transforms-3/460e0a490441386eb93434da563c063c/transformed/jetified-okhttp3-integration-4.12.0/AndroidManifest.xml:13:13-40
+281
+282        <service
+282-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/genefied/.gradle/caches/transforms-3/b4c1b053d6bbe702438c97f48097ee08/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:9:9-15:19
+283            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+283-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/genefied/.gradle/caches/transforms-3/b4c1b053d6bbe702438c97f48097ee08/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:10:13-91
+284            android:directBootAware="true"
+284-->[com.google.mlkit:common:18.9.0] /Users/genefied/.gradle/caches/transforms-3/f07f18716aa5acf992cadccba3afee70/transformed/jetified-common-18.9.0/AndroidManifest.xml:17:13-43
+285            android:exported="false" >
+285-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/genefied/.gradle/caches/transforms-3/b4c1b053d6bbe702438c97f48097ee08/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:11:13-37
+286            <meta-data
+286-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/genefied/.gradle/caches/transforms-3/b4c1b053d6bbe702438c97f48097ee08/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:12:13-14:85
+287                android:name="com.google.firebase.components:com.google.mlkit.vision.face.internal.FaceRegistrar"
+287-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/genefied/.gradle/caches/transforms-3/b4c1b053d6bbe702438c97f48097ee08/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:13:17-114
+288                android:value="com.google.firebase.components.ComponentRegistrar" />
+288-->[com.google.android.gms:play-services-mlkit-face-detection:16.2.0] /Users/genefied/.gradle/caches/transforms-3/b4c1b053d6bbe702438c97f48097ee08/transformed/jetified-play-services-mlkit-face-detection-16.2.0/AndroidManifest.xml:14:17-82
+289            <meta-data
+289-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/genefied/.gradle/caches/transforms-3/9894e036bb049c651ead4c5d0f20d746/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:12:13-14:85
+290                android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar"
+290-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/genefied/.gradle/caches/transforms-3/9894e036bb049c651ead4c5d0f20d746/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:13:17-114
+291                android:value="com.google.firebase.components.ComponentRegistrar" />
+291-->[com.google.android.gms:play-services-mlkit-text-recognition:16.3.0] /Users/genefied/.gradle/caches/transforms-3/9894e036bb049c651ead4c5d0f20d746/transformed/jetified-play-services-mlkit-text-recognition-16.3.0/AndroidManifest.xml:14:17-82
+292            <meta-data
+292-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0] /Users/genefied/.gradle/caches/transforms-3/dfdb9badd59b1222d9ad769cf9e73211/transformed/jetified-play-services-mlkit-barcode-scanning-18.3.0/AndroidManifest.xml:12:13-14:85
+293                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+293-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0] /Users/genefied/.gradle/caches/transforms-3/dfdb9badd59b1222d9ad769cf9e73211/transformed/jetified-play-services-mlkit-barcode-scanning-18.3.0/AndroidManifest.xml:13:17-120
+294                android:value="com.google.firebase.components.ComponentRegistrar" />
+294-->[com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0] /Users/genefied/.gradle/caches/transforms-3/dfdb9badd59b1222d9ad769cf9e73211/transformed/jetified-play-services-mlkit-barcode-scanning-18.3.0/AndroidManifest.xml:14:17-82
+295            <meta-data
+295-->[com.google.mlkit:vision-common:17.3.0] /Users/genefied/.gradle/caches/transforms-3/3c32c81d63ce84d3b1deea71593ebcb0/transformed/jetified-vision-common-17.3.0/AndroidManifest.xml:12:13-14:85
+296                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+296-->[com.google.mlkit:vision-common:17.3.0] /Users/genefied/.gradle/caches/transforms-3/3c32c81d63ce84d3b1deea71593ebcb0/transformed/jetified-vision-common-17.3.0/AndroidManifest.xml:13:17-124
+297                android:value="com.google.firebase.components.ComponentRegistrar" />
+297-->[com.google.mlkit:vision-common:17.3.0] /Users/genefied/.gradle/caches/transforms-3/3c32c81d63ce84d3b1deea71593ebcb0/transformed/jetified-vision-common-17.3.0/AndroidManifest.xml:14:17-82
+298            <meta-data
+298-->[com.google.mlkit:common:18.9.0] /Users/genefied/.gradle/caches/transforms-3/f07f18716aa5acf992cadccba3afee70/transformed/jetified-common-18.9.0/AndroidManifest.xml:20:13-22:85
+299                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+299-->[com.google.mlkit:common:18.9.0] /Users/genefied/.gradle/caches/transforms-3/f07f18716aa5acf992cadccba3afee70/transformed/jetified-common-18.9.0/AndroidManifest.xml:21:17-120
+300                android:value="com.google.firebase.components.ComponentRegistrar" />
+300-->[com.google.mlkit:common:18.9.0] /Users/genefied/.gradle/caches/transforms-3/f07f18716aa5acf992cadccba3afee70/transformed/jetified-common-18.9.0/AndroidManifest.xml:22:17-82
+301        </service>
+302
+303        <receiver
+303-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:29:9-40:20
+304            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+304-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:30:13-78
+305            android:exported="true"
+305-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:31:13-36
+306            android:permission="com.google.android.c2dm.permission.SEND" >
+306-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:32:13-73
+307            <intent-filter>
+307-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-29:29
+308                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+308-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:17-81
+308-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:25-78
+309            </intent-filter>
+310
+311            <meta-data
+311-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:37:13-39:40
+312                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+312-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:38:17-92
+313                android:value="true" />
+313-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:39:17-37
+314        </receiver>
+315        <!--
+316             FirebaseMessagingService performs security checks at runtime,
+317             but set to not exported to explicitly avoid allowing another app to call it.
+318        -->
+319        <service
+319-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:46:9-53:19
+320            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+320-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:47:13-82
+321            android:directBootAware="true"
+321-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:48:13-43
+322            android:exported="false" >
+322-->[com.google.firebase:firebase-messaging:23.4.0] /Users/genefied/.gradle/caches/transforms-3/d08a917b2b2bc63147dfd49d10ff319c/transformed/jetified-firebase-messaging-23.4.0/AndroidManifest.xml:49:13-37
+323            <intent-filter android:priority="-500" >
+323-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-20:29
+324                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+324-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:17-78
+324-->[:react-native-firebase_messaging] /Users/genefied/RNProjects/ozone/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:25-75
+325            </intent-filter>
+326        </service>
+327
+328        <provider
+328-->[com.google.mlkit:common:18.9.0] /Users/genefied/.gradle/caches/transforms-3/f07f18716aa5acf992cadccba3afee70/transformed/jetified-common-18.9.0/AndroidManifest.xml:9:9-13:38
+329            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+329-->[com.google.mlkit:common:18.9.0] /Users/genefied/.gradle/caches/transforms-3/f07f18716aa5acf992cadccba3afee70/transformed/jetified-common-18.9.0/AndroidManifest.xml:10:13-78
+330            android:authorities="com.netcarrots.ozone.mlkitinitprovider"
+330-->[com.google.mlkit:common:18.9.0] /Users/genefied/.gradle/caches/transforms-3/f07f18716aa5acf992cadccba3afee70/transformed/jetified-common-18.9.0/AndroidManifest.xml:11:13-69
+331            android:exported="false"
+331-->[com.google.mlkit:common:18.9.0] /Users/genefied/.gradle/caches/transforms-3/f07f18716aa5acf992cadccba3afee70/transformed/jetified-common-18.9.0/AndroidManifest.xml:12:13-37
+332            android:initOrder="99" />
+332-->[com.google.mlkit:common:18.9.0] /Users/genefied/.gradle/caches/transforms-3/f07f18716aa5acf992cadccba3afee70/transformed/jetified-common-18.9.0/AndroidManifest.xml:13:13-35
+333
+334        <activity
+334-->[com.google.android.gms:play-services-base:18.1.0] /Users/genefied/.gradle/caches/transforms-3/292b814df1e81fbc195f747a8d7d6558/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+335            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+335-->[com.google.android.gms:play-services-base:18.1.0] /Users/genefied/.gradle/caches/transforms-3/292b814df1e81fbc195f747a8d7d6558/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+336            android:exported="false"
+336-->[com.google.android.gms:play-services-base:18.1.0] /Users/genefied/.gradle/caches/transforms-3/292b814df1e81fbc195f747a8d7d6558/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+337            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+337-->[com.google.android.gms:play-services-base:18.1.0] /Users/genefied/.gradle/caches/transforms-3/292b814df1e81fbc195f747a8d7d6558/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+338
+339        <property
+339-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:30:9-32:61
+340            android:name="android.adservices.AD_SERVICES_CONFIG"
+340-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:31:13-65
+341            android:resource="@xml/ga_ad_services_config" />
+341-->[com.google.android.gms:play-services-measurement-api:21.5.0] /Users/genefied/.gradle/caches/transforms-3/1e05ff1ff4990f0cec32caee1037f03c/transformed/jetified-play-services-measurement-api-21.5.0/AndroidManifest.xml:32:13-58
+342
+343        <service
+343-->[com.google.firebase:firebase-sessions:1.2.1] /Users/genefied/.gradle/caches/transforms-3/e3ed527330919e81ec0ade7bfab8be9e/transformed/jetified-firebase-sessions-1.2.1/AndroidManifest.xml:22:9-25:40
+344            android:name="com.google.firebase.sessions.SessionLifecycleService"
+344-->[com.google.firebase:firebase-sessions:1.2.1] /Users/genefied/.gradle/caches/transforms-3/e3ed527330919e81ec0ade7bfab8be9e/transformed/jetified-firebase-sessions-1.2.1/AndroidManifest.xml:23:13-80
+345            android:enabled="true"
+345-->[com.google.firebase:firebase-sessions:1.2.1] /Users/genefied/.gradle/caches/transforms-3/e3ed527330919e81ec0ade7bfab8be9e/transformed/jetified-firebase-sessions-1.2.1/AndroidManifest.xml:24:13-35
+346            android:exported="false" />
+346-->[com.google.firebase:firebase-sessions:1.2.1] /Users/genefied/.gradle/caches/transforms-3/e3ed527330919e81ec0ade7bfab8be9e/transformed/jetified-firebase-sessions-1.2.1/AndroidManifest.xml:25:13-37
+347
+348        <provider
+348-->[com.google.firebase:firebase-common:20.4.2] /Users/genefied/.gradle/caches/transforms-3/c43743aadb13fd36eb0bb291c3157a5b/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:23:9-28:39
+349            android:name="com.google.firebase.provider.FirebaseInitProvider"
+349-->[com.google.firebase:firebase-common:20.4.2] /Users/genefied/.gradle/caches/transforms-3/c43743aadb13fd36eb0bb291c3157a5b/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:24:13-77
+350            android:authorities="com.netcarrots.ozone.firebaseinitprovider"
+350-->[com.google.firebase:firebase-common:20.4.2] /Users/genefied/.gradle/caches/transforms-3/c43743aadb13fd36eb0bb291c3157a5b/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:25:13-72
+351            android:directBootAware="true"
+351-->[com.google.firebase:firebase-common:20.4.2] /Users/genefied/.gradle/caches/transforms-3/c43743aadb13fd36eb0bb291c3157a5b/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:26:13-43
+352            android:exported="false"
+352-->[com.google.firebase:firebase-common:20.4.2] /Users/genefied/.gradle/caches/transforms-3/c43743aadb13fd36eb0bb291c3157a5b/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:27:13-37
+353            android:initOrder="100" />
+353-->[com.google.firebase:firebase-common:20.4.2] /Users/genefied/.gradle/caches/transforms-3/c43743aadb13fd36eb0bb291c3157a5b/transformed/jetified-firebase-common-20.4.2/AndroidManifest.xml:28:13-36
+354
+355        <receiver
+355-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:29:9-33:20
+356            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+356-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:30:13-85
+357            android:enabled="true"
+357-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:31:13-35
+358            android:exported="false" >
+358-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:32:13-37
+359        </receiver>
+360
+361        <service
+361-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:35:9-38:40
+362            android:name="com.google.android.gms.measurement.AppMeasurementService"
+362-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:36:13-84
+363            android:enabled="true"
+363-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:37:13-35
+364            android:exported="false" />
+364-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:38:13-37
+365        <service
+365-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:39:9-43:72
+366            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+366-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:40:13-87
+367            android:enabled="true"
+367-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:41:13-35
+368            android:exported="false"
+368-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:42:13-37
+369            android:permission="android.permission.BIND_JOB_SERVICE" />
+369-->[com.google.android.gms:play-services-measurement:21.5.0] /Users/genefied/.gradle/caches/transforms-3/31160f331b3a3204e8a3afad8dca870f/transformed/jetified-play-services-measurement-21.5.0/AndroidManifest.xml:43:13-69
+370
+371        <uses-library
+371-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/genefied/.gradle/caches/transforms-3/b4a599e40699af21bf1db2303331f7d0/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:23:9-25:40
+372            android:name="android.ext.adservices"
+372-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/genefied/.gradle/caches/transforms-3/b4a599e40699af21bf1db2303331f7d0/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:24:13-50
+373            android:required="false" />
+373-->[androidx.privacysandbox.ads:ads-adservices:1.0.0-beta05] /Users/genefied/.gradle/caches/transforms-3/b4a599e40699af21bf1db2303331f7d0/transformed/jetified-ads-adservices-1.0.0-beta05/AndroidManifest.xml:25:13-37
+374
+375        <meta-data
+375-->[com.google.android.gms:play-services-basement:18.2.0] /Users/genefied/.gradle/caches/transforms-3/ac40b38ed501b621a6995fcefbc02752/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:21:9-23:69
+376            android:name="com.google.android.gms.version"
+376-->[com.google.android.gms:play-services-basement:18.2.0] /Users/genefied/.gradle/caches/transforms-3/ac40b38ed501b621a6995fcefbc02752/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:22:13-58
+377            android:value="@integer/google_play_services_version" />
+377-->[com.google.android.gms:play-services-basement:18.2.0] /Users/genefied/.gradle/caches/transforms-3/ac40b38ed501b621a6995fcefbc02752/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:23:13-66
+378
+379        <provider
+379-->[androidx.emoji2:emoji2:1.0.0] /Users/genefied/.gradle/caches/transforms-3/0b2c5f016f2899684ecd2a9f5ad60fe4/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+380            android:name="androidx.startup.InitializationProvider"
+380-->[androidx.emoji2:emoji2:1.0.0] /Users/genefied/.gradle/caches/transforms-3/0b2c5f016f2899684ecd2a9f5ad60fe4/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+381            android:authorities="com.netcarrots.ozone.androidx-startup"
+381-->[androidx.emoji2:emoji2:1.0.0] /Users/genefied/.gradle/caches/transforms-3/0b2c5f016f2899684ecd2a9f5ad60fe4/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+382            android:exported="false" >
+382-->[androidx.emoji2:emoji2:1.0.0] /Users/genefied/.gradle/caches/transforms-3/0b2c5f016f2899684ecd2a9f5ad60fe4/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+383            <meta-data
+383-->[androidx.emoji2:emoji2:1.0.0] /Users/genefied/.gradle/caches/transforms-3/0b2c5f016f2899684ecd2a9f5ad60fe4/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+384                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+384-->[androidx.emoji2:emoji2:1.0.0] /Users/genefied/.gradle/caches/transforms-3/0b2c5f016f2899684ecd2a9f5ad60fe4/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+385                android:value="androidx.startup" />
+385-->[androidx.emoji2:emoji2:1.0.0] /Users/genefied/.gradle/caches/transforms-3/0b2c5f016f2899684ecd2a9f5ad60fe4/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+386            <meta-data
+386-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/genefied/.gradle/caches/transforms-3/0f82784b8da1895e393ea714849c41eb/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+387                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+387-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/genefied/.gradle/caches/transforms-3/0f82784b8da1895e393ea714849c41eb/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+388                android:value="androidx.startup" />
+388-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/genefied/.gradle/caches/transforms-3/0f82784b8da1895e393ea714849c41eb/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+389        </provider>
+390
+391        <meta-data
+391-->[com.facebook.soloader:soloader:0.10.5] /Users/genefied/.gradle/caches/transforms-3/bf83f23d602ef7bfefcfc9de9b388a8c/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:12:9-14:37
+392            android:name="com.facebook.soloader.enabled"
+392-->[com.facebook.soloader:soloader:0.10.5] /Users/genefied/.gradle/caches/transforms-3/bf83f23d602ef7bfefcfc9de9b388a8c/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:13:13-57
+393            android:value="false" />
+393-->[com.facebook.soloader:soloader:0.10.5] /Users/genefied/.gradle/caches/transforms-3/bf83f23d602ef7bfefcfc9de9b388a8c/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:14:13-34
+394
+395        <service
+395-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/genefied/.gradle/caches/transforms-3/c9c2e504d8eb68356800195bebce0274/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:28:9-34:19
+396            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+396-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/genefied/.gradle/caches/transforms-3/c9c2e504d8eb68356800195bebce0274/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:29:13-103
+397            android:exported="false" >
+397-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/genefied/.gradle/caches/transforms-3/c9c2e504d8eb68356800195bebce0274/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:30:13-37
+398            <meta-data
+398-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/genefied/.gradle/caches/transforms-3/c9c2e504d8eb68356800195bebce0274/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:31:13-33:39
+399                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+399-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/genefied/.gradle/caches/transforms-3/c9c2e504d8eb68356800195bebce0274/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:32:17-94
+400                android:value="cct" />
+400-->[com.google.android.datatransport:transport-backend-cct:3.1.9] /Users/genefied/.gradle/caches/transforms-3/c9c2e504d8eb68356800195bebce0274/transformed/jetified-transport-backend-cct-3.1.9/AndroidManifest.xml:33:17-36
+401        </service>
+402        <service
+402-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/genefied/.gradle/caches/transforms-3/35787e0109e290f6d29e35abd3cadad9/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:26:9-30:19
+403            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+403-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/genefied/.gradle/caches/transforms-3/35787e0109e290f6d29e35abd3cadad9/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:27:13-117
+404            android:exported="false"
+404-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/genefied/.gradle/caches/transforms-3/35787e0109e290f6d29e35abd3cadad9/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:28:13-37
+405            android:permission="android.permission.BIND_JOB_SERVICE" >
+405-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/genefied/.gradle/caches/transforms-3/35787e0109e290f6d29e35abd3cadad9/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:29:13-69
+406        </service>
+407
+408        <receiver
+408-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/genefied/.gradle/caches/transforms-3/35787e0109e290f6d29e35abd3cadad9/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:32:9-34:40
+409            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+409-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/genefied/.gradle/caches/transforms-3/35787e0109e290f6d29e35abd3cadad9/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:33:13-132
+410            android:exported="false" /> <!-- The activities will be merged into the manifest of the hosting app. -->
+410-->[com.google.android.datatransport:transport-runtime:3.1.9] /Users/genefied/.gradle/caches/transforms-3/35787e0109e290f6d29e35abd3cadad9/transformed/jetified-transport-runtime-3.1.9/AndroidManifest.xml:34:13-37
+411        <activity
+411-->[com.google.android.play:core-common:2.0.3] /Users/genefied/.gradle/caches/transforms-3/b1dcd78327cf19a60afe5e3df8fc5544/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:14:9-18:65
+412            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+412-->[com.google.android.play:core-common:2.0.3] /Users/genefied/.gradle/caches/transforms-3/b1dcd78327cf19a60afe5e3df8fc5544/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:15:13-93
+413            android:exported="false"
+413-->[com.google.android.play:core-common:2.0.3] /Users/genefied/.gradle/caches/transforms-3/b1dcd78327cf19a60afe5e3df8fc5544/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:16:13-37
+414            android:stateNotNeeded="true"
+414-->[com.google.android.play:core-common:2.0.3] /Users/genefied/.gradle/caches/transforms-3/b1dcd78327cf19a60afe5e3df8fc5544/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:17:13-42
+415            android:theme="@style/Theme.PlayCore.Transparent" />
+415-->[com.google.android.play:core-common:2.0.3] /Users/genefied/.gradle/caches/transforms-3/b1dcd78327cf19a60afe5e3df8fc5544/transformed/jetified-core-common-2.0.3/AndroidManifest.xml:18:13-62
+416    </application>
+417
+418</manifest>
