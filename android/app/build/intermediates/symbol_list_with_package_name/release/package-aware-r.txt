@@ -2695,6 +2695,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable assets_gif_loader
+drawable assets_gif_loadinganim
 drawable assets_gif_nodata
 drawable assets_gif_ozostars
 drawable assets_images_arrowdown

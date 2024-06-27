@@ -208,6 +208,10 @@
         "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_images_cashbackpoints.png"
     },
     {
+        "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-mdpi_assets_gif_loadinganim.gif.flat",
+        "source": "com.netcarrots.ozone.app-res-45:/drawable-mdpi/assets_gif_loadinganim.gif"
+    },
+    {
         "merged": "com.netcarrots.ozone.app-merged_res-52:/drawable-hdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
         "source": "com.netcarrots.ozone.app-res-45:/drawable-hdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
     },

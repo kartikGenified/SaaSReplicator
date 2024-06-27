@@ -266,6 +266,9 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
         }, 4000);
       }
     } else if (addBulkPointOnProductError) {
+      setTimeout(() => {
+        setLoading(false)
+      }, 2000);
       console.log("addBulkPointOnProductError", addBulkPointOnProductError);
     }
   }, [addBulkPointOnProductData, addBulkPointOnProductError]);
