@@ -48,6 +48,7 @@ const CongratulateOnScan = ({ navigation, route }) => {
   const [error,setError] = useState(false)
   const [message, setMessage] = useState('')
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false)
   const buttonThemeColor = useSelector(
     (state) => state.apptheme.ternaryThemeColor
   )
@@ -157,7 +158,7 @@ const CongratulateOnScan = ({ navigation, route }) => {
 
   
 
-const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loader.gif')).uri;
+const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim.gif')).uri;
 
 
   const fetchRewardsAccToWorkflow = async () => {
@@ -204,6 +205,7 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loader.gif'
           };
           console.log("addBulkPointOnProductFunc",JSON.stringify(params))
           addBulkPointOnProductFunc(params);
+          setLoading(true)
         
       } else if (rewardType === "Wheel") {
         const params = {
@@ -245,7 +247,9 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loader.gif'
           return item["points_on_product"];
 
         });
-       
+        setTimeout(() => {
+          setLoading(false)
+        }, 2000);
         setTotalPoints(addBulkPointOnProductData.body.total_points)
         setShowBulkScanPoints(bulkPoints);
 
@@ -450,7 +454,8 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loader.gif'
     setError(false);
   };
   return (
-    <View
+    <View style={{height:'100%',width:'100%',alignItems:'center',justifyContent:'center',flex:1}}>
+   {(!addBulkPointOnProductIsLoading && !loading) ?  <View
       style={{
         flex: 1,
         alignItems: "center",
@@ -500,7 +505,7 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loader.gif'
           ></Image>
         </TouchableOpacity>
         <PoppinsTextMedium
-          style={{ color: "white", fontSize: 18, right: 10 }}
+          style={{ color: "black", fontSize: 18, right: 10 }}
           content="Congratulations"
         ></PoppinsTextMedium>
       </View>
@@ -647,71 +652,6 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loader.gif'
               {showBulkScanPoints && (
                 <Win data="Total Points Earned" title={totalPoints}></Win>
 
-                // <View
-                //   style={{
-                //     height: "90%",
-                //     width: "90%",
-                //     alignItems: "center",
-                //     justifyContent: "center",
-                //   }}
-                // >
-                //   <ScrollView
-                //     style={{ height: "100%", width: "100%" }}
-                //     horizontal={true}
-                //   >
-                //     {showBulkScanPoints.map((item, index) => {
-                //       return (
-                //         <View
-                //           key={index}
-                //           style={{
-                //             height: 200,
-                //             width: "30%",
-                //             alignItems: "center",
-                //             justifyContent: "center",
-                //             borderWidth:1,
-                //             borderRadius:8,
-                //             marginRight:30,
-                //             backgroundColor:"white",
-                //             padding:10
-                //           }}
-                //         >
-                //           {item !== null ? (
-                //             <View
-                //               style={{
-                //                 alignItems: "center",
-                //                 justifyContent: "flex-start",
-                //                 height:'80%'
-
-                //               }}
-                //             >
-                //               <Celebrate name="celebration" size={40} color={ternaryThemeColor}></Celebrate>
-                //               <PoppinsTextMedium
-                //                 content={`${String(item.points).substring(0,6)} Points have been added `}
-                //                 style={{ color: "black", fontSize: 14,marginTop:20}}
-                //               ></PoppinsTextMedium>
-                //             </View>
-                //           ) : (
-                //             <View
-                //               style={{
-                //                 alignItems: "center",
-                //                 justifyContent: "flex-start",
-                //                 height:'80%'
-                //               }}
-                //             >
-                //               <Error name="error" size={40} color={ternaryThemeColor}></Error>
-                               
-                //             <PoppinsTextMedium
-                //               content="There was some problem with this scanned QR"
-                //               style={{ color: "black", fontSize: 16,marginTop:20 }}
-                //             ></PoppinsTextMedium>
-                //             </View>
-
-                //           )}
-                //         </View>
-                //       );
-                //     })}
-                //   </ScrollView>
-                // </View>
               )}
               {getCouponOnCategoryData && (
                 <Win
@@ -730,14 +670,7 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loader.gif'
                   title={addCashbackEnteriesData.body.cashback}
                 ></Win>
               )}
-             {( addBulkPointOnProductIsLoading) && <FastImage
-                   style={{ width: 40, height: 40, alignSelf: 'center',justifyContent:'center' }}
-                   source={{
-                       uri: gifUri, // Update the path to your GIF
-                       priority: FastImage.priority.normal,
-                   }}
-                   resizeMode={FastImage.resizeMode.contain}
-               />}
+             
 
             </View>
           </View>
@@ -770,7 +703,32 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loader.gif'
           </View>
         </View>
       </View>
+    </View> :
+     (addBulkPointOnProductIsLoading || loading) &&  <View
+     style={{
+       flex: 1,
+       alignItems: "center",
+       justifyContent: "center",
+       backgroundColor: buttonThemeColor,
+       width:'100%',
+       height:'100%'
+     }}
+   > 
+      <FastImage
+      style={{ width: 100, height: 100, alignSelf: 'center',justifyContent:'center' }}
+      source={{
+          uri: gifUri, // Update the path to your GIF
+          priority: FastImage.priority.normal,
+      }}
+      resizeMode={FastImage.resizeMode.contain}
+  />
+   </View>
+     
+  
+  }
+    
     </View>
+    
   );
 };
 

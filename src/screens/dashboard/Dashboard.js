@@ -314,7 +314,6 @@ const Dashboard = ({ navigation }) => {
 
           // console.log("token from dashboard ", token)
           
-        // console.log("fetching getDashboardFunc, getKycStatusFunc, getBannerFunc, getWorkflowFunc, getFormFunc")
         } else {
           // console.log('No credentials stored');
         }
@@ -341,7 +340,6 @@ const Dashboard = ({ navigation }) => {
           token && getKycStatusFunc(token)
          
          getMembership()
-        // console.log("fetching getDashboardFunc, getKycStatusFunc, getBannerFunc, getWorkflowFunc, getFormFunc")
         } else {
           // console.log('No credentials stored');
         }
