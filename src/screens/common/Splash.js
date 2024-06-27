@@ -262,7 +262,7 @@ const Splash = ({ navigation }) => {
           return item.user_type === parsedJsonValue.user_type
         })
         tempDrawerData &&  dispatch(setDrawerData(tempDrawerData[0]))
-      getFormData && minVersionSupport && getAppMenuData && getDashboardData && getWorkflowData && getBannerData && navigation.reset({ index: '0', routes: [{ name: 'Dashboard' }] })
+      // getFormData && minVersionSupport && getAppMenuData && getDashboardData && getWorkflowData && getBannerData && navigation.reset({ index: '0', routes: [{ name: 'Dashboard' }] })
 
       }
       
@@ -659,6 +659,7 @@ const Splash = ({ navigation }) => {
         // console.log("parsedJsonValues",parsedJsonValues)
         setParsedJsonValue(parsedJsonValues)
         parsedJsonValues && getBannerFunc(parsedJsonValues?.token)
+        
       }
       catch (e) {
         // console.log("Error in dispatch", e)
