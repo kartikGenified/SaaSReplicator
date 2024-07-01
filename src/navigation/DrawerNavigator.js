@@ -132,6 +132,8 @@ const CustomDrawer = () => {
 
     try {
       await AsyncStorage.removeItem('loginData')
+      await AsyncStorage.removeItem('storedBanner')
+
       navigation.reset({ index: '0', routes: [{ name: 'SelectUser' }] })
     } catch (e) {
       console.log("error deleting loginData", e)

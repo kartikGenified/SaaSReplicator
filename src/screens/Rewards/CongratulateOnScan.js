@@ -457,24 +457,16 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
     setError(false);
   };
   return (
-    <View style={{height:'100%',width:'100%',alignItems:'center',justifyContent:'center',flex:1}}>
+    <View style={{height:'100%',width:'100%',alignItems:'center',justifyContent:'center'}}>
    {(!addBulkPointOnProductIsLoading && !loading) ?  <View
       style={{
-        flex: 1,
+        flex:1,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: buttonThemeColor,
       }}
     >
-    {
-    success && (
-      <MessageModal
-              modalClose={modalClose}
-              title="Success"
-              message={message}
-              openModal={success}></MessageModal>
-    )
-  }
+    
       <View
         style={{
           height: "8%",
@@ -514,6 +506,17 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
       </View>
 
       {/* main view */}
+
+
+      {
+    success && (
+      <MessageModal
+              modalClose={modalClose}
+              title="Success"
+              message={message}
+              openModal={success}></MessageModal>
+    )
+  }
 
       <View
         style={{
@@ -706,19 +709,21 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
           </View>
         </View>
       </View>
-    </View> :
+    </View> 
+    :
      (addBulkPointOnProductIsLoading || loading) &&  <View
      style={{
        flex: 1,
        alignItems: "center",
        justifyContent: "center",
-       backgroundColor: buttonThemeColor,
+       backgroundColor: "white",
        width:'100%',
        height:'100%'
      }}
    > 
+   <PoppinsTextMedium style={{color:'black', fontSize:20}} content="Please do not navigate back or close the app during the transaction. Interrupting this process may result in an incomplete transaction or loss of data."></PoppinsTextMedium>
       <FastImage
-      style={{ width: 100, height: 100, alignSelf: 'center',justifyContent:'center' }}
+      style={{ width: 100, height: 100, alignSelf: 'center',justifyContent:'center',marginTop:40 }}
       source={{
           uri: gifUri, // Update the path to your GIF
           priority: FastImage.priority.normal,

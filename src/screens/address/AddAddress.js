@@ -258,7 +258,7 @@ const AddAddress = ({ navigation }) => {
             data["city"] = responseArray[i]?.value;
           } else if (responseArray[i].name === "district") {
             data["district"] = responseArray[i]?.value;
-          } else if (responseArray[i].name === "postCode") {
+          } else if (responseArray[i].name === "postcode") {
             data["pincode"] = responseArray[i]?.value;
           } else if (responseArray[i].name === "houseNumber") {
             if (responseArray[i]?.value === undefined) {
@@ -275,7 +275,7 @@ const AddAddress = ({ navigation }) => {
           token: token,
           data: data,
         };
-
+        console.log("addAddressFunc",params)
         !check && addAddressFunc(params);
         !check && setHideButton(true);
         check && alert("fields cant be empty");

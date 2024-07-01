@@ -110,14 +110,14 @@ else if(getAllCouponsError){
                 </View>
                 <View style={{alignItems:"center",justifyContent:"center",marginTop:20}}>
                     <PoppinsTextMedium style={{color:'grey',fontSize:12}} content="Brand Name"></PoppinsTextMedium>
-                    <PoppinsTextMedium style={{color:'black',fontSize:12,fontWeight:'700'}} content={approvalStatus=="2" ?  couponCode  : "----------"}></PoppinsTextMedium>
+                    <PoppinsTextMedium style={{color:'black',fontSize:12,fontWeight:'700'}} content={data.brand_name}></PoppinsTextMedium>
                 </View>
                 <View style={{alignItems:"center",justifyContent:"center",marginTop:20}}>
                     <PoppinsTextMedium style={{color:'grey',fontSize:12}} content="Denomination"></PoppinsTextMedium>
                     <PoppinsTextMedium style={{color:'black',fontSize:12,fontWeight:'700'}} content={denomination}></PoppinsTextMedium>
                 </View>
                 <View style={{alignItems:"center",justifyContent:"center",marginTop:20}}>
-                    <PoppinsTextMedium style={{color:'grey',fontSize:12}} content="Value"></PoppinsTextMedium>
+                    <PoppinsTextMedium style={{color:'grey',fontSize:12}} content="Points"></PoppinsTextMedium>
                     <PoppinsTextMedium style={{color:'black',fontSize:12,fontWeight:'700'}} content={couponValue}></PoppinsTextMedium>
                 </View>
                 <View style={{alignItems:"center",justifyContent:"center",marginTop:20,borderTopWidth:1,borderBottomWidth:1,borderStyle:'dotted',flexDirection:'row',padding:4,width:'100%',}}>
