@@ -212,6 +212,7 @@ const AddUser = ({ navigation }) => {
     if (getLocationFormPincodeData) {
       console.log("getLocationFormPincodeData", getLocationFormPincodeData)
       if (getLocationFormPincodeData.success) {
+        setDisableButton(false)
         const address = getLocationFormPincodeData.body[0].office + ", " + getLocationFormPincodeData.body[0].district + ", " + getLocationFormPincodeData.body[0].state + ", " + getLocationFormPincodeData.body[0].pincode
         let locationJson = {
 
@@ -234,6 +235,7 @@ const AddUser = ({ navigation }) => {
       console.log("getLocationFormPincodeError", getLocationFormPincodeError)
       setError(true)
       setMessage("Please enter a valid pincode")
+      setDisableButton(true)
     }
   }, [getLocationFormPincodeData, getLocationFormPincodeError])
 
@@ -260,6 +262,7 @@ const AddUser = ({ navigation }) => {
         setMessage("Kindly enter a valid mobile number")
       }
     }
+    
   }
     if (data?.name == "email") {
       if(data.required==true)
@@ -341,44 +344,117 @@ const AddUser = ({ navigation }) => {
     setSuccess(false)
   };
 
+  // const handleSubmission = () => {
+  //   let user_type_id;
+  //   if (selectedFromDropDown !== "") {
+  //     for (var i = 0; i < allUsers.length; i++) {
+  //       const capitalizedUserType = selectedFromDropDown.charAt(0).toUpperCase() + selectedFromDropDown.slice(1)
+  //       if (allUsers[i].name === capitalizedUserType) {
+  //         console.log("allUsers", allUsers)
+  //         user_type_id = allUsers[i].id
+  //       }
+  //     }
+  //   }
+    
+  //   const inputFormData = {}
+  //   inputFormData["is_approved_needed"] = true;
+  //   inputFormData["is_online_verification"] = false;
+  //   inputFormData["added_through"] = "app";
+  //   inputFormData["added_by_name"] = userData.name
+  //   inputFormData["added_by_id"] = userData.user_type_id;
+  //   inputFormData["user_type_id"] = user_type_id
+  //   inputFormData["user_type"] = selectedFromDropDown
+
+  //   for (var i = 0; i < userResponse.length; i++) {
+  //     console.log(userResponse[i])
+  //     inputFormData[userResponse[i].name] = userResponse[i].value
+  //   }
+
+  //   const body = inputFormData
+  //   console.log("emailvalid", emailValid)
+
+  //   if(!emailValid){
+  //       setError(true)
+  //       setMessage("Please enter a valid email")
+  //   }else{
+  //     console.log("add user body",body)
+  //     registerUserFunc(body)    
+  //   }
+ 
+  // }
   const handleSubmission = () => {
     let user_type_id;
     if (selectedFromDropDown !== "") {
-      for (var i = 0; i < allUsers.length; i++) {
-        const capitalizedUserType = selectedFromDropDown.charAt(0).toUpperCase() + selectedFromDropDown.slice(1)
-        if (allUsers[i].name === capitalizedUserType) {
-          console.log("allUsers", allUsers)
-          user_type_id = allUsers[i].id
+        for (var i = 0; i < allUsers.length; i++) {
+            const capitalizedUserType = selectedFromDropDown.charAt(0).toUpperCase() + selectedFromDropDown.slice(1);
+            if (allUsers[i].name === capitalizedUserType) {
+                console.log("allUsers", allUsers);
+                user_type_id = allUsers[i].id;
+            }
         }
-      }
     }
-    
-    const inputFormData = {}
+
+    const inputFormData = {};
     inputFormData["is_approved_needed"] = true;
     inputFormData["is_online_verification"] = false;
     inputFormData["added_through"] = "app";
-    inputFormData["added_by_name"] = userData.name
+    inputFormData["added_by_name"] = userData.name;
     inputFormData["added_by_id"] = userData.user_type_id;
-    inputFormData["user_type_id"] = user_type_id
-    inputFormData["user_type"] = selectedFromDropDown
+    inputFormData["user_type_id"] = user_type_id;
+    inputFormData["user_type"] = selectedFromDropDown;
+    
+    // Check for required fields
+    const requiredFields = addUserForm.filter(field => field.required).map(field => field.name);
+    const missingFields = requiredFields.filter(field => {
+        const fieldValue = userResponse.find(response => response.name === field)?.value;
+        return !fieldValue;
+    });
+
+    if (missingFields.length > 0) {
+        setError(true);
+        setMessage(`Please fill in the required fields: ${missingFields.join(', ')}`);
+        return;
+    }
 
     for (var i = 0; i < userResponse.length; i++) {
-      console.log(userResponse[i])
-      inputFormData[userResponse[i].name] = userResponse[i].value
+        console.log(userResponse[i]);
+        inputFormData[userResponse[i].name] = userResponse[i].value;
     }
 
-    const body = inputFormData
-    console.log("emailvalid", emailValid)
+    const body = inputFormData;
+    console.log("emailvalid", emailValid);
 
-    if(!emailValid){
-        setError(true)
-        setMessage("Please enter a valid email")
-    }else{
-      console.log("add user body",body)
-      registerUserFunc(body)    
+    if (!emailValid) {
+        setError(true);
+        setMessage("Please enter a valid email");
+    } else {
+        console.log("add user body", body);
+        if(inputFormData["mobile"]?.length<10)
+    {
+      setError(true)
+      setMessage("Kindly enter valid mobile number")
     }
- 
-  }
+
+    else{
+      if(inputFormData["pincode"]!=undefined)
+      {
+        if(inputFormData["pincode"]?.length<6)
+        {
+          setError(true)
+          setMessage("Kindly enter a vaild pincode")
+        }
+        else{
+          registerUserFunc(body);
+        }
+      }
+      else{
+        registerUserFunc(body);
+      }
+      
+
+    }
+    }
+};
 
 
   return (

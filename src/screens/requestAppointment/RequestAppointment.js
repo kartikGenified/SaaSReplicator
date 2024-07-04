@@ -30,12 +30,15 @@ const RequestAppointment = ({ navigation, route }) => {
   const [formArr, setformArr] = useState([]);
   const [userResponse, setUserResponse] = useState([]);
   const [desc, setDesc] = useState("");
+  const [disableButton, setDisableButton] = useState(false)
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
   const appUserType = route.params?.userType;
   const userId = route.params?.userId;
   const needsApproval = route.params?.needsApproval;
+
+  // console.warn("sadasdasdhjasfgdhfgasf", route.params)
   const ternaryThemeColor = useSelector(
     (state) => state.apptheme.ternaryThemeColor
   )
@@ -113,6 +116,22 @@ const RequestAppointment = ({ navigation, route }) => {
   const handleData = (data) => {
     console.log("removedValues", data);
 
+    if(data?.name == "mobile")
+    {
+      const reg = '^([0|+[0-9]{1,5})?([6-9][0-9]{9})$';
+      const mobReg = new RegExp(reg)
+      if (data?.value?.length === 10) {
+        if(mobReg.test(data?.value))
+      {
+        setDisableButton(false)
+      }
+      else{
+        setDisableButton(true)
+        setError(true)
+        setMessage("Kindly enter a valid mobile number")
+      }
+    }
+  }
     let submissionData = [...userResponse];
     let removedValues = submissionData.filter((item, index) => {
       return item.name !== data.name;
@@ -413,6 +432,7 @@ const RequestAppointment = ({ navigation, route }) => {
               );
             }
           })}
+          {/* navigation.navigate('PasswordLogin',{needsApproval:needsApproval, userType:userType, userId:userId}) */}
 
         {error && (
           <ErrorModal
@@ -421,6 +441,7 @@ const RequestAppointment = ({ navigation, route }) => {
             }}
             message={message}
             openModal={error}
+            
           ></ErrorModal>
         )}
 
@@ -432,7 +453,7 @@ const RequestAppointment = ({ navigation, route }) => {
             title={"Success"}
             message={message}
             openModal={success}
-            
+            navigateTo="PasswordLogin"
             params={{
               userType: appUserType,
               userId: userId,
@@ -441,7 +462,7 @@ const RequestAppointment = ({ navigation, route }) => {
           ></MessageModal>
         )}
 
-        <TouchableOpacity
+        {!disableButton && <TouchableOpacity
           style={{ width: "92%", borderRadius: 15, marginTop: 30 }}
           onPress={() => {
             submitData();
@@ -458,7 +479,7 @@ const RequestAppointment = ({ navigation, route }) => {
               textAlignVertical: "center",
             }}
           ></PoppinsTextMedium>
-        </TouchableOpacity>
+        </TouchableOpacity>}
       </View>
     </View>
   );

@@ -470,9 +470,9 @@ const Dashboard = ({ navigation }) => {
          {/* Ozone specific change do not show for sales */}
          {
             userData?.user_type_id !== 13 && 
-            <View style={{ width: "90%", height: 50, backgroundColor: 'white', marginBottom: 20, flexDirection: 'row', alignItems: 'center', borderColor: '#808080', borderWidth: 0.3, borderRadius: 10 }}>
+            <View style={{ width: "90%",  backgroundColor: 'white', marginBottom: 20, flexDirection: 'row', alignItems: 'center', borderColor: '#808080', borderWidth: 0.3, borderRadius: 10,paddingBottom:10,justifyContent:'center' }}>
 
-            <View style={{ backgroundColor: 'white', width: '42%', marginHorizontal: 20 }}>
+            <View style={{ backgroundColor: 'white', width: '42%', marginHorizontal: 20,alignItems:'center',justifyContent:'center' }}>
              {userPointData?.body?.point_balance ? <PoppinsText content={`${t("balance points")} ${userPointData?.body?.point_balance ? userPointData?.body?.point_balance : "loading"}`} style={{ color: 'black', fontWeight: 'bold' }}></PoppinsText> : <AnimatedDots color={'black'}/>} 
             </View>
 
@@ -480,11 +480,11 @@ const Dashboard = ({ navigation }) => {
             <View style={{ height: '100%', borderWidth: 0.4, color: "#808080", opacity: 0.3,  }}>
             </View>
 
-            <View style={{ backgroundColor: 'white',width:'46%' }}>
-              {userData && !userPointIsLoading && <TouchableOpacity style={{ backgroundColor: ternaryThemeColor,height:'100%', borderRadius: 5, width: '100%', alignItems: 'center',justifyContent:'center' }} onPress={() => { navigation.navigate("RedeemedHistory") }}>
+            {userData && !userPointIsLoading &&<View  style={{ backgroundColor: "white",width:'46%',alignItems:'center',justifyContent:'center' }}>
+               <TouchableOpacity onPress={() => { navigation.navigate("RedeemedHistory") }} style={{ backgroundColor: ternaryThemeColor, borderRadius: 10, width: '90%', alignItems: 'center',justifyContent:'center',padding:6 }} >
                 <PoppinsTextLeftMedium style={{ color: 'white', fontWeight: '800',fontSize:16 }} content={t("redeem")} ></PoppinsTextLeftMedium>
-              </TouchableOpacity>}
-            </View>
+              </TouchableOpacity>
+            </View>}
 
           </View>
           }

@@ -7,8 +7,8 @@ public final class BuildConfig {
   public static final boolean DEBUG = false;
   public static final String APPLICATION_ID = "com.netcarrots.ozone";
   public static final String BUILD_TYPE = "release";
-  public static final int VERSION_CODE = 70021;
-  public static final String VERSION_NAME = "70021";
+  public static final int VERSION_CODE = 70023;
+  public static final String VERSION_NAME = "70023";
   // Field from default config.
   public static final boolean IS_HERMES_ENABLED = true;
   // Field from default config.

@@ -169,7 +169,7 @@ const [checkBeforeRedeem, {
           setMessage("You only have " + points + " points")
         }
 
-        if(Number(cashConversion)>= Number(isReedemable)){
+        if(Number(cashConversion)> Number(isReedemable)){
           console.log("max amount per transaction", isReedemable,cashConversion)
           console.log("checking boolean bakchodi",isReedemable ==cashConversion )
           setError(true)
@@ -206,6 +206,7 @@ const [checkBeforeRedeem, {
         else {
           if (Number(cashConversion) >= Number(maxCashConverted)) {
             navigation.replace('BankAccounts', { type: "Cashback" })
+            setCashConversion()
           }
           else {
             setError(true)
@@ -234,11 +235,13 @@ const [checkBeforeRedeem, {
           {
             dispatch(setRedemptionFrom("Points"))
           navigation.navigate('BankAccounts', { type: "Cashback" })
+          setCashConversion("")
 
           }
           else{
             dispatch(setRedemptionFrom("Wallet"))
           navigation.navigate('BankAccounts', { type: "Cashback" })
+          setCashConversion("")
 
           }
           
@@ -290,10 +293,12 @@ const [checkBeforeRedeem, {
   useEffect(()=>{
     if(getWalletBalanceData)
     {
-      console.log("getWalletBalanceData",getWalletBalanceData)
+      console.log("getWalletBalanceData",getWalletBalanceData,redemptionFrom)
       if(getWalletBalanceData.success)
       {
       dispatch(setWalletBalance(Number(getWalletBalanceData?.body?.cashback_balance)))
+      redemptionFrom == "Wallet"  && setCashConversion(getWalletBalanceData?.body?.cashback_balance)
+      redemptionFrom == "Wallet" && dispatch(setCashConversionF(getWalletBalanceData?.body?.cashback_balance))
       }
     }
     else if(getWalletBalanceError)
@@ -304,7 +309,7 @@ const [checkBeforeRedeem, {
 
   useEffect(() => {
     if (cashPerPointData) {
-      console.log("cashperpointData ", cashPerPointData)
+      console.log("cashperpointData ", cashPerPointData,redemptionFrom)
       const conversionFactor = cashPerPointData.body.cash_per_point
       redemptionFrom == "Wallet" ? setCashConversion(getWalletBalanceData?.body?.cashback_balance) : setCashConversion(pointsConversion * conversionFactor)
       redemptionFrom == "Wallet" ? dispatch(setCashConversionF(getWalletBalanceData?.body?.cashback_balance)) : dispatch(setCashConversionF(pointsConversion * conversionFactor))
@@ -420,6 +425,7 @@ const [checkBeforeRedeem, {
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();
+            setCashConversion(0)
           }}>
           <Image
             style={{
@@ -696,7 +702,7 @@ const [checkBeforeRedeem, {
     </View>
       
       }
-      {getWalletBalanceData?.body?.cashback_balance && <View style={{alignItems:"center", justifyContent:"center", width:"100%",marginTop:20,marginBottom:20}}>
+      {getWalletBalanceData?.body?.cashback_balance && cashConversion!="" && cashConversion && <View style={{alignItems:"center", justifyContent:"center", width:"100%",marginTop:20,marginBottom:20}}>
       <TouchableOpacity
         onPress={() => {
           console.log('redeem'), redeemCashback();

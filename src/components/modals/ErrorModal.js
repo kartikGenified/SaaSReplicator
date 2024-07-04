@@ -12,6 +12,7 @@ const ErrorModal = (props) => {
   const productData = props.productData;
   const type = props.type
   const title = props.title
+  const params = props?.params
   const navigation = useNavigation()
   const ternaryThemeColor = useSelector(
     state => state.apptheme.ternaryThemeColor,
@@ -39,7 +40,7 @@ const ErrorModal = (props) => {
   const closeModal = () => {
    
     
-    navigateTo &&  navigation.replace(navigateTo)
+    navigateTo &&  navigation.replace(navigateTo,params)
     
     props.modalClose()
     setModalVisible(!modalVisible)
@@ -65,7 +66,7 @@ const ErrorModal = (props) => {
         onRequestClose={() => {
           props.modalClose()
           setModalVisible(!modalVisible);
-         navigateTo &&  navigation.replace(navigateTo)
+         navigateTo &&  navigation.replace(navigateTo,params)
         }}>
         <View style={styles.centeredView}>
           <View style={{ ...styles.modalView}}>

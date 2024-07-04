@@ -1431,7 +1431,9 @@ const codeScanner = useCodeScanner({
                 <Image
                   style={{ height: 300, width: 300, resizeMode: 'contain' }}
                   source={require('../../../assets/images/qrHowTo.png')}></Image>
-
+                {
+           isLoading && <ActivityIndicator size="large" color={ternaryThemeColor}></ActivityIndicator>
+          }
               </ScrollView>
             </View>
           ) : (
@@ -1443,6 +1445,9 @@ const codeScanner = useCodeScanner({
                 height: '100%',
                 // backgroundColor:'red'
               }}>
+                {
+           isLoading && <ActivityIndicator size="large" color={ternaryThemeColor}></ActivityIndicator>
+          }
               {console.log("addede QRLIST", addedQrList)}
               <FlatList
                 style={{ width: '100%', height: '80%' }}
@@ -1487,12 +1492,7 @@ const codeScanner = useCodeScanner({
         <Toast config={toastConfig} />
 
         </View>
-          {
-           
-  
-  
-
-          }
+          
       
 
         {helpModal && <ModalWithBorder

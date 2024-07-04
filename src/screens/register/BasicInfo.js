@@ -100,7 +100,7 @@ const BasicInfo = ({ navigation, route }) => {
   const needsApproval = route.params.needsApproval
   const navigatingFrom = route.params.navigatingFrom
   const registrationRequired = route.params.registrationRequired
-  console.log("registration required basic info", registrationRequired)
+  console.log("registration required basic info", registrationRequired,navigatingFrom)
   // const navigationParams = { "needsApproval": needsApproval, "userId": userTypeId, "user_type": userType, "mobile": mobile, "name": name, "registrationRequired":registrationRequired}
   const navigationParams = { "needsApproval": needsApproval, "userId": userTypeId, "userType": userType, "registrationRequired":registrationRequired}
 console.log("navigation params from basic info",navigationParams)
@@ -743,7 +743,7 @@ console.log("responseMap",responseMap)
   for (let i = 0; i < responseArray.length; i++) {
       inputFormData[responseArray[i].name] = responseArray[i].value;
   }
-
+  inputFormData["login_type"] = navigatingFrom == "OtpLogin" ? "otp" : 'uidp'
   const body = inputFormData;
   console.log("registration output", body);
 

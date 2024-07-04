@@ -25,7 +25,8 @@ import Geolocation from '@react-native-community/geolocation';
 import { useCreateCouponRequestMutation } from "../../apiServices/coupons/getAllCouponsApi";
 import {GoogleMapsKey} from "@env"
 import { useTranslation } from "react-i18next";
-
+import { setPointConversionF,setCashConversionF, setRedemptionFrom } from '../../../redux/slices/redemptionDataSlice';
+import { useDispatch } from "react-redux";
 
 const OtpVerification = ({navigation,route}) => {
   const [message, setMessage] = useState();
@@ -42,6 +43,7 @@ const OtpVerification = ({navigation,route}) => {
   const cashConversion = useSelector(state=>state.redemptionData.cashConversion)
   const storedLocation = useSelector(state => state.userLocation.location)
   const redemptionFrom = useSelector(state=>state.redemptionData.redemptionFrom)
+  const dispatch = useDispatch()
 console.log("Point conversion and cash conversion data",cashConversion,walletBalance,storedLocation,redemptionFrom)
   const [
     verifyOtpForNormalUseFunc,
@@ -263,6 +265,8 @@ console.log("Point conversion and cash conversion data",cashConversion,walletBal
       console.log("addCashToBankData",addCashToBankData)
       setSuccess(true)
       setMessage(addCashToBankData.message)
+      dispatch(setCashConversionF(0))
+      dispatch(setRedemptionFrom(''))
     }
     else if(addCashToBankError)
     {

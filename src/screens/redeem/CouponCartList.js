@@ -75,7 +75,7 @@ const CouponCartList = ({ navigation, route }) => {
       dispatch(additem(cart))
   
      
-        navigation.navigate("OtpVerification", {
+        navigation.replace("OtpVerification", {
           type: "Coupon",
           brand_product_code: cart[0].brand_product_code,
           couponCart: cart
@@ -314,8 +314,9 @@ const CouponCartList = ({ navigation, route }) => {
     const points = props.points;
     const product = props.product;
     const category = props.category;
+    const price = props.data?.denomination
     const cleanCategory = category.replace(/-API/g, '');
-
+    console.log("RewardsBox",props.data)
     return (
       <TouchableOpacity
         onPress={() => {
@@ -382,6 +383,14 @@ const CouponCartList = ({ navigation, route }) => {
                 marginLeft: 10,
               }}
               content={`Points : ${points}`}></PoppinsTextMedium>
+              <PoppinsTextMedium
+              style={{
+                fontSize: 12,
+                color: 'white',
+                fontWeight: '700',
+                marginLeft: 10,
+              }}
+              content={`Price : ${price}`}></PoppinsTextMedium>
           </LinearGradient>
           <TouchableOpacity
             onPress={() => {

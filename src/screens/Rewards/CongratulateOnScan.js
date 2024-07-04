@@ -457,10 +457,11 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
     setError(false);
   };
   return (
-    <View style={{height:'100%',width:'100%',alignItems:'center',justifyContent:'center'}}>
+    <View style={{height:'100%',width:'100%',alignItems:'center',justifyContent:'center',flex:1,}}>
    {(!addBulkPointOnProductIsLoading && !loading) ?  <View
       style={{
-        flex:1,
+        height:'100%',
+        width:'100%',
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: buttonThemeColor,
@@ -500,7 +501,7 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
           ></Image>
         </TouchableOpacity>
         <PoppinsTextMedium
-          style={{ color: "black", fontSize: 18, right: 10 }}
+          style={{ color: "white", fontSize: 18, right: 10 }}
           content="Congratulations"
         ></PoppinsTextMedium>
       </View>
@@ -531,21 +532,13 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
           justifyContent: "flex-start",
         }}
       >
-        <ScrollView
-          style={{
-            width: "100%",
-            height: "100%",
-            marginTop: 10,
-            borderTopLeftRadius: 40,
-            borderTopRightRadius: 40,
-          }}
-        >
-          <View
+        
+          <ScrollView
+          contentContainerStyle={{alignItems: "center",
+          justifyContent: "flex-start",}}
             style={{
               width: "100%",
               height: height - 100,
-              alignItems: "center",
-              justifyContent: "flex-start",
               marginTop: 10,
               backgroundColor: "white",
               borderTopLeftRadius: 40,
@@ -632,7 +625,7 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
             >
               <View
                 style={{
-                  height: 48,
+                 
                   width: 160,
                   backgroundColor: buttonThemeColor,
                   borderWidth: 1,
@@ -679,7 +672,7 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
              
 
             </View>
-          </View>
+          
         </ScrollView>
         <View style={{ width: "100%", height: 80, backgroundColor: "white" }}>
           <View

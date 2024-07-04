@@ -29,6 +29,7 @@ import { useFetchLegalsMutation } from '../../apiServices/fetchLegal/FetchLegalA
 import * as Keychain from 'react-native-keychain';
 import FastImage from 'react-native-fast-image';
 import { useTranslation } from 'react-i18next';
+import AlertModal from '../../components/modals/AlertModal';
 
 const OtpLogin = ({ navigation, route }) => {
   const [mobile, setMobile] = useState("")
@@ -38,7 +39,7 @@ const OtpLogin = ({ navigation, route }) => {
   const [error, setError] = useState(false)
   const [isChecked, setIsChecked] = useState(false);
   const [hideButton, setHideButton] = useState(false)
-
+  const [alert, setAlert] = useState(false)
   const {t} = useTranslation()
   // fetching theme for the screen-----------------------
 
@@ -140,6 +141,9 @@ const OtpLogin = ({ navigation, route }) => {
     }
     else if (sendOtpError) {
       console.log("err", sendOtpError)
+      if(sendOtpError.status == 400)
+      setAlert(true)
+      else
       setError(true)
       setHideButton(false)
       setMessage(sendOtpError?.data?.message)
@@ -278,6 +282,7 @@ const OtpLogin = ({ navigation, route }) => {
 
   const modalClose = () => {
     setError(false)
+    setAlert(false)
   }
   return (
     <LinearGradient
@@ -337,7 +342,8 @@ const OtpLogin = ({ navigation, route }) => {
         </View>
       </View>
 
-
+      {error && <ErrorModal modalClose={modalClose} message={message} openModal={error}></ErrorModal>}
+        {alert && <AlertModal modalClose={modalClose} message={message} openModal={alert}></AlertModal>}
       <ScrollView contentContainerStyle={{ flex: 1 }} style={{ width: '100%' }}>
         <KeyboardAvoidingView>
 
@@ -409,7 +415,8 @@ const OtpLogin = ({ navigation, route }) => {
         />
       }
         </View>
-        {error && <ErrorModal modalClose={modalClose} message={message} openModal={error}></ErrorModal>}
+       
+
 
         {/* {registrationRequired && <View style={{width:"100%",alignItems:'center',justifyContent:"center",marginTop:20}}>
         <PoppinsTextMedium style={{fontSize:18}} content ="Don't have an account ?"></PoppinsTextMedium>

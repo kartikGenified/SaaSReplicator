@@ -739,7 +739,7 @@ const RedeemCoupons = ({ navigation, route }) => {
         <TouchableOpacity
           onPress={() => {
             if (cart.length !== 0) {
-              navigation.navigate("CouponCartList", { cart: cart });
+              navigation.replace("CouponCartList", { cart: cart });
             } else setError(true), setMessage("Cart cannot be empty");
           }}
           style={{
