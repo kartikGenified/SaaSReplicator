@@ -754,8 +754,6 @@ const Splash = ({ navigation }) => {
           console.log("location enabled error splash", error);
           setLocationCheckVisited(false);
           if (error.code === 1) {
-            // Permission Denied
-            // Geolocation.requestAuthorization()
             setLocationCheckVisited(true);
             dispatch(setLocationPermissionStatus(false));
           } else if (error.code === 2) {
@@ -771,6 +769,9 @@ const Splash = ({ navigation }) => {
               { cancelable: false }
             );
           }
+        },
+        {
+          enableHighAccuracy:true
         }
       );
     } catch (e) {}

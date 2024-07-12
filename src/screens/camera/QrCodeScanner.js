@@ -64,7 +64,7 @@ import InternetModal from "../../components/modals/InternetModal";
 import { Camera, useCameraDevice, useCameraDevices, useCameraPermission, useCodeScanner } from "react-native-vision-camera";
 import Toast, { BaseToast, ErrorToast } from 'react-native-toast-message';
 import scanDelay from "../../utils/ScannedDelayUtil";
-
+import UpdateModal from "../../components/modals/UpdateModal";
 
 const QrCodeScanner = ({ navigation,route }) => {
   const [zoom, setZoom] = useState(0);
@@ -72,7 +72,7 @@ const QrCodeScanner = ({ navigation,route }) => {
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const [zoomText, setZoomText] = useState("1");
   const [flash, setFlash] = useState(false);
-
+  const [update, setUpdate] = useState(false)
   const [scannerKey, setScannerKey] = useState(0);
   const [addedQrList, setAddedQrList] = useState([]);
   const [success, setSuccess] = useState(false);
@@ -279,8 +279,16 @@ const QrCodeScanner = ({ navigation,route }) => {
     } else if (addBulkQrError) {
       // console.log("addBulkQrError",addBulkQrError)
       if (addBulkQrError.data) {
-        setError(true);
+        if(addBulkQrError.status == 400)
+        {
+          setUpdate(true)
+          setMessage(addBulkQrError.data?.message)
+        }
+        else{
+          setError(true);
         setMessage(addBulkQrError.data?.message);
+        }
+        
       }
     }
   }, [addBulkQrData, addBulkQrError]);
@@ -1398,6 +1406,16 @@ const codeScanner = useCodeScanner({
             alignItems: 'center',
             justifyContent: 'flex-start',
           }}>
+
+            {
+              update && (
+                <UpdateModal
+                modalClose={modalClose}
+                message={message}
+                openModal={update}
+                ></UpdateModal>
+              )
+            }
           {error  && (
             <ErrorModal
               modalClose={modalClose}
