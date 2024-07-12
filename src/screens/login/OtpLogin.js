@@ -30,6 +30,7 @@ import * as Keychain from 'react-native-keychain';
 import FastImage from 'react-native-fast-image';
 import { useTranslation } from 'react-i18next';
 import AlertModal from '../../components/modals/AlertModal';
+import crashlytics from '@react-native-firebase/crashlytics';
 
 const OtpLogin = ({ navigation, route }) => {
   const [mobile, setMobile] = useState("")
@@ -227,6 +228,12 @@ const OtpLogin = ({ navigation, route }) => {
     // navigation.navigate('VerifyOtp',{navigationParams})
   }
   const handleButtonPress = () => {
+    crashlytics().setAttributes({
+      name: 'test',
+      id: '13',
+      email: "nishankphulera@gmail.com",
+      userType: "carpenter",
+    })
     // console.log("first",getNameData.message)
     // console.log("mobile",mobile,name.length,name,isChecked,getNameData)
     if (isChecked) {

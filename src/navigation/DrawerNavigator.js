@@ -240,7 +240,7 @@ const CustomDrawer = () => {
           <TouchableOpacity
             onPress={() => {
               if (props.title === "Scan QR Code" || props.title === "Scan and Win") {
-                Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : navigation.navigate("QrCodeScanner")
+                Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : navigation.navigate('EnableLocationScreen')
 
               }
               else if (props.title.toLowerCase() === "passbook") {
@@ -277,8 +277,7 @@ const CustomDrawer = () => {
                 navigation.navigate('ImageGallery')
               }
               else if (props.title.substring(0, 4).toLowerCase() === "scan" && (props.title).toLowerCase() !== "scan list") {
-                Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : navigation.navigate("QrCodeScanner")
-
+                Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : navigation.navigate('EnableLocationScreen')
               }
               else if (props.title.toLowerCase() === "scheme") {
                 navigation.navigate('Scheme')
