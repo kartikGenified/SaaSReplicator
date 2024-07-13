@@ -192,6 +192,9 @@ const QrCodeScanner = ({ navigation,route }) => {
     if (addBulkQrData) {
       // console.log("addBulkQrData",addBulkQrData)
       if (addBulkQrData.success) {
+        setTimeout(() => {
+        setShowProceed(true)
+        }, 1200);
         // isFirstScan && checkFirstScan()
         if (checkGenuinityData) {
           if (checkGenuinityData?.body) {
@@ -278,6 +281,10 @@ const QrCodeScanner = ({ navigation,route }) => {
       }
     } else if (addBulkQrError) {
       // console.log("addBulkQrError",addBulkQrError)
+      setTimeout(() => {
+        setShowProceed(true)
+        }, 1200);
+
       if (addBulkQrError.data) {
         if(addBulkQrError.status == 400)
         {
@@ -905,6 +912,7 @@ const codeScanner = useCodeScanner({
         scan_type:"Point on product"
       },
     };
+    setShowProceed(false)
     addBulkQrFunc(params);
     dispatch(setQrIdList(addedQrID));
     dispatch(setQrData(addedQrList));
@@ -1499,7 +1507,6 @@ const codeScanner = useCodeScanner({
                   <ButtonProceed
                     handleOperation={handleAddQr}
                     style={{ color: 'white', }}
-                    // content="Proceed"
                     content={"Proceed"}
                     navigateTo={'QrCodeScanner'}></ButtonProceed>
                 </View>

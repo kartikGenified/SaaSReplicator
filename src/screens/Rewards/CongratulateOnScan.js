@@ -247,7 +247,7 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
           return item["points_on_product"];
 
         });
-        setTimeout(() => {
+         setTimeout(() => {
           setLoading(false)
         }, 2000);
         setTotalPoints(addBulkPointOnProductData.body.total_points)
@@ -674,14 +674,9 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
             </View>
           
         </ScrollView>
+        
         <View style={{ width: "100%", height: 80, backgroundColor: "white" }}>
-          <View
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              width: "100%",
-            }}
-          ></View>
+          
           <View
             style={{
               flexDirection: "row",
@@ -701,6 +696,18 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
             ></ButtonSquare>
           </View>
         </View>
+        {location && <View
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              flexDirection:'row'
+            }}
+          >
+            <PoppinsTextMedium style={{color:'black',fontSize:12}} content={`LAT  ${(location?.lat).toFixed(2)}, `}></PoppinsTextMedium>
+            <PoppinsTextMedium style={{color:'black',marginLeft:10,fontSize:12}} content={`LOG  ${(location?.lon).toFixed(2)}`}></PoppinsTextMedium>
+
+          </View>}
       </View>
     </View> 
     :

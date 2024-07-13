@@ -26,6 +26,8 @@ import crashlytics from "@react-native-firebase/crashlytics";
 
 const EnableLocationScreen = ({ route, navigation }) => {
   const appState = useRef(AppState.currentState);
+  const [lat, setLat] = useState()
+  const [lon, setLon] = useState()
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const focused = useIsFocused();
   const message = route.params?.message;
@@ -116,8 +118,11 @@ const EnableLocationScreen = ({ route, navigation }) => {
     Geolocation.getCurrentPosition(
       (res) => {
         console.log("Geolocation success:", res);
+        
         const lat = res.coords.latitude;
         const lon = res.coords.longitude;
+        setLat(lat)
+        setLon(lon)
         const locationJson = {
           lat: lat || "N/A",
           lon: lon || "N/A",
@@ -269,10 +274,23 @@ const EnableLocationScreen = ({ route, navigation }) => {
           />
         )}
         {locationEnabled && locationPermissionStatus && (
+          <View style={{alignItems:'center',justifyContent:'center'}}>
           <PoppinsTextMedium
             style={{ ...styles.grantedText, color: ternaryThemeColor }}
             content="Location Access Granted"
           />
+          <View style={{flexDirection:'row'}}>
+          { lat && <PoppinsTextMedium
+            style={{ ...styles.grantedSubText, color: ternaryThemeColor }}
+            content={`LAT - ${lat?.toFixed(2)},`}
+          />}
+          {lon && <PoppinsTextMedium
+            style={{ ...styles.grantedSubText, color: ternaryThemeColor, marginLeft:10 }}
+            content={`LOG - ${lon?.toFixed(2)}`}
+          />}
+          </View>
+          
+          </View>
         )}
         <TouchableOpacity
           onPress={getLocation}
@@ -314,6 +332,10 @@ const styles = StyleSheet.create({
   },
   grantedText: {
     fontSize: 22,
+    fontWeight: "700",
+  },
+  grantedSubText: {
+    fontSize: 12,
     fontWeight: "700",
   },
   button: {
