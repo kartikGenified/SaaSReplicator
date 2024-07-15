@@ -82,6 +82,7 @@ import RedeemCoupons from '../screens/redeem/RedeemCoupons';
 import CouponCartList from '../screens/redeem/CouponCartList';
 import EnableLocationScreen from '../screens/location/EnableLocationScreen';
 import EnableCameraScreen from '../screens/camera/EnableCameraScreen';
+import SchemeItems from '../screens/scheme/SchemeItems';
 
 const Stack = createNativeStackNavigator()
 
@@ -489,6 +490,12 @@ const StackNavigator = () => {
                         headerShown: false
                     }
                 } name="OtpLogin" component={OtpLogin}></Stack.Screen>
+                <Stack.Screen options={
+                    {
+                        headerShown: false
+                    }
+                } name="SchemeItems" component={SchemeItems}></Stack.Screen>
+                
                 <Stack.Screen options={
                     {
                         headerShown: false

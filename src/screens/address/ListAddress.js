@@ -12,12 +12,14 @@ import * as Keychain from "react-native-keychain";
 import PoppinsTextLeftMedium from "../../components/electrons/customFonts/PoppinsTextLeftMedium";
 import { useIsFocused } from "@react-navigation/native";
 import { addAddress } from "../../../redux/slices/redemptionAddressSlice";
-const ListAddress = ({ navigation }) => {
+const ListAddress = ({ navigation ,route}) => {
   const [selectedIndex, setSelectedIndex] = useState();
   const [selectedAddress, setSelectedAddress] = useState();
   const [addressList, setAddressList] = useState();
   const focused = useIsFocused()
   const dispatch = useDispatch()
+  const schemeType = route.params?.schemeType
+  const schemeID = route.params?.schemeID
   const ternaryThemeColor = useSelector(
     (state) => state.apptheme.ternaryThemeColor
   )
@@ -496,7 +498,7 @@ const ListAddress = ({ navigation }) => {
       >
         <TouchableOpacity style={{height:40,width:120,backgroundColor:ternaryThemeColor,alignItems:'center',justifyContent:'center',borderRadius:4,position:'absolute',left:20}} onPress={()=>{
           if(selectedAddress){
-            navigation.navigate('OtpVerification',{type:"Gift"})
+            navigation.navigate('OtpVerification',{type:"Gift",schemeType:schemeType,schemeID:schemeID})
           }
           else{
             alert("Please select an address first")

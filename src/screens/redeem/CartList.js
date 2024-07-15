@@ -48,7 +48,8 @@ const CartList = ({ navigation, route }) => {
     ? useSelector(state => state.apptheme.secondaryThemeColor)
     : '#FFB533';
   const userData = useSelector(state => state.appusersdata.userData);
-
+  const schemeType = route.params?.schemeType
+  const schemeID = route.parmas?.schemeID
   console.log('userdata', route.params.cart);
   const height = Dimensions.get('window').height
 
@@ -75,7 +76,9 @@ const CartList = ({ navigation, route }) => {
   
      
         navigation.replace("ListAddress", {
-          cart: cart
+          schemeType:schemeType,
+          cart: cart,
+          schemeID:schemeID
         })
     }
        // const credentials = await Keychain.getGenericPassword();
@@ -218,7 +221,7 @@ const CartList = ({ navigation, route }) => {
         }}>
         <TouchableOpacity
         onPress={()=>{
-          navigation.navigate("RedeemGifts")
+          navigation.goBack()
         }}
           style={{
             height: 50,

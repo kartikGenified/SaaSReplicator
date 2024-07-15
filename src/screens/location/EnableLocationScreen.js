@@ -31,6 +31,7 @@ const EnableLocationScreen = ({ route, navigation }) => {
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const focused = useIsFocused();
   const message = route.params?.message;
+  const navigateTo = route.params?.navigateTo
   const dispatch = useDispatch();
   const ternaryThemeColor = useSelector(
     (state) => state.apptheme.ternaryThemeColor
@@ -92,9 +93,7 @@ const EnableLocationScreen = ({ route, navigation }) => {
           dispatch(setLocationPermissionStatus(true));
           dispatch(setLocationEnabled(true));
           getLocation();
-          // setTimeout(() => {
-          //     navigation.replace('QrCodeScanner');
-          // }, 800);
+          
         })
         .catch((error) => {
             Alert.alert(
@@ -180,7 +179,7 @@ const EnableLocationScreen = ({ route, navigation }) => {
               dispatch(setLocationEnabled(true));
 
               setTimeout(() => {
-                navigation.replace("QrCodeScanner");
+               navigateTo &&  navigation.replace(navigateTo);
               }, 500);
             } else {
               Alert.alert(

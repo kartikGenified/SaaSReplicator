@@ -84,7 +84,7 @@ const EnableCameraScreen = ({ navigation, route }) => {
           dispatch(setCameraPermissionStatus(true));
           dispatch(setCameraStatus(true));
           setTimeout(() => {
-            navigation.replace("EnableLocationScreen");
+            navigation.replace("EnableLocationScreen",{navigateTo:"QrCodeScanner"});
           }, 500);
         }
         if (granted == "denied") {
@@ -105,7 +105,7 @@ const EnableCameraScreen = ({ navigation, route }) => {
       dispatch(setCameraPermissionStatus(true));
       dispatch(setCameraStatus(true));
       setTimeout(() => {
-        navigation.replace("EnableLocationScreen");
+        navigation.replace("EnableLocationScreen",{navigateTo:"QrCodeScanner"});
       }, 500);
     }
   };

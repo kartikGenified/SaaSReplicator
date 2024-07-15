@@ -36,7 +36,9 @@ const RedeemGifts = ({navigation,route}) => {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false)
   const action = route.params?.action
-
+  const schemeType = route.params?.schemeType
+  const schemeGiftCatalogue = route.params?.schemeGiftCatalogue
+  const schemeID = route.parmas?.schemeID
   const {t} = useTranslation()
   const ternaryThemeColor = useSelector(
     state => state.apptheme.ternaryThemeColor,
@@ -76,23 +78,35 @@ const RedeemGifts = ({navigation,route}) => {
         const token = credentials.username;
         const params = {userId: userId, token: token};
         userPointFunc(params);
+        
+       if(schemeGiftCatalogue == undefined)
+       {
         fetchGiftCatalogue({
           token: token,
           type: 'point',
           limit: 1000,
           offset: 0,
         });
+       } 
       }
     };
     getData();
     setCart([])
   }, []);
+  useEffect(()=>{
+    getDistinctSchemeCategories(schemeGiftCatalogue)
+        setDisplayContent(schemeGiftCatalogue)
+  },[schemeGiftCatalogue])
   
   useEffect(() => {
-    if (giftCatalogueData) {
-      console.log('giftCatalogueData', giftCatalogueData);
-      getDistinctCategories(giftCatalogueData.body)
-      setDisplayContent(giftCatalogueData.body)
+    if (giftCatalogueData ) {
+      if(schemeGiftCatalogue == undefined)
+      {
+        console.log('giftCatalogueData', giftCatalogueData);
+        getDistinctCategories(giftCatalogueData.body)
+        setDisplayContent(giftCatalogueData.body)
+      }
+      
       
     } else if (giftCatalogueError) {
       console.log('giftCatalogueError', giftCatalogueError);
@@ -111,7 +125,17 @@ const RedeemGifts = ({navigation,route}) => {
     }
   }, [userPointData, userPointError]);
 
+  const getDistinctSchemeCategories=(data)=>{
+    let allCategories = []
 
+    for(var i=0;i<data.length;i++)
+    {
+      allCategories.push(data[i].category)
+    }
+    const set = new Set(allCategories)
+    const arr = Array.from(set)
+    setDistinctCategories(arr)
+  }
 
   const getDistinctCategories=(data)=>{
     let allCategories = []
@@ -241,9 +265,7 @@ const RedeemGifts = ({navigation,route}) => {
     console.log("data",data)
     
    const changeCounter=(operation)=>{
-    
-    
-      
+
     
     console.log(pointBalance,"tempPoints",tempPoints,data.points)
     if(operation==="plus")
@@ -619,7 +641,7 @@ const RedeemGifts = ({navigation,route}) => {
         <TouchableOpacity onPress={()=>{
           if(cart.length!==0)
           {
-            navigation.replace("CartList",{cart:cart})
+            navigation.replace("CartList",{cart:cart,schemeType:schemeType,schemeID:schemeID})
           }
           else (
             setError(true),

@@ -13,7 +13,7 @@ const DashboardMenuBox=(props)=>{
     const handleMenuItemPress=(data)=>{
         if(data.substring(0,4).toLowerCase()==="scan" )
         {
-           Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : navigation.navigate('EnableLocationScreen')
+           Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : navigation.navigate('EnableLocationScreen',{navigateTo:"QrCodeScanner"})
         }
         else if(data.toLowerCase()==="passbook")
         {
@@ -30,6 +30,9 @@ const DashboardMenuBox=(props)=>{
           }
         else if(data.toLowerCase() === "warranty list"){
             navigation.navigate('WarrantyHistory')
+        }
+        else if(data.toLowerCase() === "scheme"){
+            navigation.navigate("EnableLocationScreen",{navigateTo:"Scheme"})
         }
         else if(data.toLowerCase() === "bank details" || data.toLowerCase() === "bank account"){
             navigation.navigate('BankAccounts')
@@ -72,7 +75,9 @@ const DashboardMenuBox=(props)=>{
                    
                 )
             })
+            
         }
+        <MenuItems handlePress={handleMenuItemPress} key={data.length-1} image={''} content={"Scheme"}></MenuItems>
         </View>
         </View>
     )
