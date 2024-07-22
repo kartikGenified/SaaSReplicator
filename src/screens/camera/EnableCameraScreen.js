@@ -18,11 +18,13 @@ import {
 } from "../../../redux/slices/cameraStatusSlice";
 import PoppinsTextMedium from "../../components/electrons/customFonts/PoppinsTextMedium";
 import { useIsFocused } from "@react-navigation/native";
+
 const EnableCameraScreen = ({ navigation, route }) => {
   const appState = useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const [cameraPermissionEnabled, setCameraPermissionEnabled] = useState(false);
   const [CameraEnabled, setCameraEnabled] = useState(false);
+  const [requiresLocation, setRequiresLocation] = useState(false)
   const [neverAskAgain, setNeverAskAgain] = useState(false);
   const dispatch = useDispatch();
   const focused = useIsFocused();
@@ -37,9 +39,21 @@ const EnableCameraScreen = ({ navigation, route }) => {
   const cameraPermissionStatus = useSelector(
     (state) => state.cameraStatus.cameraPermissionStatus
   );
+  const locationSetup = useSelector(state=>state.appusers.locationSetup)
+
   const cameraStatus = useSelector((state) => state.cameraStatus.cameraStatus);
 
   console.log("EnableCameraScreen", cameraPermissionStatus, cameraStatus);
+  useEffect(()=>{
+    if(locationSetup)
+    {
+      if(Object.keys(locationSetup)?.length != 0)
+      {
+        setRequiresLocation(true)
+      }
+    }
+    
+  },[locationSetup])
 
   const openSettings = () => {
     if (Platform.OS === "android") {
@@ -84,7 +98,7 @@ const EnableCameraScreen = ({ navigation, route }) => {
           dispatch(setCameraPermissionStatus(true));
           dispatch(setCameraStatus(true));
           setTimeout(() => {
-            navigation.replace("EnableLocationScreen",{navigateTo:"QrCodeScanner"});
+             navigation.replace("EnableLocationScreen",{navigateTo:"QrCodeScanner"});
           }, 500);
         }
         if (granted == "denied") {

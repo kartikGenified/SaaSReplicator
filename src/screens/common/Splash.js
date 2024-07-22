@@ -36,6 +36,7 @@ import {
   setAutoApproval,
   setRegistrationRequired,
   setAppVersion,
+  setLocationSetup
 } from "../../../redux/slices/appUserSlice";
 import { setPointSharing } from "../../../redux/slices/pointSharingSlice";
 import { useIsFocused } from "@react-navigation/native";
@@ -972,7 +973,9 @@ const Splash = ({ navigation }) => {
   // fetching data and checking for errors from the API-----------------------
   useEffect(() => {
     if (getAppThemeData) {
-      // console.log("getAppThemeData", JSON.stringify(getAppThemeData?.body))
+      console.log("getAppThemeData", JSON.stringify(getAppThemeData?.body))
+      dispatch(setLocationSetup(getAppThemeData?.body?.location))
+      console.log("dispatching locaion setup data",getAppThemeData?.body?.location)
       dispatch(
         setPrimaryThemeColor(getAppThemeData?.body?.theme?.color_shades["600"])
       );

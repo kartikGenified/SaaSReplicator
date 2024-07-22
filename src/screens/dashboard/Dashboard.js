@@ -38,8 +38,11 @@ import ErrorModal from '../../components/modals/ErrorModal';
 import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
+
 const Dashboard = ({ navigation }) => {
   const [dashboardItems, setDashboardItems] = useState()
+  const [requiresLocation, setRequiresLocation] = useState(false)
   const [showKyc, setShowKyc] = useState(true)
   const [CampainVideoVisible, setCmpainVideoVisible] = useState(true);
   const [logoutStatus, setLogoutStatus] = useState(false)
@@ -58,7 +61,11 @@ const Dashboard = ({ navigation }) => {
   const pointSharingData = useSelector(state => state.pointSharing.pointSharing)
   const dashboardData = useSelector(state=>state.dashboardData.dashboardData)
   const bannerArray = useSelector(state=>state.dashboardData.banner)
-  console.log("Dashboard data is",dashboardData )
+  const locationSetup = useSelector(state=>state.appusers.locationSetup)
+
+  console.log("Dashboard data is",dashboardData,locationSetup )
+
+
   const ternaryThemeColor = useSelector(
     state => state.apptheme.ternaryThemeColor,
   )
@@ -116,6 +123,18 @@ const Dashboard = ({ navigation }) => {
     fetchUserPointsHistoryFunc(params)
 
   }
+
+  useEffect(()=>{
+    if(locationSetup)
+    {
+      if(Object.keys(locationSetup)?.length != 0)
+      {
+        setRequiresLocation(true)
+      }
+    }
+    
+  },[locationSetup])
+
   useEffect(() => {
     const handleBackPress = () => {
       navigation.goBack(); // Navigate back when back button is pressed
@@ -494,7 +513,7 @@ const Dashboard = ({ navigation }) => {
           <DashboardDataBox header="Total Points"  data="5000" image={require('../../../assets/images/coin.png')} ></DashboardDataBox>
 
           </ScrollView> */}
-          {dashboardData && !userPointIsLoading && <DashboardMenuBox navigation={navigation} data={dashboardData}></DashboardMenuBox>}
+          {dashboardData && !userPointIsLoading && <DashboardMenuBox requiresLocation = {requiresLocation} navigation={navigation} data={dashboardData}></DashboardMenuBox>}
           {
         userPointIsLoading && <FastImage
           style={{ width: 100, height: 100, alignSelf: 'center',marginTop:20 }}

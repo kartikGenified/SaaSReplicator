@@ -33,6 +33,7 @@ const CustomDrawer = () => {
   const [myProgramVisible, setMyProgramVisibile] = useState(false);
   const [ozoneProductVisible, setOzoneProductVisible] = useState(false);
   const [communityVisible, setCommunityVisible] = useState(false);
+  const [requiresLocation, setRequiresLocation] = useState(false)
   const [KnowledgeHubVisible, setKnowledgeHubVisible] = useState(false);
   const [message, setMessage] = useState();
   const [success, setSuccess] = useState(false);
@@ -43,6 +44,7 @@ const CustomDrawer = () => {
 
 
   const currentVersion = VersionCheck.getCurrentVersion();
+  const locationSetup = useSelector(state=>state.appusers.locationSetup)
   const drawerData = useSelector(state=>state.drawerData.drawerData)
   const getPolicyData =  useSelector(state=>state.termsPolicy.policy)
   const getTermsData = useSelector(state=>state.termsPolicy.terms)
@@ -115,7 +117,16 @@ const CustomDrawer = () => {
     fetchFaq()
   }, [])
 
-  
+  useEffect(()=>{
+    if(locationSetup)
+    {
+      if(Object.keys(locationSetup)?.length != 0)
+      {
+        setRequiresLocation(true)
+      }
+    }
+    
+  },[locationSetup])
 
   
 
@@ -240,7 +251,7 @@ const CustomDrawer = () => {
           <TouchableOpacity
             onPress={() => {
               if (props.title === "Scan QR Code" || props.title === "Scan and Win") {
-                Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : navigation.navigate('EnableLocationScreen',{navigateTo:"QrCodeScanner"})
+                Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : requiresLocation ? navigation.navigate('EnableLocationScreen',{navigateTo:"QrCodeScanner"}) : navigation.navigate("QrCodeScanner")
 
               }
               else if (props.title.toLowerCase() === "passbook") {
@@ -277,7 +288,7 @@ const CustomDrawer = () => {
                 navigation.navigate('ImageGallery')
               }
               else if (props.title.substring(0, 4).toLowerCase() === "scan" && (props.title).toLowerCase() !== "scan list") {
-                Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : navigation.navigate('EnableLocationScreen',{navigateTo:"QrCodeScanner"})
+                Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : requiresLocation ? navigation.navigate('EnableLocationScreen',{navigateTo:"QrCodeScanner"}) : navigation.navigate("QrCodeScanner")
               }
               else if (props.title.toLowerCase() === "scheme") {
                 navigation.navigate('Scheme')

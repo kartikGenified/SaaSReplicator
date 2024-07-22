@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import {View,Text,Platform, TouchableOpacity} from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Dashboard from '../screens/dashboard/Dashboard';
@@ -18,9 +18,10 @@ const Tab = createBottomTabNavigator();
 
 
 function BottomNavigator({navigation}) {
-  
+const [requiresLocation, setRequiresLocation] = useState(false)
 const {t} = useTranslation()
 
+  const locationSetup = useSelector(state=>state.appusers.locationSetup)
   const ternaryThemeColor = useSelector(
     state => state.apptheme.ternaryThemeColor,
   )
@@ -32,6 +33,17 @@ const {t} = useTranslation()
     const platformFontWeight = Platform.OS==="ios" ? "400":"800"
     console.log("workflow",workflow,userData)
 
+    useEffect(()=>{
+      if(locationSetup)
+      {
+        if(Object.keys(locationSetup)?.length != 0)
+        {
+          setRequiresLocation(true)
+        }
+      }
+      
+    },[locationSetup])
+
   return (
     <Tab.Navigator tabBar={()=><View style={{alignItems:"center",justifyContent:"center",width:"100%",backgroundColor:"#F7F7F7"}}>
       <Wave style={{top:10}} width={100}></Wave>
@@ -41,7 +53,7 @@ const {t} = useTranslation()
     <PoppinsTextMedium style={{marginTop:4,fontSize:12,fontWeight:platformFontWeight,color:'black'}} content={t("Gift Catalogue")}></PoppinsTextMedium>
     </TouchableOpacity>
     {/* ozone change */}
-    { ((userData?.user_type).toLowerCase()!=="dealer"  && (userData?.user_type).toLowerCase()!=="sales") ? <TouchableOpacity onPress={()=>{Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : navigation.navigate('EnableLocationScreen',{navigateTo:"QrCodeScanner"})
+    { ((userData?.user_type).toLowerCase()!=="dealer"  && (userData?.user_type).toLowerCase()!=="sales") ? <TouchableOpacity onPress={()=>{Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : requiresLocation ? navigation.navigate('EnableLocationScreen',{navigateTo:"QrCodeScanner"}) : navigation.navigate("QrCodeScanner")
 }} style={{alignItems:"center",justifyContent:"center",}}>
     <Qrcode name="qrcode" size={24} color={ternaryThemeColor}></Qrcode>
     <PoppinsTextMedium style={{marginTop:4,fontSize:12,fontWeight:platformFontWeight,color:'black'}} content={t("Scan QR")}></PoppinsTextMedium>

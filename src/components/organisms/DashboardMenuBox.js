@@ -3,17 +3,17 @@ import {View, StyleSheet,ScrollView,Dimensions,Platform} from 'react-native';
 import MenuItems from '../atoms/MenuItems';
 import { BaseUrl } from '../../utils/BaseUrl';
 import QrCodeScanner from '../../screens/camera/QrCodeScanner';
-
+import { useSelector } from 'react-redux';
 
 const DashboardMenuBox=(props)=>{
     const data = props?.data
     const navigation = props.navigation
     const width = Dimensions.get('window').width
-    // console.log("DashboardMenuBox",data)
+    const requiresLocation = props.requiresLocation
     const handleMenuItemPress=(data)=>{
         if(data.substring(0,4).toLowerCase()==="scan" )
         {
-           Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : navigation.navigate('EnableLocationScreen',{navigateTo:"QrCodeScanner"})
+           Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : requiresLocation ? navigation.navigate('EnableLocationScreen',{navigateTo:"QrCodeScanner"}) : navigation.navigate("QrCodeScanner")
         }
         else if(data.toLowerCase()==="passbook")
         {

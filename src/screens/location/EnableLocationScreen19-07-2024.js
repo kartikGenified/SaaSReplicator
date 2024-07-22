@@ -9,6 +9,7 @@ import {
   Alert,
   ScrollView,
   AppState,
+  
 } from "react-native";
 import PoppinsTextMedium from "../../components/electrons/customFonts/PoppinsTextMedium";
 import { useSelector, useDispatch } from "react-redux";
@@ -22,18 +23,15 @@ import {
 import { GoogleMapsKey } from "@env";
 import { useIsFocused } from "@react-navigation/native";
 import crashlytics from "@react-native-firebase/crashlytics";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const EnableLocationScreen = ({ route, navigation }) => {
   const appState = useRef(AppState.currentState);
-  const [lat, setLat] = useState();
-  const [lon, setLon] = useState();
-  const [locationRadius, setLocationRadius] = useState()
-  const [continueWithoutGeocoding, setContinueWithoutGeoCoding] = useState(false)
+  const [lat, setLat] = useState()
+  const [lon, setLon] = useState()
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
   const focused = useIsFocused();
   const message = route.params?.message;
-  const navigateTo = route.params?.navigateTo;
+  const navigateTo = route.params?.navigateTo
   const dispatch = useDispatch();
   const ternaryThemeColor = useSelector(
     (state) => state.apptheme.ternaryThemeColor
@@ -45,32 +43,13 @@ const EnableLocationScreen = ({ route, navigation }) => {
     (state) => state.userLocation.locationPermissionStatus
   );
 
-  // const locationSetup = useSelector(state=>state.appusers.locationSetup)
-  const locationSetup = {
-    radius:10,
-    continue_lat_long:false
-  }
+  const locationSetup = useSelector(state=>state.appusers.locationSetup)
 
   console.log(
     "EnableLocationScreen",
     locationEnabled,
     locationPermissionStatus
   );
-
-  
-  useEffect(()=>{
-    if(locationSetup)
-    {
-    if(Object.keys(locationSetup)?.length==0)
-    {
-        navigation.navigate("QrCodeScanner")
-    }
-    else{
-        setLocationRadius(locationSetup?.radius)
-        setContinueWithoutGeoCoding(locationSetup?.continue_lat_long)
-    }
-}
-  },[locationSetup])
 
   const openSettings = () => {
     if (Platform.OS === "android") {
@@ -79,44 +58,6 @@ const EnableLocationScreen = ({ route, navigation }) => {
       Linking.openURL("app-settings:");
     }
   };
-
-  const saveLocationToStorage = async (location) => {
-    const data = {
-      location,
-      timestamp: new Date().getTime(),
-    };
-    await AsyncStorage.setItem("locationData", JSON.stringify(data));
-  };
-
-  const getLocationFromStorage = async () => {
-    const locationData = await AsyncStorage.getItem("locationData");
-    if (locationData) {
-      const { location, timestamp } = JSON.parse(locationData);
-      const currentTime = new Date().getTime();
-      const timeDiff = currentTime - timestamp;
-
-      if (timeDiff < 12 * 60 * 60 * 1000) {
-        // Return location if it's within the 12-hour period
-        return location;
-      }
-    }
-    return null;
-  };
-
-  const haversineDistance = (lat1, lon1, lat2, lon2) => {
-    const toRad = (value) => (value * Math.PI) / 180;
-
-    const R = 6371; // Radius of the Earth in km
-    const dLat = toRad(lat2 - lat1);
-    const dLon = toRad(lon2 - lon1);
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c; // Distance in km
-    return distance;
-  };
-
   const getLocationPermission = async () => {
     console.log("LocationServicesDialogBox");
 
@@ -154,46 +95,46 @@ const EnableLocationScreen = ({ route, navigation }) => {
           dispatch(setLocationPermissionStatus(true));
           dispatch(setLocationEnabled(true));
           getLocation();
+          
         })
         .catch((error) => {
-          Alert.alert(
-            "You denied GPS access",
-            "To scan QR code, Ozostars app requires location access, kindly enable GPS access to start scanning",
-            [
-              {
-                text: "OK",
-                onPress: () => {
-                  navigation.navigate("Dashboard");
-                },
-              },
-            ]
-          );
+            Alert.alert(
+                "You denied GPS access",
+                "To scan QR code, Ozostars app requires location access, kindly enable GPS access to start scanning",
+                [
+                  {
+                    text: "OK",
+                    onPress: () => {
+                      navigation.navigate("Dashboard");
+                    },
+                  },
+                ]
+              );
         });
     }
   };
 
-  const getLocation = useCallback(async () => {
+  const getLocation = useCallback(() => {
     console.log("getLocation function called");
     Geolocation.getCurrentPosition(
-      async (res) => {
-
-        const lati = res.coords.latitude;
-        const long = res.coords.longitude;
-        console.log("Geolocation success:", lati, long);
-
-        setLat(lati);
-        setLon(long);
+      (res) => {
+        console.log("Geolocation success:", res);
+        
+        const lat = res.coords.latitude;
+        const lon = res.coords.longitude;
+        setLat(lat)
+        setLon(lon)
         const locationJson = {
-          lat: lati || "N/A",
-          lon: long || "N/A",
+          lat: lat || "N/A",
+          lon: lon || "N/A",
         };
         if (
-          (lati == undefined) & (long == undefined) ||
-          (lati == null && long == undefined)
+          (lat == undefined) & (lon == undefined) ||
+          (lat == null && lon == undefined)
         ) {
           Alert.alert(
             "Unable To Fetch Location",
-            "We are not able to fetch your lat/lon at the moment",
+            "We are not able to fetch your location from your lat/lon at the moment",
             [
               {
                 text: "OK",
@@ -205,30 +146,7 @@ const EnableLocationScreen = ({ route, navigation }) => {
           );
         }
 
-        const savedLocation = await getLocationFromStorage();
-
-        if (savedLocation) {
-          const distance = haversineDistance(
-            savedLocation.lat,
-            savedLocation.lon,
-            lati,
-            long
-          );
-            console.log("haversine distance", distance)
-          if (distance <= locationRadius) {
-            // Use previously saved location
-            console.log("Distance is less using previously stored location", distance, savedLocation);
-            dispatch(setLocation(savedLocation));
-            dispatch(setLocationPermissionStatus(true));
-            dispatch(setLocationEnabled(true));
-            setTimeout(() => {
-              navigateTo && navigation.replace(navigateTo);
-            }, 500);
-            return;
-          }
-        }
-
-        const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lati},${long}&location_type=ROOFTOP&result_type=street_address&key=${123124312312}`;
+        const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&location_type=ROOFTOP&result_type=street_address&key=${GoogleMapsKey}`;
 
         fetch(url)
           .then((response) => response.json())
@@ -262,76 +180,11 @@ const EnableLocationScreen = ({ route, navigation }) => {
               dispatch(setLocationPermissionStatus(true));
               dispatch(setLocationEnabled(true));
 
-              saveLocationToStorage(locationJson);
-
               setTimeout(() => {
-                navigateTo && navigation.replace(navigateTo);
+               navigateTo &&  navigation.replace(navigateTo);
               }, 500);
             } else {
-                console.log("locationSetupelse",locationSetup,lati,long)
-            locationSetup && Object.keys(locationSetup)?.length>0 && handleFailedLocationFetch("error in constructing location json", lati,long);
-            }
-          })
-          .catch((error) => {
-            console.log("locationSetupcatch",locationSetup,lati,long)
-            locationSetup && Object.keys(locationSetup)?.length>0 && handleFailedLocationFetch(error, lati, long);
-          });
-      },
-      (error) => {
-        console.error("Geolocation error:", error);
-        if (error.code === 1) {
-          Alert.alert(
-            "Alert",
-            "To scan a QR code, the OZOSTAR app must have access permissions. Please grant access to the location.",
-            [{ text: "NO",onPress:(()=>{
-                
-            }) }, { text: "Yes", onPress: openSettings }],
-            { cancelable: false }
-          );
-        } else if (error.code === 2) {
-          getLocationPermission();
-        } else {
-            locationSetup && Object.keys(locationSetup)?.length>0 &&  handleFailedLocationFetch(error, lat,lon);
-        }
-      }
-    );
-  }, []);
-
-  const handleFailedLocationFetch = async (error, latitude,longitude) => {
-    console.log("handleFailedLocationFetch",error,latitude,longitude)
-    const savedLocation = await getLocationFromStorage();
-
-    if (savedLocation) {
-        const distance = haversineDistance(
-            savedLocation.lat,
-            savedLocation.lon,
-            latitude,
-            longitude
-          );
-    console.error("Failed to fetch location:", latitude,longitude, error,savedLocation,distance,locationRadius);
-        
-        if (distance <= locationSetup?.radius) {
-            // Use previously saved location
-            console.log("Using previously saved location as the previously stored location is nearby:", savedLocation);
-
-            dispatch(setLocation(savedLocation));
-            dispatch(setLocationPermissionStatus(true));
-            dispatch(setLocationEnabled(true));
-            setTimeout(() => {
-              navigateTo && navigation.replace(navigateTo);
-            }, 500);
-            
-          }
-      
-    } else {
-        if(continueWithoutGeocoding)
-        {
-            setTimeout(() => {
-                navigateTo && navigation.replace(navigateTo);
-              }, 500);
-        }
-        else{
-            Alert.alert(
+              Alert.alert(
                 "Unable To Fetch Location",
                 "We are not able to fetch your location from your lat/lon at the moment",
                 [
@@ -343,15 +196,53 @@ const EnableLocationScreen = ({ route, navigation }) => {
                   },
                 ]
               );
+            }
+          })
+          .catch((error) => {
+            Alert.alert("Unable To Fetch Location", error, [
+              {
+                text: "OK",
+                onPress: () => {
+                  navigation.navigate("Dashboard");
+                },
+              },
+            ]);
+          });
+      },
+      (error) => {
+        console.error("Geolocation error:", error);
+        if (error.code === 1) {
+          Alert.alert(
+            "Alert",
+            "To scan a QR code, the OZOSTAR app must have access permissions. Please grant access to the location.",
+            [{ text: "NO" }, { text: "Yes", onPress: openSettings }],
+            { cancelable: false }
+          );
+        } else if (error.code === 2) {
+          getLocationPermission();
+        } else {
+          Alert.alert(
+            "Unable To Fetch Location Status",
+            "We are not able to fetch your location status at the moment",
+            [
+              {
+                text: "OK",
+                onPress: () => {
+                  navigation.navigate("Dashboard");
+                },
+              },
+            ]
+          );
         }
-     
-    }
-  };
+      }
+    );
+  }, []);
 
   useEffect(() => {
     const subscription = AppState.addEventListener("change", (nextAppState) => {
       appState.current = nextAppState;
-      if (appState.current == "active") {
+      if(appState.current == "active")
+      {
         // getLocationPermission()
       }
       console.log("AppState", appState.current);
@@ -384,29 +275,22 @@ const EnableLocationScreen = ({ route, navigation }) => {
           />
         )}
         {locationEnabled && locationPermissionStatus && (
-          <View style={{ alignItems: "center", justifyContent: "center" }}>
-            <PoppinsTextMedium
-              style={{ ...styles.grantedText, color: ternaryThemeColor }}
-              content="Location Access Granted"
-            />
-            <View style={{ flexDirection: "row" }}>
-              {lat && (
-                <PoppinsTextMedium
-                  style={{ ...styles.grantedSubText, color: ternaryThemeColor }}
-                  content={`LAT - ${lat?.toFixed(2)},`}
-                />
-              )}
-              {lon && (
-                <PoppinsTextMedium
-                  style={{
-                    ...styles.grantedSubText,
-                    color: ternaryThemeColor,
-                    marginLeft: 10,
-                  }}
-                  content={`LOG - ${lon?.toFixed(2)}`}
-                />
-              )}
-            </View>
+          <View style={{alignItems:'center',justifyContent:'center'}}>
+          <PoppinsTextMedium
+            style={{ ...styles.grantedText, color: ternaryThemeColor }}
+            content="Location Access Granted"
+          />
+          <View style={{flexDirection:'row'}}>
+          { lat && <PoppinsTextMedium
+            style={{ ...styles.grantedSubText, color: ternaryThemeColor }}
+            content={`LAT - ${lat?.toFixed(2)},`}
+          />}
+          {lon && <PoppinsTextMedium
+            style={{ ...styles.grantedSubText, color: ternaryThemeColor, marginLeft:10 }}
+            content={`LOG - ${lon?.toFixed(2)}`}
+          />}
+          </View>
+          
           </View>
         )}
         <TouchableOpacity
