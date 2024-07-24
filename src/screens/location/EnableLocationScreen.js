@@ -19,7 +19,7 @@ import {
   setLocationPermissionStatus,
   setLocationEnabled,
 } from "../../../redux/slices/userLocationSlice";
-import { GoogleMapsKey } from "@env";
+import { GoogleMapsKey,locationIqApi } from "@env";
 import { useIsFocused } from "@react-navigation/native";
 import crashlytics from "@react-native-firebase/crashlytics";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -189,7 +189,7 @@ const EnableLocationScreen = ({ route, navigation }) => {
         };
         if (
           (lati == undefined) & (long == undefined) ||
-          (lati == null && long == undefined)
+          (lati == null || long == null)
         ) {
           Alert.alert(
             "Unable To Fetch Location",
@@ -228,7 +228,7 @@ const EnableLocationScreen = ({ route, navigation }) => {
           }
         }
 
-        const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lati},${long}&location_type=ROOFTOP&result_type=street_address&key=${123124312312}`;
+        const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lati},${long}&location_type=ROOFTOP&result_type=street_address&key=${GoogleMapsKey}`;
 
         fetch(url)
           .then((response) => response.json())
@@ -301,14 +301,14 @@ const EnableLocationScreen = ({ route, navigation }) => {
     console.log("handleFailedLocationFetch",error,latitude,longitude)
     const savedLocation = await getLocationFromStorage();
 
-    if (savedLocation) {
+    if (savedLocation && Object.keys(savedLocation).length!=0) {
         const distance = haversineDistance(
             savedLocation.lat,
             savedLocation.lon,
             latitude,
             longitude
           );
-    console.error("Failed to fetch location:", latitude,longitude, error,savedLocation,distance,locationRadius);
+    console.error("Failed to fetch location:", latitude,longitude, error,savedLocation,distance,locationSetup?.radius);
         
         if (distance <= locationSetup?.radius) {
             // Use previously saved location
@@ -322,8 +322,139 @@ const EnableLocationScreen = ({ route, navigation }) => {
             }, 500);
             
           }
+          else {
+            console.log("inside else handleFailedLocationFetch")
+            //location IQ reverse geocoding api to resolve unhandled requests from google api.
+            try{
+              const options = {method: 'GET', headers: {accept: 'application/json'}};
+              console.log("location IQ API", locationIqApi, lat,lon)
+              fetch(`https://us1.locationiq.com/v1/reverse?key=${locationIqApi}&lat=${latitude}&lon=${longitude}&format=json`,options)
+              .then(response => response.json())
+              .then(response => {
+                console.log("location iq api response",response)
+                let locationJson = {}
+                locationJson["lat"] = latitude
+                locationJson["lon"] = longitude
+                locationJson["postcode"] = response?.address?.postcode
+                locationJson["city"] = response?.address?.city
+                locationJson["state"] = response?.address?.state
+                locationJson["district"] = response?.address?.state_district
+                locationJson["country"] = response?.address?.country
+                dispatch(setLocation(locationJson));
+                dispatch(setLocationPermissionStatus(true));
+                dispatch(setLocationEnabled(true));
+                saveLocationToStorage(locationJson);
       
-    } else {
+                setTimeout(() => {
+                  navigateTo && navigation.replace(navigateTo);
+                }, 500);
+              })
+              .catch(err => {
+                console.error(err)
+                if(continueWithoutGeocoding)
+                {
+                    setTimeout(() => {
+                        navigateTo && navigation.replace(navigateTo);
+                      }, 500);
+                }
+                else{
+                    Alert.alert(
+                        "Unable To Fetch Location",
+                        "We are not able to fetch your location from your lat/lon at the moment",
+                        [
+                          {
+                            text: "OK",
+                            onPress: () => {
+                              navigation.navigate("Dashboard");
+                            },
+                          },
+                        ]
+                      );
+                }
+              });
+            }
+            catch(e)
+            {
+      
+              if(continueWithoutGeocoding)
+              {
+                  setTimeout(() => {
+                      navigateTo && navigation.replace(navigateTo);
+                    }, 500);
+              }
+              else{
+                  Alert.alert(
+                      "Unable To Fetch Location",
+                      "We are not able to fetch your location from your lat/lon at the moment",
+                      [
+                        {
+                          text: "OK",
+                          onPress: () => {
+                            navigation.navigate("Dashboard");
+                          },
+                        },
+                      ]
+                    );
+              }
+            }
+      
+          }
+      
+    }
+    else {
+      console.log("inside else handleFailedLocationFetch")
+      //location IQ reverse geocoding api to resolve unhandled requests from google api.
+      try{
+        const options = {method: 'GET', headers: {accept: 'application/json'}};
+        console.log("location IQ API", locationIqApi, lat,lon)
+        fetch(`https://us1.locationiq.com/v1/reverse?key=${locationIqApi}&lat=${latitude}&lon=${longitude}&format=json`,options)
+        .then(response => response.json())
+        .then(response => {
+          console.log("location iq api response",response)
+          let locationJson = {}
+          locationJson["lat"] = latitude
+          locationJson["lon"] = longitude
+          locationJson["postcode"] = response?.address?.postcode
+          locationJson["city"] = response?.address?.city
+          locationJson["state"] = response?.address?.state
+          locationJson["district"] = response?.address?.state_district
+          locationJson["country"] = response?.address?.country
+          dispatch(setLocation(locationJson));
+          dispatch(setLocationPermissionStatus(true));
+          dispatch(setLocationEnabled(true));
+          saveLocationToStorage(locationJson);
+
+          setTimeout(() => {
+            navigateTo && navigation.replace(navigateTo);
+          }, 500);
+        })
+        .catch(err => {
+          console.error(err)
+          if(continueWithoutGeocoding)
+          {
+              setTimeout(() => {
+                  navigateTo && navigation.replace(navigateTo);
+                }, 500);
+          }
+          else{
+              Alert.alert(
+                  "Unable To Fetch Location",
+                  "We are not able to fetch your location from your lat/lon at the moment",
+                  [
+                    {
+                      text: "OK",
+                      onPress: () => {
+                        navigation.navigate("Dashboard");
+                      },
+                    },
+                  ]
+                );
+          }
+        });
+      }
+      catch(e)
+      {
+
         if(continueWithoutGeocoding)
         {
             setTimeout(() => {
@@ -344,7 +475,8 @@ const EnableLocationScreen = ({ route, navigation }) => {
                 ]
               );
         }
-     
+      }
+
     }
   };
 

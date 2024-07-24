@@ -128,9 +128,9 @@ const RedeemGifts = ({navigation,route}) => {
   const getDistinctSchemeCategories=(data)=>{
     let allCategories = []
 
-    for(var i=0;i<data.length;i++)
+    for(var i=0;i<data?.length;i++)
     {
-      allCategories.push(data[i].category)
+      allCategories.push(data[i]?.category)
     }
     const set = new Set(allCategories)
     const arr = Array.from(set)

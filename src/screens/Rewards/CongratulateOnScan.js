@@ -704,8 +704,8 @@ const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loadingAnim
               flexDirection:'row'
             }}
           >
-            <PoppinsTextMedium style={{color:'black',fontSize:12}} content={`LAT  ${(location?.lat).toFixed(2)}, `}></PoppinsTextMedium>
-            <PoppinsTextMedium style={{color:'black',marginLeft:10,fontSize:12}} content={`LOG  ${(location?.lon).toFixed(2)}`}></PoppinsTextMedium>
+            <PoppinsTextMedium style={{color:'black',fontSize:12}} content={`LAT  ${(location?.lat)?.toFixed(2)}, `}></PoppinsTextMedium>
+            <PoppinsTextMedium style={{color:'black',marginLeft:10,fontSize:12}} content={`LOG  ${(location?.lon)?.toFixed(2)}`}></PoppinsTextMedium>
 
           </View>}
       </View>
