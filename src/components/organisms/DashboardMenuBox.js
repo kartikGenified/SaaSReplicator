@@ -77,7 +77,6 @@ const DashboardMenuBox=(props)=>{
             })
             
         }
-        <MenuItems handlePress={handleMenuItemPress} key={data.length-1} image={''} content={"Scheme"}></MenuItems>
         </View>
         </View>
     )
