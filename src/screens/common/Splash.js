@@ -36,7 +36,7 @@ import {
   setAutoApproval,
   setRegistrationRequired,
   setAppVersion,
-  setLocationSetup
+  setLocationSetup,
 } from "../../../redux/slices/appUserSlice";
 import { setPointSharing } from "../../../redux/slices/pointSharingSlice";
 import { useIsFocused } from "@react-navigation/native";
@@ -132,9 +132,7 @@ const Splash = ({ navigation }) => {
     console.log("current version check", currentVersion);
     dispatch(setAppVersion(currentVersion));
   }
-  const gifUri = Image.resolveAssetSource(
-    splash
-  ).uri;
+  const gifUri = Image.resolveAssetSource(splash).uri;
   // generating functions and constants for API use cases---------------------
   const [
     getAppTheme,
@@ -253,8 +251,6 @@ const Splash = ({ navigation }) => {
   }, []);
 
   useEffect(() => {
-    getUsers();
-
     console.log("currentVersion", currentVersion);
     if (isConnected.isConnected) {
       getMinVersionSupportFunc(currentVersion);
@@ -336,14 +332,14 @@ const Splash = ({ navigation }) => {
                 );
                 console.log(
                   "navigate to dashboard error",
-                ( !__DEV__ && minVersionSupport),
+                  !__DEV__ && minVersionSupport,
                   jsonValue,
                   getDashboardData,
                   getWorkflowData
                 );
 
                 getFormData &&
-                ( !__DEV__ ? minVersionSupport : true) &&
+                  (!__DEV__ ? minVersionSupport : true) &&
                   jsonValue &&
                   getDashboardData &&
                   getWorkflowData &&
@@ -414,14 +410,14 @@ const Splash = ({ navigation }) => {
         );
 
         getFormData &&
-        ( !__DEV__ ? minVersionSupport : true)  &&
+          (!__DEV__ ? minVersionSupport : true) &&
           getAppMenuData &&
           getDashboardData &&
           getWorkflowData &&
           navigation.reset({ index: "0", routes: [{ name: "Dashboard" }] });
       }
     } else if (getAppMenuError) {
-      console.log("getAppMenuError", getAppMenuError)
+      console.log("getAppMenuError", getAppMenuError);
     }
   }, [getAppMenuData, getAppMenuError]);
 
@@ -446,18 +442,17 @@ const Splash = ({ navigation }) => {
       const getData = async () => {
         try {
           const value = await AsyncStorage.getItem("appDashboard");
-          const jsonValue = JSON.parse(value)
+          const jsonValue = JSON.parse(value);
           if (jsonValue != null) {
             const getCurrentTimeInMilliSecond = new Date().getTime();
             if (
               getCurrentTimeInMilliSecond - lastFetchedApiOn >
               apiFetchingInterval
-            ){
+            ) {
               dispatch(setWarrantyForm(getFormData?.body?.template));
-            dispatch(setWarrantyFormId(getFormData?.body?.form_template_id));
-            parsedJsonValue && getDashboardFunc(parsedJsonValue?.token);
-            }
-            else{
+              dispatch(setWarrantyFormId(getFormData?.body?.form_template_id));
+              parsedJsonValue && getDashboardFunc(parsedJsonValue?.token);
+            } else {
               if (parsedJsonValue) {
                 const getData = async () => {
                   try {
@@ -470,9 +465,8 @@ const Splash = ({ navigation }) => {
                         getCurrentTimeInMilliSecond - lastFetchedApiOn >
                         apiFetchingInterval
                       ) {
-                        
-        
-                        parsedJsonValue && getAppMenuFunc(parsedJsonValue?.token);
+                        parsedJsonValue &&
+                          getAppMenuFunc(parsedJsonValue?.token);
                       } else {
                         console.log("data already present saving appmenu");
                         dispatch(setDrawerData(jsonValue));
@@ -481,9 +475,7 @@ const Splash = ({ navigation }) => {
                         dispatch(setAppUserType(parsedJsonValue.user_type));
                         dispatch(setUserData(parsedJsonValue));
                         dispatch(setId(parsedJsonValue.id));
-                        dispatch(
-                          setDashboardData(jsonValue)
-                        );
+                        dispatch(setDashboardData(jsonValue));
                         console.log(
                           "navigate to dashboard error",
                           minVersionSupport,
@@ -491,10 +483,9 @@ const Splash = ({ navigation }) => {
                           jsonValue,
                           getWorkflowData
                         );
-        
-                        getFormData &&
-                        ( !__DEV__ ? minVersionSupport : true) 
-                          jsonValue &&
+
+                        getFormData && (!__DEV__ ? minVersionSupport : true);
+                        jsonValue &&
                           jsonValue &&
                           getWorkflowData &&
                           navigation.reset({
@@ -509,18 +500,21 @@ const Splash = ({ navigation }) => {
                       dispatch(setAppUserType(parsedJsonValue.user_type));
                       dispatch(setUserData(parsedJsonValue));
                       dispatch(setId(parsedJsonValue.id));
-                      dispatch(setDashboardData(getDashboardData?.body?.app_dashboard));
+                      dispatch(
+                        setDashboardData(getDashboardData?.body?.app_dashboard)
+                      );
                       setShowLoading(false);
-        
+
                       parsedJsonValue && getAppMenuFunc(parsedJsonValue?.token);
                     }
                   } catch (e) {
-                    console.warn("Error in fetching appDashboard async value", e);
+                    console.warn(
+                      "Error in fetching appDashboard async value",
+                      e
+                    );
                   }
                 };
                 getData();
-        
-               
               }
             }
           } else {
@@ -529,7 +523,7 @@ const Splash = ({ navigation }) => {
             parsedJsonValue && getDashboardFunc(parsedJsonValue?.token);
           }
         } catch (e) {
-          console.warn("Problem in fetching appDashboard")
+          console.warn("Problem in fetching appDashboard");
         }
       };
       getData();
@@ -773,14 +767,13 @@ const Splash = ({ navigation }) => {
           }
         },
         {
-          enableHighAccuracy:true
+          enableHighAccuracy: true,
         }
       );
     } catch (e) {}
   }, [navigation, fetchLocation]);
 
   useEffect(() => {
-    getUsers();
     getAppTheme("ozone");
     const checkToken = async () => {
       const fcmToken = await messaging().getToken();
@@ -864,7 +857,38 @@ const Splash = ({ navigation }) => {
     console.log("internet status", isConnected);
     setConnected(isConnected.isConnected);
     // setIsSlowInternet(isConnected.isInternetReachable)
-    getUsers();
+    const getData = async () => {
+      try {
+        const value = await AsyncStorage.getItem("storedUsers");
+        const jsonValue = JSON.parse(value);
+        console.log("jsonValueGetDashbaordData", jsonValue);
+        if (jsonValue != null) {
+          const getCurrentTimeInMilliSecond = new Date().getTime();
+          if (
+            getCurrentTimeInMilliSecond - lastFetchedApiOn >
+            apiFetchingInterval
+          ) {
+            console.log("storing userData because the time has past");
+            getUsers();
+          } else {
+            console.log("data already present saving userData");
+            const appUsersData = jsonValue?.body.map((item, index) => {
+              return {
+                name: item.name,
+                id: item.user_type_id,
+              };
+            });
+            dispatch(setAppUsersData(appUsersData));
+          }
+        } else {
+          console.log("There is no user data calling the api for the first time");
+          getUsers();
+        }
+      } catch (e) {
+        console.warn("Error in fetching userData async value", e);
+      }
+    };
+    getData();
     dispatch(setAppVersion(currentVersion));
 
     getMinVersionSupportFunc(currentVersion);
@@ -874,7 +898,6 @@ const Splash = ({ navigation }) => {
 
   useEffect(() => {
     if (getUsersData) {
-      // console.log("getUsersData", getUsersData?.body);
       const appUsers = getUsersData?.body.map((item, index) => {
         return item.name;
       });
@@ -884,6 +907,18 @@ const Splash = ({ navigation }) => {
           id: item.user_type_id,
         };
       });
+      console.log("getUsersData", appUsers, appUsersData);
+
+      const storeData = async (value) => {
+        try {
+          const jsonValue = JSON.stringify(value);
+          await AsyncStorage.setItem("storedUsers", jsonValue);
+          console.log("stored user data from splash", jsonValue);
+        } catch (e) {
+          console.warn("Could not store User data from splash", e);
+        }
+      };
+      storeData(getUsersData?.body);
       dispatch(setAppUsers(appUsers));
       dispatch(setAppUsersData(appUsersData));
     } else if (getUsersError) {
@@ -958,11 +993,11 @@ const Splash = ({ navigation }) => {
       // console.log("isAlreadyIntroduced",isAlreadyIntroduced)
     } else {
       setShowLoading(false);
-      console.log("minVersionSupport while login",minVersionSupport)
-      __DEV__&& setMinVersionSupport(true);
+      console.log("minVersionSupport while login", minVersionSupport);
+      __DEV__ && setMinVersionSupport(true);
 
       if (value === "Yes") {
-     navigation.navigate("SelectUser");
+        navigation.navigate("SelectUser");
       } else {
         navigation.navigate("Introduction");
       }
@@ -975,9 +1010,12 @@ const Splash = ({ navigation }) => {
   // fetching data and checking for errors from the API-----------------------
   useEffect(() => {
     if (getAppThemeData) {
-      console.log("getAppThemeData", JSON.stringify(getAppThemeData?.body))
-      dispatch(setLocationSetup(getAppThemeData?.body?.location))
-      console.log("dispatching locaion setup data",getAppThemeData?.body?.location)
+      console.log("getAppThemeData", JSON.stringify(getAppThemeData?.body));
+      dispatch(setLocationSetup(getAppThemeData?.body?.location));
+      console.log(
+        "dispatching locaion setup data",
+        getAppThemeData?.body?.location
+      );
       dispatch(
         setPrimaryThemeColor(getAppThemeData?.body?.theme?.color_shades["600"])
       );

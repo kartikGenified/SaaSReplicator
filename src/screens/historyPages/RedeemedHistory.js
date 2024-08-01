@@ -38,7 +38,7 @@ const RedeemedHistory = ({ navigation }) => {
   const userData = useSelector(state => state.appusersdata.userData)
   const userId = useSelector(state => state.appusersdata.userId);
   
-  const appUserData = useSelector(state=>state.appusers.value)
+  const appUserData = useSelector(state=>state.appusers.appUsersData)
   const id = useSelector(state => state.appusersdata.id);
   const focused = useIsFocused()
   const fetchPoints = async () => {

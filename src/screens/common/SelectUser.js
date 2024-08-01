@@ -5,7 +5,7 @@ import {BaseUrl} from '../../utils/BaseUrl';
 import LinearGradient from 'react-native-linear-gradient';
 import {useGetAppUsersDataMutation} from '../../apiServices/appUsers/AppUsersApi';
 import SelectUserBox from '../../components/molecules/SelectUserBox';
-import { setAppUsers } from '../../../redux/slices/appUserSlice';
+import { setAppUsers, setAppUsersData } from '../../../redux/slices/appUserSlice';
 import { slug } from '../../utils/Slug';
 import { setAppUserType, setAppUserName, setAppUserId, setUserData, setId} from '../../../redux/slices/appUserDataSlice';
 import PoppinsTextMedium from '../../components/electrons/customFonts/PoppinsTextMedium';
@@ -22,7 +22,7 @@ const SelectUser = ({navigation}) => {
   const [listUsers, setListUsers] = useState();
   const [showSplash, setShowSplash] = useState(true)
   const [connected, setConnected] = useState(true)
-  const [isSingleUser, setIsSingleUser]  = useState(true)
+  const [isSingleUser, setIsSingleUser]  = useState(null)
   const [needsApproval, setNeedsApproval] = useState()
   const [error, setError] = useState(false);
   const [message, setMessage] = useState();
@@ -42,8 +42,7 @@ const SelectUser = ({navigation}) => {
   
 
   const icon = useSelector(state => state.apptheme.icon)
-    ? useSelector(state => state.apptheme.icon)
-    : require('../../../assets/images/demoIcon.png');
+    
 
     const otpLogin = useSelector(state => state.apptheme.otpLogin)
     // console.log(useSelector(state => state.apptheme.otpLogin))
@@ -73,10 +72,51 @@ const SelectUser = ({navigation}) => {
   useEffect(() => {
     const backHandler = BackHandler.addEventListener('hardwareBackPress', () => true)
     getData()
+    const getUserData = async () => {
+      try {
+        const value = await AsyncStorage.getItem("storedUsers");
+        const jsonValue = JSON.parse(value);
+        console.log("jsonValueGetDashbaordData", jsonValue);
+        if (jsonValue != null) {
+          console.log("type of users",jsonValue);
+      let tempUsers = []
+      for(var i=0;i<jsonValue.length;i++)
+        {
+          if(hideUserFromLogin.includes(jsonValue[i]?.user_type.toLowerCase()))
+          {
+            continue
+          }
+          else
+          {
+            tempUsers.push(jsonValue[i])
+          }
+        }
+      console.log("new user data array after removing NON REQUIRED users", tempUsers)
+      setUsers(tempUsers)
+      if(tempUsers.length == 1)
+      {
+        setIsSingleUser(true)
+      }
+      else
+      {
+        setIsSingleUser(false)
+      }
+      dispatch(setAppUsers(tempUsers))
+      setListUsers(tempUsers);
+        } else {
+          console.log("There is no user data calling the api for the first time");
+          getUsers();
+        }
+      } catch (e) {
+        console.warn("Error in fetching userData async value", e);
+      }
+    };
+    getUserData();
     getUsers();
     return () => backHandler.remove()
   }, []);
   useEffect(() => {
+    
     if (getUsersData) {
       console.log("type of users",getUsersData?.body);
       let tempUsers = []
@@ -86,7 +126,8 @@ const SelectUser = ({navigation}) => {
           {
             continue
           }
-          else{
+          else
+          {
             tempUsers.push(getUsersData?.body[i])
           }
         }
@@ -96,9 +137,11 @@ const SelectUser = ({navigation}) => {
       {
         setIsSingleUser(true)
       }
-      else{
+      else
+      {
         setIsSingleUser(false)
       }
+      console.log("isSingleUser",isSingleUser)
       dispatch(setAppUsers(tempUsers))
       setListUsers(tempUsers);
     } else if(getUsersError) {
@@ -109,6 +152,7 @@ const SelectUser = ({navigation}) => {
   }, [getUsersData, getUsersError]);
 
   useEffect(()=>{
+    console.log("isSingleUser 1", isSingleUser)
     if(isSingleUser && users)
     {
       console.log("IS SINGLE USER", manualApproval,autoApproval,registrationRequired,users)
