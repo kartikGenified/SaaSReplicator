@@ -14,6 +14,7 @@ import ErrorModal from '../../components/modals/ErrorModal';
 import { t } from 'i18next';
 import { ActivityIndicator, MD2Colors } from "react-native-paper";
 import hideUserFromLogin from '../../utils/hideUserFromLogin';
+import { splash } from '../../utils/HandleClientSetup';
 
 
 
@@ -251,7 +252,7 @@ const SelectUser = ({navigation}) => {
         alignItems: "center",
         justifyContent: "center",
       }}
-      source={require("../../../assets/images/splash.png")}
+      source={splash}
     >
         <View style={{ position: "absolute", bottom: 70, height: 70 }}>
         <PoppinsTextMedium stytle={{color:'#DDDDDD',fontWeight:'800',fontSize:30,marginBottom:20}} content ="Preparing your login experience..."></PoppinsTextMedium>

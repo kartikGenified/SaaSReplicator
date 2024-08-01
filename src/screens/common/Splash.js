@@ -101,6 +101,7 @@ import SpInAppUpdates, {
 import { useInternetSpeedContext } from "../../Contexts/useInternetSpeedContext";
 import { setSlowNetwork } from "../../../redux/slices/internetSlice";
 import { apiFetchingInterval } from "../../utils/apiFetchingInterval";
+import { splash } from "../../utils/HandleClientSetup";
 
 const Splash = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -132,7 +133,7 @@ const Splash = ({ navigation }) => {
     dispatch(setAppVersion(currentVersion));
   }
   const gifUri = Image.resolveAssetSource(
-    require("../../../assets/gif/ozoStars.gif")
+    splash
   ).uri;
   // generating functions and constants for API use cases---------------------
   const [
@@ -335,14 +336,14 @@ const Splash = ({ navigation }) => {
                 );
                 console.log(
                   "navigate to dashboard error",
-                  minVersionSupport,
+                ( !__DEV__ && minVersionSupport),
                   jsonValue,
                   getDashboardData,
                   getWorkflowData
                 );
 
                 getFormData &&
-                  minVersionSupport &&
+                ( !__DEV__ ? minVersionSupport : true) &&
                   jsonValue &&
                   getDashboardData &&
                   getWorkflowData &&
@@ -406,21 +407,21 @@ const Splash = ({ navigation }) => {
 
         console.log(
           "navigate to dashboard error",
-          minVersionSupport,
+          // minVersionSupport,
           getAppMenuData,
           getDashboardData,
           getWorkflowData
         );
 
         getFormData &&
-          minVersionSupport &&
+        ( !__DEV__ ? minVersionSupport : true)  &&
           getAppMenuData &&
           getDashboardData &&
           getWorkflowData &&
           navigation.reset({ index: "0", routes: [{ name: "Dashboard" }] });
       }
     } else if (getAppMenuError) {
-      // console.log("getAppMenuError", getAppMenuError)
+      console.log("getAppMenuError", getAppMenuError)
     }
   }, [getAppMenuData, getAppMenuError]);
 
@@ -492,7 +493,7 @@ const Splash = ({ navigation }) => {
                         );
         
                         getFormData &&
-                          minVersionSupport &&
+                        ( !__DEV__ ? minVersionSupport : true) 
                           jsonValue &&
                           jsonValue &&
                           getWorkflowData &&
@@ -958,11 +959,12 @@ const Splash = ({ navigation }) => {
     } else {
       setShowLoading(false);
       console.log("minVersionSupport while login",minVersionSupport)
+      __DEV__&& setMinVersionSupport(true);
 
       if (value === "Yes") {
-        minVersionSupport && navigation.navigate("SelectUser");
+     navigation.navigate("SelectUser");
       } else {
-        minVersionSupport && navigation.navigate("Introduction");
+        navigation.navigate("Introduction");
       }
       // console.log("isAlreadyIntroduced",isAlreadyIntroduced,gotLoginData)
     }
@@ -1124,7 +1126,7 @@ const Splash = ({ navigation }) => {
         alignItems: "center",
         justifyContent: "center",
       }}
-      source={require("../../../assets/images/splash2.png")}
+      source={splash}
     >
       <InternetModal visible={!connected} comp={NoInternetComp} />
       {isSlowInternet && (

@@ -37,6 +37,7 @@ import ModalWithBorder from '../../components/modals/ModalWithBorder';
 import ErrorModal from '../../components/modals/ErrorModal';
 import { useTranslation } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { needCaimpaign } from '../../utils/HandleClientSetup';
 
 
 
@@ -482,9 +483,11 @@ const Dashboard = ({ navigation }) => {
               <Banner images={bannerArray}></Banner>
             }
 
-            <CampaignVideoModal isVisible={CampainVideoVisible} onClose={()=>{
-              setCmpainVideoVisible(false)
-            }} />
+          {needCaimpaign && 
+           <CampaignVideoModal isVisible={CampainVideoVisible} onClose={()=>{
+            setCmpainVideoVisible(false)
+          }} />
+          }  
           </View>
          {/* Ozone specific change do not show for sales */}
          {

@@ -261,10 +261,10 @@ const RedeemedHistory = ({ navigation }) => {
       }
       else {
         
-        if((Number(new Date(redemptionStartData).getTime()) <= Number(new Date().getTime()) ) &&  ( Number(new Date().getTime()) <= Number(new Date(redemptionEndDate).getTime())) )
+        if((Number(new Date(redemptionStartData).split('T')[0]) <= Number(new Date().split('T')[0]) ) &&  ( Number(new Date().split('T')[0]) <= Number(new Date(redemptionEndDate).split('T')[0])) )
         {
           
-          console.log("correct redemption date",new Date().getTime(),new Date(redemptionStartData).getTime(),new Date(redemptionEndDate).getTime())
+          console.log("correct redemption date",new Date().split('T')[0],new Date(redemptionStartData).split('T')[0],new Date(redemptionEndDate).split('T')[0])
         if(!showKyc)
         {
           setModalVisible(true)

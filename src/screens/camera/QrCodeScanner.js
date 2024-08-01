@@ -688,13 +688,6 @@ const codeScanner = useCodeScanner({
             let duplicateQrSet = new Set(isDuplicateQr)
             duplicateQrSet.add(qrData)
           setIsDuplicateQr(duplicateQrSet);
-         
-          
-       
-        
-
-        
-        
        
     }
 };
