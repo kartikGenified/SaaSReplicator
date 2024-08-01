@@ -10,6 +10,7 @@ import Wave from '../../assets/svg/bottomDrawer.svg'
 import PoppinsTextMedium from '../components/electrons/customFonts/PoppinsTextMedium';
 import BookOpen from 'react-native-vector-icons/Entypo' 
 import { useTranslation } from 'react-i18next';
+import FlipAnimation from '../components/animations/FlipAnimation';
 
 const Tab = createBottomTabNavigator();
 
@@ -55,12 +56,24 @@ const {t} = useTranslation()
     {/* ozone change */}
     { ((userData?.user_type).toLowerCase()!=="dealer"  && (userData?.user_type).toLowerCase()!=="sales") ? <TouchableOpacity onPress={()=>{Platform.OS == 'android' ? navigation.navigate('EnableCameraScreen') : requiresLocation ? navigation.navigate('EnableLocationScreen',{navigateTo:"QrCodeScanner"}) : navigation.navigate("QrCodeScanner")
 }} style={{alignItems:"center",justifyContent:"center",}}>
-    <Qrcode name="qrcode" size={24} color={ternaryThemeColor}></Qrcode>
+    {/* <Qrcode name="qrcode" size={24} color={ternaryThemeColor}></Qrcode> */}
+    <FlipAnimation direction="horizontal" duration={1400} comp={()=>{
+      return(
+        <Qrcode name="qrcode" size={24} color={ternaryThemeColor}></Qrcode> 
+
+      )
+    }} />
     <PoppinsTextMedium style={{marginTop:4,fontSize:12,fontWeight:platformFontWeight,color:'black'}} content={t("Scan QR")}></PoppinsTextMedium>
     </TouchableOpacity>
     :
     workflow?.includes("Genuinity") && <TouchableOpacity onPress={()=>{navigation.navigate('ScanAndRedirectToGenuinity')}} style={{alignItems:"center",justifyContent:"center",}}>
-    <Qrcode name="qrcode" size={24} color={ternaryThemeColor}></Qrcode>
+    {/* <Qrcode name="qrcode" size={24} color={ternaryThemeColor}></Qrcode> */}
+    <FlipAnimation direction="horizontal" duration={1400} comp={()=>{
+      return(
+        <Qrcode name="qrcode" size={24} color={ternaryThemeColor}></Qrcode> 
+
+      )
+    }} />
     <PoppinsTextMedium style={{marginTop:4,fontSize:12,fontWeight:platformFontWeight,color:'black'}} content="Check Genuinity"></PoppinsTextMedium>
     </TouchableOpacity>
     }

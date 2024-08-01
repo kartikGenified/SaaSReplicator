@@ -24,6 +24,7 @@ import ModalWithBorder from '../../components/modals/ModalWithBorder';
 import Close from 'react-native-vector-icons/Ionicons';
 import DeleteModal from '../../components/modals/DeleteModal';
 import { useTranslation } from 'react-i18next';
+import { showEditProfile } from '../../utils/HandleClientSetup';
 
 
 
@@ -386,17 +387,21 @@ const Profile = ({ navigation }) => {
               justifyContent: 'center',
               marginLeft: 50,
             }}>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('EditProfile', {
-                  formFields: formFields,
-                  formValues: formValues,
-                  savedImage: fetchProfileData.body?.profile_pic
-                });
-              }}
-              style={{ height: 40, width: 40, borderRadius: 20, backgroundColor: "white", borderWidth: 1, borderColor: ternaryThemeColor, alignItems: "center", justifyContent: 'center' }}>
-              <Edit name="edit" size={20} color={ternaryThemeColor}></Edit>
-            </TouchableOpacity>
+              {
+                showEditProfile &&
+                <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('EditProfile', {
+                    formFields: formFields,
+                    formValues: formValues,
+                    savedImage: fetchProfileData.body?.profile_pic
+                  });
+                }}
+                style={{ height: 40, width: 40, borderRadius: 20, backgroundColor: "white", borderWidth: 1, borderColor: ternaryThemeColor, alignItems: "center", justifyContent: 'center' }}>
+                <Edit name="edit" size={20} color={ternaryThemeColor}></Edit>
+              </TouchableOpacity>
+              }
+
             <TouchableOpacity
               onPress={() => {
                deleteID();
