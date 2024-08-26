@@ -1,1 +1,3 @@
-export const slug = "7"
+import { clientID } from "./HandleClientSetup"
+
+export const slug =clientID

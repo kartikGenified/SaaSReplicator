@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, TextInput, KeyboardAvoidingView } from 'react-native';
 import PoppinsTextMedium from '../../electrons/customFonts/PoppinsTextMedium';
 import PoppinsTextLeftMedium from '../../electrons/customFonts/PoppinsTextLeftMedium';
+import { useIsFocused } from '@react-navigation/native';
+
+
 const TextInputRectangularWithPlaceholder = (props) => {
     const [value, setValue] = useState(props.value)
     const [keyboardType, setKeyboardType] = useState(props.keyboardType)
@@ -14,15 +17,19 @@ const TextInputRectangularWithPlaceholder = (props) => {
     const title  = props.title
     let editable = props.editable
 
+    const focus = useIsFocused()
+
     if(placeHolder.toLowerCase() == ("state") || placeHolder.toLowerCase() == ("district") || placeHolder.toLowerCase() == ("city"))
     {
         editable = false
     }
 
+
+
     useEffect(() => {
         setValue(props.value)
         props.handleData(props.value,props.title)
-    }, [props.value])
+    }, [props.value,focus ])
 
     useEffect(() => {
         if (placeHolder.toLowerCase() === "mobile no" ) {

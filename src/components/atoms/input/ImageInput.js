@@ -1,20 +1,75 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {View, StyleSheet,TouchableOpacity,Image} from 'react-native';
 import PoppinsTextMedium from '../../electrons/customFonts/PoppinsTextMedium';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import * as Keychain from 'react-native-keychain';
+import { useUploadSingleFileMutation } from '../../../apiServices/imageApi/imageApi';
+
 
 const ImageInput = (props) => {
     const [image,setImage] = useState()
     const data=props.data
     const action = props.action
 
+
+  const [
+    uploadImageFunc,
+    {
+      data: uploadImageData,
+      error: uploadImageError,
+      isLoading: uploadImageIsLoading,
+      isError: uploadImageIsError,
+    },
+  ] = useUploadSingleFileMutation();
+
+
+  useEffect(()=>{
+    console.log("image", )
+    if(uploadImageData){
+        console.log("uploadImageData", uploadImageData)
+        let tempJsonData ={...props.jsonData,"value":uploadImageData?.body?.fileLink}
+        console.log(tempJsonData)
+        props.handleData(tempJsonData)
+    }
+    else{
+        console.log("uploadImageError", uploadImageError)
+    }
+  },[uploadImageData,uploadImageError])
+
     const handleOpenImageGallery = async () => {
         const result = await launchImageLibrary();
         console.log(result.assets[0].uri)
         setImage(result.assets[0])
-        let tempJsonData ={...props.jsonData,"value":result.assets[0].uri}
-        console.log(tempJsonData)
-        props.handleData(tempJsonData)
+
+        const imageData = {
+            uri: result.assets[0].uri,
+            name: result.assets[0].uri.slice(0, 10),
+            type: 'jpg/png',
+        };
+        
+        console.log("image Data dd", imageData)
+
+        const imageDataTemp = {
+            uri: imageData.uri,
+            name: imageData.uri.slice(0, 10),
+            type: 'image/png',
+        };
+
+        const uploadFile = new FormData();
+        uploadFile.append('image', imageDataTemp);
+
+        const getToken = async () => {
+            const credentials = await Keychain.getGenericPassword();
+            const token = credentials.username;
+
+            uploadImageFunc({ body: uploadFile,token:token });
+        }
+
+        getToken()
+
+      
+
+      
       };
     return (
         <View style={{width:'100%',alignItems:"center",justifyContent:"center",marginBottom:20}}>

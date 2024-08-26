@@ -46,6 +46,7 @@ import { useIsFocused } from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import {GoogleMapsKey} from "@env"
 import { useTranslation } from 'react-i18next';
+import { RegistrationMessage, clientName, eKyc } from '../../utils/HandleClientSetup';
 
 
 const BasicInfo = ({ navigation, route }) => {
@@ -99,10 +100,10 @@ const BasicInfo = ({ navigation, route }) => {
   const userTypeId = route.params.userId
   const needsApproval = route.params.needsApproval
   const navigatingFrom = route.params.navigatingFrom
-  const registrationRequired = route.params.registrationRequired
+  const registrationRequired = route.params.registrationRequired != undefined ? route.params.registrationRequired  : true 
   console.log("registration required basic info", registrationRequired,navigatingFrom)
   // const navigationParams = { "needsApproval": needsApproval, "userId": userTypeId, "user_type": userType, "mobile": mobile, "name": name, "registrationRequired":registrationRequired}
-  const navigationParams = { "needsApproval": needsApproval, "userId": userTypeId, "userType": userType, "registrationRequired":registrationRequired}
+  const navigationParams = { "needsApproval": needsApproval, "userId": userTypeId, "userType": userType, "registrationRequired":true}
 console.log("navigation params from basic info",navigationParams)
   const name = route.params?.name
   const mobile = route.params?.mobile
@@ -341,7 +342,7 @@ console.log("navigation params from basic info",navigationParams)
       console.log("data after submitting form", registerUserData)
       if (registerUserData.success) {
         setSuccess(true)
-        setMessage("Thank you for joining OZOSTARS Loyalty program, we will get back to you within 1-2 working days")
+        setMessage(RegistrationMessage)
         setModalTitle("Greetings")
       }
       setHideButton(false)
@@ -895,7 +896,7 @@ console.log("responseMap",responseMap)
                             value={userMobile}
                             displayText ={item.name}
                             label={item.label}
-                            isEditable={false}
+                            isEditable={true}
                           >
                             {' '}
                           </TextInputNumericRectangle>}
@@ -984,7 +985,7 @@ console.log("responseMap",responseMap)
                       displayText = {t(item.name.toLowerCase().trim())}
                       value={userName}
                       label={item.label}
-                      isEditable={false}
+                      isEditable={true}
                  
                     ></PrefilledTextInput>
                   )
@@ -1006,7 +1007,8 @@ console.log("responseMap",responseMap)
                 }
 
                 // } 
-                else if (item.name === 'aadhaar' || item.name === "aadhar") {
+                
+                else if (eKyc && (item.name === 'aadhaar' || item.name === "aadhar") ) {
                   console.log("aadhar")
                   return (
                     <TextInputAadhar
@@ -1023,7 +1025,7 @@ console.log("responseMap",responseMap)
                     </TextInputAadhar>
                   );
                 }
-                else if (item.name === 'pan') {
+                else if (eKyc && item.name === 'pan') {
                   console.log("pan")
                   return (
                     <TextInputPan
@@ -1040,7 +1042,7 @@ console.log("responseMap",responseMap)
                     </TextInputPan>
                   );
                 }
-                else if (item.name === 'gstin') {
+                else if ( eKyc && item.name === 'gstin') {
                   console.log("gstin")
                   return (
                     <TextInputGST

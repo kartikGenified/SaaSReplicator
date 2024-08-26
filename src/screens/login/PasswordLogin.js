@@ -79,10 +79,9 @@ const PasswordLogin = ({ navigation, route }) => {
     : '#FFB533';
   const currentVersion = useSelector((state)=>state.appusers.app_version)
 
-
   const icon = useSelector(state => state.apptheme.icon)
-    ? useSelector(state => state.apptheme.icon)
-    : require('../../../assets/images/demoIcon.png');
+
+
 
   const buttonThemeColor = useSelector(
     state => state.apptheme.ternaryThemeColor,
@@ -528,7 +527,7 @@ const PasswordLogin = ({ navigation, route }) => {
       <View style={{
         width: '100%', alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: ternaryThemeColor,
+        // backgroundColor: ternaryThemeColor,
       }}>
         <View
           style={{
@@ -536,7 +535,7 @@ const PasswordLogin = ({ navigation, route }) => {
             width: '100%',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: ternaryThemeColor,
+            backgroundColor: 'white',
             flexDirection: 'row',
 
           }}>
@@ -558,11 +557,8 @@ const PasswordLogin = ({ navigation, route }) => {
               top: 20,
               position: "absolute",
               left: 50,
-
-
-
             }}
-            source={require('../../../assets/images/ozoneWhiteLogo.png')}></Image>
+            source={(icon!=null && icon!= undefined ) ? {uri:icon }: require('../../../assets/images/ozoneWhiteLogo.png')}></Image>
           {/* ozone change */}
          
 
@@ -604,7 +600,7 @@ const PasswordLogin = ({ navigation, route }) => {
             width: '90%'
           }}>
           <PoppinsText
-            style={{ color: 'white', fontSize: 28 }}
+            style={{ color: 'black', fontSize: 28 }}
             content={t("Login To Your Account")}></PoppinsText>
 
         </View>

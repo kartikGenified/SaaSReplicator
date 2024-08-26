@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
 import PoppinsText from "../../electrons/customFonts/PoppinsText";
 import AnimatedDots from "../../animations/AnimatedDots";
+import { useIsFocused } from "@react-navigation/native";
 
 const ButtonNavigateArrow = (props) => {
   const [isClicked, setIsClicked] = useState(false)
@@ -15,6 +16,12 @@ const ButtonNavigateArrow = (props) => {
   const content = props.content;
 
   console.log(props.success);
+
+  const focus = useIsFocused()
+
+  useEffect(()=>{
+
+  },[focus])
 
 
 

@@ -314,17 +314,16 @@ const Passbook = ({ navigation }) => {
                         <RewardBox ></RewardBox>
 
                     </View>}
-                    <View style={{ width: '100%', alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
-                        <View style={{ backgroundColor: 'white' }}>
+                
+                </View>
+{/* 
+                <View style={{ width: '100%', alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
+                        <View style={{ backgroundColor: ternaryThemeColor, }}>
                             {userData && <TouchableOpacity style={{ backgroundColor: ternaryThemeColor, padding: 10, borderRadius: 5, width: 120, alignItems: 'center', }} onPress={() => { navigation.navigate("RedeemedHistory") }}>
                                 <PoppinsTextLeftMedium style={{ color: 'white', fontWeight: '800' }} content={t("redeem")}  ></PoppinsTextLeftMedium>
                             </TouchableOpacity>}
                         </View>
-                    </View>
-                </View>
-
-
-
+                    </View> */}
 
                 {/* options----------------------------- */}
 

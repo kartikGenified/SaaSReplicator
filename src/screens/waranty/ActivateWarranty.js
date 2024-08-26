@@ -38,6 +38,9 @@ const ActivateWarranty = ({ navigation, route }) => {
   const [phone, setPhone] = useState();
   const [invoice, setInvoice] = useState();
   const [date, setDate] = useState();
+
+  const activatedData = route.params.activatedData
+  console.log("route:Activated" ,route.params?.activatedData)
   const [message, setMessage] = useState();
   const [error, setError] = useState(false)
   const [emailValid, setIsValidEmail] = useState(false)
@@ -58,7 +61,7 @@ const ActivateWarranty = ({ navigation, route }) => {
     },
   ] = useUploadSingleFileMutation();
 
-  // const gifUri = Image.resolveAssetSource(require('../../../assets/gif/loader.gif')).uri;
+  // const gifUri = Image.resolveAssetSource(require('../../../assets/gif/cgLoader.gif')).uri;
 
 
   const [
@@ -79,7 +82,7 @@ const ActivateWarranty = ({ navigation, route }) => {
   console.log("date console", date)
   const qrData = useSelector(state => state.qrData.qrData);
   const productData = useSelector(state => state.productData.productData);
-  console.log('QR data', productData);
+  console.log('QR data ---- >', qrData);
   const platform = Platform.OS === 'ios' ? '1' : '2';
   const productList = [];
   productList.push(qrData.created_by_name);
@@ -99,7 +102,8 @@ const ActivateWarranty = ({ navigation, route }) => {
     if (uploadImageData) {
       console.log("uploadImageData", uploadImageData);
       const uploadArray = []
-      uploadArray.push(uploadImageData.body.fileLink)
+      uploadArray.push(uploadImageData.body?.fileLink)
+
       submitDataWithToken(uploadArray);
 
       if (uploadImageData.success) {
@@ -143,6 +147,8 @@ const ActivateWarranty = ({ navigation, route }) => {
   const submitDataWithToken = async data => {
     console.log('image data is', data);
 
+    console.log("ldmdkm")
+
     try {
       const body = {
         name: name,
@@ -155,7 +161,7 @@ const ActivateWarranty = ({ navigation, route }) => {
         form_template_id: JSON.stringify(formTemplateId),
         platform_id: platform,
         secondary_data: responseArray,
-        qr_id: qrData.id
+        qr_id:  qrData.id ? qrData.id : qrData[0].id
       }
 
       console.log('body is', JSON.stringify(body));
@@ -310,6 +316,7 @@ const ActivateWarranty = ({ navigation, route }) => {
               name: item.value.slice(0, 10),
               type: 'image/png',
             };
+            console.log("imageData------>",imageData)
             const uploadFile = new FormData();
             uploadFile.append('image', imageData);
             // console.log("invoice data",item.value)
@@ -499,9 +506,6 @@ const ActivateWarranty = ({ navigation, route }) => {
                       value={location.city}
                     ></PrefilledTextInput>
                   )
-
-
-
                 }
                 
                 else if ((item.name).trim().toLowerCase() === "pincode" && location !== undefined) {
@@ -546,6 +550,7 @@ const ActivateWarranty = ({ navigation, route }) => {
                     <TextInputNumericRectangle
                       jsonData={item}
                       key={index}
+                      isEditable={false}
                       handleData={handleChildComponentData}
                       value={userData.mobile}
                       label={item.label}
@@ -553,6 +558,30 @@ const ActivateWarranty = ({ navigation, route }) => {
                       placeHolder={item.name}>
                       {' '}
                     </TextInputNumericRectangle>
+                  );
+                }
+                else if (item.name === 'product_name' || item.name === "product_name") {
+                  return (
+                    <PrefilledTextInput
+                      jsonData={item}
+                      key={index}
+                      handleData={handleChildComponentData}
+                      placeHolder={item.name}
+                      isEditable={false}
+                      value={activatedData?.[0]?.created_by_name}
+                    ></PrefilledTextInput>
+                  );
+                }
+                else if (item.name === 'product_code' || item.name === "product_code") {
+                  return (
+                    <PrefilledTextInput
+                    jsonData={item}
+                    key={index}
+                    handleData={handleChildComponentData}
+                    placeHolder={item.name}
+                    isEditable = {false}
+                    value={activatedData?.[0]?.product_code}
+                  ></PrefilledTextInput>
                   );
                 }
                 else {

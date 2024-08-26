@@ -17,10 +17,16 @@ import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 
 // create a component
-const CampaignVideoModal = ({ isVisible, onClose }) => {
+const CampaignVideoModal = ({ isVisible, onClose, appCampaignData }) => {
 
     const [hide, setHide] = useState(true);
   const { t } = useTranslation(); // Initialize useTranslation
+
+  const caimpaignData = appCampaignData
+
+  console.log("campaignVideoModal", caimpaignData)
+
+
 
 
     const ternaryThemeColor = useSelector(
@@ -29,46 +35,48 @@ const CampaignVideoModal = ({ isVisible, onClose }) => {
         ? useSelector(state => state.apptheme.ternaryThemeColor)
         : '#FFB533';
 
-    const [
-        getAppCampaign,
-        {
-            data: getAppCampaignData,
-            isLoading: getAppCampaignIsLoading,
-            isError: getAppCampaignIsError,
-            error: getAppCampaignError,
-        },
-    ] = useGetAppCampaignMutation();
+    // const [
+    //     getAppCampaign,
+    //     {
+    //         data: getAppCampaignData,
+    //         isLoading: getAppCampaignIsLoading,
+    //         isError: getAppCampaignIsError,
+    //         error: getAppCampaignError,
+    //     },
+    // ] = useGetAppCampaignMutation();
 
     useEffect(() => {
 
         const getToken = async () => {
-            const credentials = await Keychain.getGenericPassword();
-            const token = credentials.username;
+            // const credentials = await Keychain.getGenericPassword();
+            // const token = credentials.username;
 
-            getAppCampaign(token)
+            // getAppCampaign(token)
+            console.log("getAppCampaignData", appCampaignData);
+            setHide(caimpaignData?.body?.data?.[0]?.image?.can_user_hide);
         }
 
         getToken()
     }, [])
 
-    useEffect(() => {
-        if (getAppCampaignData) {
-            console.log("getAppCampaignData", getAppCampaignData);
-            setHide(getAppCampaignData?.body?.data?.[0]?.image?.can_user_hide);
-        }
-        else if (getAppCampaignError) {
-            console.log("getAppCampaignIsError", getAppCampaignIsError);
-        }
-    }, [getAppCampaignData, getAppCampaignIsError])
+    // useEffect(() => {
+    //     if (getAppCampaignData) {
+    //         console.log("getAppCampaignData", caimpaignData);
+    //         setHide(getAppCampaignData?.body?.data?.[0]?.image?.can_user_hide);
+    //     }
+    //     else if (getAppCampaignError) {
+    //         console.log("getAppCampaignIsError", getAppCampaignIsError);
+    //     }
+    // }, [getAppCampaignData, getAppCampaignIsError])
 
     const touchedVideo = () => {
-        Linking.openURL(`${getAppCampaignData?.body?.data?.[0]?.video_link}`)
+        Linking.openURL(`${caimpaignData?.body?.data?.[0]?.video_link}`)
         setHide(false);
     }
 
 
     const touchedKnowMore = () => {
-        Linking.openURL(`${getAppCampaignData?.body?.data?.[0]?.web_link}`)
+        Linking.openURL(`${caimpaignData?.body?.data?.[0]?.web_link}`)
         setHide(false);
     }
 
@@ -82,8 +90,8 @@ const CampaignVideoModal = ({ isVisible, onClose }) => {
             <View style={styles.modalContainer}>
                 <View style={styles.modalContent}>
                     <PoppinsTextMedium style={{ fontWeight: '800', color: 'black', fontSize: 20 }} content={t("campaign app promotion")}></PoppinsTextMedium>
-                    {getAppCampaignData &&
-                        <Image style={{ width: '100%', height: 150, resizeMode: "center", marginTop: 10 }} source={{ uri: BaseUrlImages + getAppCampaignData?.body?.data?.[0]?.image }}></Image>
+                    {caimpaignData &&
+                        <Image style={{ width: '100%', height: 150, resizeMode: "center", marginTop: 10 }} source={{ uri: BaseUrlImages + appCampaignData?.body?.data?.[0]?.image }}></Image>
                     }
 
 

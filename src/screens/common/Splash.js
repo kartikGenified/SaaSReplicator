@@ -101,7 +101,7 @@ import SpInAppUpdates, {
 import { useInternetSpeedContext } from "../../Contexts/useInternetSpeedContext";
 import { setSlowNetwork } from "../../../redux/slices/internetSlice";
 import { apiFetchingInterval } from "../../utils/apiFetchingInterval";
-import { splash } from "../../utils/HandleClientSetup";
+import { clientName, splash } from "../../utils/HandleClientSetup";
 
 const Splash = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -774,7 +774,8 @@ const Splash = ({ navigation }) => {
   }, [navigation, fetchLocation]);
 
   useEffect(() => {
-    getAppTheme("ozone");
+    getUsers();
+    getAppTheme(clientName);
     const checkToken = async () => {
       const fcmToken = await messaging().getToken();
       if (fcmToken) {
@@ -811,47 +812,47 @@ const Splash = ({ navigation }) => {
     dispatch({ type: "NETWORK_REQUEST" });
   }, []);
 
-  useEffect(() => {
-    if (getMinVersionSupportData) {
-      console.log("getMinVersionSupportData", getMinVersionSupportData);
-      if (getMinVersionSupportData.success) {
-        setMinVersionSupport(getMinVersionSupportData?.body?.data);
-        if (!getMinVersionSupportData?.body?.data) {
-          Alert.alert(
-            "Kindly update the app to the latest version",
-            "Your version of app is not supported anymore, kindly update",
-            [
-              {
-                text: "Update",
-                onPress: () =>
-                  Linking.openURL(
-                    "https://play.google.com/store/apps/details?id=com.netcarrots.ozone"
-                  ),
-              },
-            ]
-          );
-        }
-      } else {
-        if (Object.keys(getMinVersionSupportData?.body)?.length == 0) {
-          Alert.alert(
-            "Kindly update the app to the latest version",
-            "Your version of app is not supported anymore, kindly update",
-            [
-              {
-                text: "Update",
-                onPress: () =>
-                  Linking.openURL(
-                    "https://play.google.com/store/apps/details?id=com.netcarrots.ozone"
-                  ),
-              },
-            ]
-          );
-        }
-      }
-    } else if (getMinVersionSupportError) {
-      // console.log("getMinVersionSupportError", getMinVersionSupportError)
-    }
-  }, [getMinVersionSupportData, getMinVersionSupportError]);
+  // useEffect(() => {
+  //   if (getMinVersionSupportData) {
+  //     console.log("getMinVersionSupportData", getMinVersionSupportData);
+  //     if (getMinVersionSupportData.success) {
+  //       setMinVersionSupport(getMinVersionSupportData?.body?.data);
+  //       if (!getMinVersionSupportData?.body?.data) {
+  //         Alert.alert(
+  //           "Kindly update the app to the latest version",
+  //           "Your version of app is not supported anymore, kindly update",
+  //           [
+  //             {
+  //               text: "Update",
+  //               onPress: () =>
+  //                 Linking.openURL(
+  //                   "https://play.google.com/store/apps/details?id=com.genefied.cg"
+  //                 ),
+  //             },
+  //           ]
+  //         );
+  //       }
+  //     } else {
+  //       if (Object.keys(getMinVersionSupportData?.body)?.length == 0) {
+  //         Alert.alert(
+  //           "Kindly update the app to the latest version",
+  //           "Your version of app is not supported anymore, kindly update",
+  //           [
+  //             {
+  //               text: "Update",
+  //               onPress: () =>
+  //                 Linking.openURL(
+  //                   "https://play.google.com/store/apps/details?id=com.genefied.cg"
+  //                 ),
+  //             },
+  //           ]
+  //         );
+  //       }
+  //     }
+  //   } else if (getMinVersionSupportError) {
+  //     // console.log("getMinVersionSupportError", getMinVersionSupportError)
+  //   }
+  // }, [getMinVersionSupportData, getMinVersionSupportError]);
 
   useEffect(() => {
     console.log("internet status", isConnected);
@@ -892,7 +893,7 @@ const Splash = ({ navigation }) => {
     dispatch(setAppVersion(currentVersion));
 
     getMinVersionSupportFunc(currentVersion);
-    getAppTheme("ozone");
+    getAppTheme(clientName);
     getData();
   }, [isConnected, locationStatusChecked]);
 
