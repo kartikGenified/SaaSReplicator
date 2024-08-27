@@ -9,6 +9,8 @@ const TextInputNumericRectangle = props => {
   const placeHolder = props.placeHolder;
   const maxLength = props.maxLength;
   const label = props.label
+  const keyboardType= props.keyboardType ? props.keyboardType : "numeric"
+  textContentType= props?.textContentType ? props?.textContentType : null
   const required = props.required ===undefined ? props.jsonData.required : props.required
   let displayText = props.placeHolder
 
@@ -85,8 +87,11 @@ const TextInputNumericRectangle = props => {
         onChangeText={text => {
           handleInput(text);
         }}
+        
         value={value}
-        placeholder={required ? `${displayText} *` : `${displayText}`}></TextInput>
+        placeholder={required ? `${displayText} *` : `${displayText}`}>
+          
+        </TextInput>
     </View>
   );
 };

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import DateIcon from 'react-native-vector-icons/MaterialIcons';
 import PoppinsTextMedium from '../../electrons/customFonts/PoppinsTextMedium';
 import moment from 'moment';
+
 
 const InputDate = (props) => {
   // Initialize date with the current date
@@ -11,7 +12,7 @@ const InputDate = (props) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(false);
 
-  const { data, title } = props;
+  const { data, title, minDate } = props;
 
   useEffect(() => {
     // Format the current date and send it to the parent component
@@ -27,6 +28,8 @@ const InputDate = (props) => {
     props.handleData(tempJsonData);
   };
 
+  // console.log("JSSSS",props.jsonData)
+
   return (
     <TouchableOpacity
       onPress={() => setOpen(true)}
@@ -40,12 +43,14 @@ const InputDate = (props) => {
       <View style={styles.icon}>
         <DateIcon name="date-range" color="#DDDDDD" size={30} />
       </View>
+      <Text style={{color:'black', marginLeft:"50%"}}>{props?.jsonData?.label}</Text>
       <DatePicker
         modal
         open={open}
         date={date}
         mode='date'
         maximumDate={new Date()}
+        minimumDate={minDate ? minDate :null}
         onConfirm={(date) => {
           setSelected(true);
           setOpen(false);

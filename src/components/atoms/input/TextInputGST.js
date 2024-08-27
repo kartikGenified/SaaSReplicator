@@ -15,6 +15,10 @@ import ZoomImageAnimation from "../../animations/ZoomImageAnimation";
 
 const TextInputGST = (props) => {
   const [value, setValue] = useState();
+  const [error, setError] = useState();
+  const [message, setMessage] = useState();
+
+
   const [modalVisible, setModalVisible] = useState(false);
   const [keyboardShow, setKeyboardShow] = useState(false);
 
@@ -57,10 +61,15 @@ const TextInputGST = (props) => {
       console.log("verifyGstData", verifyGstData);
       if (verifyGstData.success) {
         setModalVisible(true);
-        Keyboard.dismiss()
+        setError(false);
+
+        Keyboard.dismiss();
       }
     } else if (verifyGstError) {
       console.log("verifyGstError", verifyGstError);
+      setMessage(verifyGstError?.message)
+      setError(true);
+      setModalVisible(false)
     }
   }, [verifyGstData, verifyGstError]);
 
@@ -78,16 +87,17 @@ const TextInputGST = (props) => {
 
   const handleInputEnd = () => {
     let tempJsonData = { ...props.jsonData, value: value };
-    console.log(tempJsonData);
+    console.log("tempJsonData",tempJsonData);
     props.handleData(tempJsonData);
   };
 
   return (
-    <View style={{width:'95%', marginLeft:14}}>
+    <View style={{width:'100%', marginLeft:10}}>
+      <View style={{ width: "100%", marginLeft: 14 }}>
       <View
         style={{
           height: 60,
-          width: "86%",
+          width: "95%",
           borderWidth: 1,
           borderColor: "#DDDDDD",
           alignItems: "center",
@@ -96,7 +106,7 @@ const TextInputGST = (props) => {
           margin: 10,
         }}
       >
-        <Modal
+        {/* <Modal
           animationType="slide"
           transparent={true}
           visible={modalVisible}
@@ -122,7 +132,7 @@ const TextInputGST = (props) => {
               </Pressable>
             </View>
           </View>
-        </Modal>
+        </Modal> */}
 
         <View
           style={{
@@ -165,31 +175,85 @@ const TextInputGST = (props) => {
           onChangeText={(text) => {
             handleInput(text);
           }}
-          
           value={value}
           placeholder={required ? `${placeHolder} *` : `${placeHolder}`}
         ></TextInput>
-        {verifyGstData?.success &&
+        {/* {verifyGstData?.success &&
           <ZoomImageAnimation
                 style={{ height:20,width:20, position: "absolute",right:10}}
                 zoom={100}
                 duration={1000}
                 image={require("../../../../assets/images/greenTick.png")}
               ></ZoomImageAnimation>
-        }
-        
-
+        } */}
       </View>
-      
-      <Text style={{color:'red',fontSize:13, width:'90%', alignSelf:'center'}}>{verifyGstError?.data?.message}</Text>
 
-      {verifyGstData?.success && <View style={{borderWidth:1, height:120, width:'90%', marginLeft:11, borderColor:'#808080', padding:10}}>
-      <Text style={{color:'black', fontWeight:'bold', paddingHorizontal:10}}>GSTIN: {verifyGstData?.body?.GSTIN}</Text>
-      <Text style={{color:'black', fontWeight:'bold', paddingHorizontal:10, marginTop:5}}>Legal Name: {verifyGstData?.body?.legal_name_of_business}</Text>
-      <Text style={{color:'black', fontWeight:'bold', paddingHorizontal:10, marginTop:5}}>Address: {verifyGstData?.body?.principal_place_address}</Text>
-      </View>}
+      <Text
+        style={{
+          color: "red",
+          fontSize: 13,
+          width: "90%",
+          alignSelf: "center",
+        }}
+      >
+        {verifyGstError?.data?.message}
+      </Text>
+        {
+          modalVisible &&
+          <ZoomImageAnimation
+          style={{ height:30,width:30, position: "absolute",right:75, top:30}}
+          zoom={100}
+          duration={1000}
+          image={require("../../../../assets/images/greenTick.png")}
+        ></ZoomImageAnimation>
+        }
+    
 
+      {verifyGstData?.success && (
+        <View
+          style={{
+            borderWidth: 1,
+            width: "90%",
+            marginLeft: 11,
+            borderColor: "#808080",
+            padding: 10,
+          }}
+        >
+          <Text
+            style={{
+              color: "black",
+              fontWeight: "bold",
+              paddingHorizontal: 10,
+            }}
+          >
+            GSTIN: {verifyGstData?.body?.GSTIN}
+          </Text>
+          <Text
+            style={{
+              color: "black",
+              fontWeight: "bold",
+              paddingHorizontal: 10,
+              marginTop: 5,
+            }}
+          >
+            Legal Name: {verifyGstData?.body?.legal_name_of_business}
+          </Text>
+          <Text
+            style={{
+              color: "black",
+              fontWeight: "bold",
+              paddingHorizontal: 10,
+              marginTop: 5,
+            }}
+          >
+            Address: {verifyGstData?.body?.principal_place_address}
+          </Text>
+        </View>
+      )}
     </View>
+    {/* {error && <Text>{message}</Text>} */}
+    </View>
+    
   );
 };
 
