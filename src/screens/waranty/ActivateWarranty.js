@@ -38,13 +38,19 @@ const ActivateWarranty = ({ navigation, route }) => {
   const [phone, setPhone] = useState();
   const [invoice, setInvoice] = useState();
   const [date, setDate] = useState();
+  const[emailRequired,setEmailRequired] = useState(true);
 
   const activatedData = route.params.activatedData
+  const navigationFrom = route.params.from
+  
+  console.log("route.params 11111",route.params)
+  
   console.log("route:Activated" ,route.params?.activatedData)
   const [message, setMessage] = useState();
   const [error, setError] = useState(false)
   const [emailValid, setIsValidEmail] = useState(false)
   const [hideButton, setHideButton] = useState(false)
+  const [invoiceNo, setInvoiceNo] = useState()
 
 
   //modal
@@ -148,46 +154,55 @@ const ActivateWarranty = ({ navigation, route }) => {
     console.log('image data is', data);
 
     console.log("ldmdkm")
-
-    try {
-      const body = {
-        name: name,
-        phone: phone,
-        warranty_start_date: date,
-        warranty_image: data,
-        user_type_id: userTypeId,
-        user_type: userType,
-        product_id: productData.product_id,
-        form_template_id: JSON.stringify(formTemplateId),
-        platform_id: platform,
-        secondary_data: responseArray,
-        qr_id:  qrData.id ? qrData.id : qrData[0].id
-      }
-
-      console.log('body is', JSON.stringify(body));
-      const credentials = await Keychain.getGenericPassword();
-      if (credentials) {
-        console.log(
-          'Credentials successfully loaded for user ' + credentials.username,
-        );
-
-        const token = credentials.username;
-
-        if(emailValid){
-          activateWarrantyFunc({ token, body });
-          setHideButton(true)
+    if(invoiceNo !== null && invoiceNo !== undefined && invoiceNo !==""){
+      try {
+        const body = {
+          name: name,
+          phone: phone,
+          warranty_start_date: date,
+          warranty_image: data,
+          user_type_id: navigationFrom == "verify" ? 1 :userTypeId,
+          user_type: navigationFrom == "verify" ? "consumer" : userType,
+          product_id: productData.product_id,
+          form_template_id: JSON.stringify(formTemplateId),
+          platform_id: platform,
+          platform:platform == 1 ? "ios" : "android",
+          secondary_data: responseArray,
+          qr_id:  qrData.id ? qrData.id : qrData[0].id,
+          invoice_no:invoiceNo
         }
-        else{
-          setError(true)
-          setMessage("Please enter a valid email")
+  
+        console.log('body is ------->', JSON.stringify(body));
+        const credentials = await Keychain.getGenericPassword();
+        if (credentials) {
+          console.log(
+            'Credentials successfully loaded for user ' + credentials.username,
+          );
+  
+          const token = credentials.username;
+          
+          console.log("email valid while submission", emailValid)
+          if(emailValid || !emailRequired){
+            activateWarrantyFunc({ token, body });
+            setHideButton(true)
+          }
+          else{
+            setError(true)
+            setMessage("Please enter a valid email")
+          }
+  
+        } else {
+          console.log('No credentials stored');
         }
-
-      } else {
-        console.log('No credentials stored');
+      } catch (error) {
+        console.log("Keychain couldn't be accessed!", error);
       }
-    } catch (error) {
-      console.log("Keychain couldn't be accessed!", error);
     }
+    else{
+      setError(true)
+      setMessage("Please enter invoice number")
+    }
+  
   };
 
   const ModalContent = () => {
@@ -222,10 +237,16 @@ const ActivateWarranty = ({ navigation, route }) => {
 
 
   const warrantyForm =  form ?  Object.values(form) : [];
+
   console.log("warrantyForm",warrantyForm)
   console.log(warrantyForm);
 
  
+  useEffect(()=>{
+    setEmailRequired( (warrantyForm.filter((item) => item.name == "email" )[0]?.required));
+    console.log("emailRequired", emailRequired)
+  },[warrantyForm])
+
   // const handleDataTextInputMandatory = (data) => {
   //     console.log(data)
   // }
@@ -250,22 +271,43 @@ const ActivateWarranty = ({ navigation, route }) => {
          
             if(mobReg.test(data?.value))
           {
-          
+        
           }
           else{
+            console.log("DataValue Mobile", data?.value)
             setError(true)
             setMessage("Kindly enter a valid mobile number")
           }
         }
+        
       if (data?.name == "email") {
         if(data?.required==true)
         {
-          console.log('entering')
+          setEmailRequired(true);
+          // console.log('entering')
           const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
           const checkEmail = emailRegex.test(data?.value)
          
           setIsValidEmail(checkEmail);
+        
           console.log("check email",emailRegex.test(data?.value))
+        }
+        else{
+          setEmailRequired(false);
+          console.log("In else Email" ,data.value)
+          if(data.value == "" || data.value == undefined){
+            setIsValidEmail(true)
+          }
+          else{
+            // console.log('entering')
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            const checkEmail = emailRegex.test(data?.value)
+           
+            setIsValidEmail(checkEmail);
+          
+            console.log("check email",emailRegex.test(data?.value))
+          }
+
         }
        
       }
@@ -308,7 +350,13 @@ const ActivateWarranty = ({ navigation, route }) => {
           } else if (item.name === 'phone' || item.name === 'Phone' || item.name === "mobile" || item.name === "Mobile") {
 
             setPhone(item.value);
-          } else if (item.name === 'invoice' || item.name === 'Invoice') {
+          } 
+          else if (item.name === 'invoice_no' ) {
+
+            setInvoiceNo(item.value);
+          } 
+
+          else if (item.name === 'invoice' || item.name === 'Invoice') {
             console.log('Inside file');
   
             const imageData = {
@@ -489,7 +537,7 @@ const ActivateWarranty = ({ navigation, route }) => {
                       jsonData={item}
                       key={index}
                       handleData={handleChildComponentData}
-                      value={userData.name}
+                      value={navigationFrom == "verify" ? route?.params?.name : userData.name}
                       placeHolder={item.name}>
                       {' '}
                     </TextInputRectangleMandatory>
@@ -550,11 +598,11 @@ const ActivateWarranty = ({ navigation, route }) => {
                     <TextInputNumericRectangle
                       jsonData={item}
                       key={index}
-                      isEditable={false}
                       handleData={handleChildComponentData}
-                      value={userData.mobile}
+                      value={navigationFrom == "verify" ? route?.params.mobile : userData.mobile}
                       label={item.label}
                       maxLength ={10}
+                      isEditable={false}
                       placeHolder={item.name}>
                       {' '}
                     </TextInputNumericRectangle>
@@ -579,21 +627,21 @@ const ActivateWarranty = ({ navigation, route }) => {
                     key={index}
                     handleData={handleChildComponentData}
                     placeHolder={item.name}
-                    isEditable = {false}
+                    isEditable={false}
                     value={activatedData?.[0]?.product_code}
                   ></PrefilledTextInput>
                   );
                 }
                 else {
                   return (
-                    <TextInputRectangle
+                    <PrefilledTextInput
                       jsonData={item}
                       key={index}
                       handleData={handleChildComponentData}
                       label={item.label}
                       placeHolder={item.name}>
                       {' '}
-                    </TextInputRectangle>
+                    </PrefilledTextInput>
                   );
                 }
               } else if (item.type === 'file') {
@@ -611,6 +659,7 @@ const ActivateWarranty = ({ navigation, route }) => {
                     jsonData={item}
                     handleData={handleChildComponentData}
                     data={item.label}
+                    minDate ={moment().subtract(1, 'months').toDate()}
                     key={index}></InputDate>
                 );
               }

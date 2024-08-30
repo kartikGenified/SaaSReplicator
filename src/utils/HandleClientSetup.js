@@ -21,7 +21,7 @@ export const eKyc = true;  // send true if you want to call aadhar gst and pan a
 
 
 //Dashboard
-export const needCaimpaign = true;
+export const needCaimpaign = __DEV__ ? false : true;
 export const scannerType = "qr"; //"qr for qr", "bar for bar
 
 // choose from ["points", "scanned", "redeemed", "cashback","coupon", "warranty","previous transaction","wheel","shared"]

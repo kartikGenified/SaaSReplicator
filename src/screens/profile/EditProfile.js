@@ -47,6 +47,7 @@ const EditProfile = ({ navigation, route }) => {
   const [location, setLocation] = useState();
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [isLoading, setisLoading] = useState(false)
   const [marginB, setMarginB] = useState(0);
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [isClicked, setIsClicked] = useState(false);
@@ -95,11 +96,14 @@ const EditProfile = ({ navigation, route }) => {
       setMessage("Profile Updated Successfully");
       setSuccess(true);
       setIsClicked(false);
+      setisLoading(false)
     } else if (updateProfileError) {
       console.log("updateProfileError", updateProfileError);
       setMessage(updateProfileError.data.message);
       setError(true);
       setIsClicked(false);
+      setisLoading(false)
+
     }
   }, [updateProfileData, updateProfileError]);
 
@@ -217,6 +221,7 @@ const EditProfile = ({ navigation, route }) => {
   };
 
   const handleButtonPress = () => {
+    setisLoading(true)
     if (!isClicked) {
       updateProfile();
       setIsClicked(true);

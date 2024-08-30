@@ -201,7 +201,7 @@ const TextInputGST = (props) => {
         {
           modalVisible &&
           <ZoomImageAnimation
-          style={{ height:30,width:30, position: "absolute",right:75, top:30}}
+          style={{ height:30,width:30, position: "absolute",right:40, top:25}}
           zoom={100}
           duration={1000}
           image={require("../../../../assets/images/greenTick.png")}
