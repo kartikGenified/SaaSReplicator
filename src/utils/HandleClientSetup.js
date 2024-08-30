@@ -7,7 +7,7 @@ export const clientID = 24;
 //icons and images
 export const appIcon = require("../../assets/images/ozoStartsLogo.png");
 export const splash = require("../../assets/images/splash2.png");
-export const icon = require("../../assets/images/splash2.png");
+
 export const descriptionImages = [
   require("../../assets/images/asliVsnakli.png"),
   require("../../assets/images/rewardifyDescription.png"),
@@ -21,7 +21,7 @@ export const eKyc = true;  // send true if you want to call aadhar gst and pan a
 
 
 //Dashboard
-export const needCaimpaign = true;
+export const needCaimpaign = __DEV__ ? false : true;
 export const scannerType = "qr"; //"qr for qr", "bar for bar
 
 // choose from ["points", "scanned", "redeemed", "cashback","coupon", "warranty","previous transaction","wheel","shared"]
@@ -39,5 +39,4 @@ export const neededHistory = [
 
 export const showEditProfile = true;
 
-// coming soon (Please Do not use currently)
-export const redeemptionItems = ["gift", "cashback", "coupon"]; 
+export const redeemptionItems = ["gift", "cashback","coupon" ]; // choose from -->  ["gift", "cashback","coupon"]

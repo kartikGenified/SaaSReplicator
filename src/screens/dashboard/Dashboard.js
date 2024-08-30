@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   View,
   StyleSheet,
@@ -8,6 +8,9 @@ import {
   Image,
   Button,
   BackHandler,
+  PanResponder,
+  Animated,
+  Text,
 } from "react-native";
 import MenuItems from "../../components/atoms/MenuItems";
 import { BaseUrl } from "../../utils/BaseUrl";
@@ -54,6 +57,13 @@ import { useTranslation } from "react-i18next";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { needCaimpaign } from "../../utils/HandleClientSetup";
 import { useGetAppCampaignMutation } from "../../apiServices/campaign/CampaignApi";
+import Tooltip from "react-native-walkthrough-tooltip";
+import {
+  setStepId,
+  setAlreadyWalkedThrough,
+} from "../../../redux/slices/walkThroughSlice";
+import DisplayPoints from "../../components/atoms/DisplayPoints";
+import PointBox from "../../components/organisms/PointBox";
 
 const Dashboard = ({ navigation }) => {
   const [dashboardItems, setDashboardItems] = useState();
@@ -71,6 +81,27 @@ const Dashboard = ({ navigation }) => {
   const [hide, setHide] = useState(true);
   const [campaignData, setCaimpaignData] = useState(null);
   const [error, setError] = useState(false);
+  const [walkThrough, setWalkThrough] = useState(false);
+  const stepId = useSelector((state) => state.walkThrough.stepId);
+
+  const pointsRef = useRef(0)
+  const randomNoRef = useRef(0)
+
+  // const position1 = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
+
+  // PanResponder for the first component
+  const pan = useRef(new Animated.ValueXY()).current;
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderMove: Animated.event([null, { dx: pan.x, dy: pan.y }]),
+      onPanResponderRelease: () => {
+        pan.setOffset({ x: 0, y: 0 });
+      },
+    })
+  ).current;
+
   const focused = useIsFocused();
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.appusersdata.userId);
@@ -164,6 +195,17 @@ const Dashboard = ({ navigation }) => {
   };
 
   useEffect(() => {
+    // Determine if tooltip should be shown
+    const showTooltip = stepId === 1;
+    if (showTooltip) {
+      setWalkThrough(true);
+    }
+    else{
+      setWalkThrough(false)
+    }
+  }, [stepId]);
+
+  useEffect(() => {
     if (locationSetup) {
       if (Object.keys(locationSetup)?.length != 0) {
         setRequiresLocation(true);
@@ -226,7 +268,8 @@ const Dashboard = ({ navigation }) => {
 
   useEffect(() => {
     if (userPointData) {
-      // console.log("userPointData",userPointData)
+      console.log("userPointData",userPointData)
+      pointsRef.current = userPointData?.body?.point_balance
     } else if (userPointError) {
       setError(true);
       setMessage("Can't get user user point data, kindly retry.");
@@ -397,6 +440,21 @@ const Dashboard = ({ navigation }) => {
   // ozone change
 
   const platformMarginScroll = Platform.OS === "ios" ? 0 : 0;
+
+  const handleNextStep = () => {
+    dispatch(setStepId(stepId + 1)); // Move to the next step
+    setWalkThrough(false);
+  };
+  const handlePrevStep = () => {
+    dispatch(setStepId(stepId - 1)); // Move to the next step
+    setWalkThrough(false);
+  };
+
+  const handleSkip = () => {
+    dispatch(setStepId(0)); // Reset or handle skip logic
+    dispatch(setAlreadyWalkedThrough(true)); // Mark walkthrough as completed
+    setWalkThrough(false);
+  };
 
   const getMembership = async () => {
     const credentials = await Keychain.getGenericPassword();
@@ -584,87 +642,15 @@ const Dashboard = ({ navigation }) => {
             )}
           </View>
           {/* Ozone specific change do not show for sales */}
-          {userData?.user_type_id !== 13 && (
-            <View
-              style={{
-                width: "90%",
-                backgroundColor: "white",
-                marginBottom: 20,
-                flexDirection: "row",
-                alignItems: "center",
-                borderColor: "#808080",
-                borderWidth: 0.3,
-                borderRadius: 10,
-                paddingBottom: 10,
-                justifyContent: "center",
-              }}
-            >
-              <View
-                style={{
-                  backgroundColor: "white",
-                  width: "42%",
-                  marginHorizontal: 20,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                {userPointData?.body?.point_balance ? (
-                  <PoppinsText
-                    content={`${t("balance points")} ${
-                      userPointData?.body?.point_balance
-                        ? userPointData?.body?.point_balance
-                        : "loading"
-                    }`}
-                    style={{ color: "black", fontWeight: "bold" }}
-                  ></PoppinsText>
-                ) : (
-                  <AnimatedDots color={"black"} />
-                )}
-              </View>
-
-              <View
-                style={{
-                  height: "100%",
-                  borderWidth: 0.4,
-                  color: "#808080",
-                  opacity: 0.3,
-                }}
-              ></View>
-
-              {userData && !userPointIsLoading && (
-                <View
-                  style={{
-                    backgroundColor: "white",
-                    width: "46%",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <TouchableOpacity
-                    onPress={() => {
-                      navigation.navigate("RedeemedHistory");
-                    }}
-                    style={{
-                      backgroundColor: ternaryThemeColor,
-                      borderRadius: 10,
-                      width: "90%",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: 6,
-                    }}
-                  >
-                    <PoppinsTextLeftMedium
-                      style={{
-                        color: "white",
-                        fontWeight: "800",
-                        fontSize: 16,
-                      }}
-                      content={t("redeem")}
-                    ></PoppinsTextLeftMedium>
-                  </TouchableOpacity>
-                </View>
-              )}
+          {userData?.user_type_id !== 13 && userData && !userPointIsLoading  && (
+           
+           <View style={{width:'90%',alignItems:'center',justifyContent:''}}>
+            {/* <PointBox pointBalance ={Math.trunc(Number(userPointData?.body?.point_balance)) } ></PointBox> */}
+            <PointBox pointBalance ={Math.trunc(1000999)} ></PointBox>
+            
             </View>
+      
+
           )}
           {(userData?.user_type).toLowerCase() !== "dealer" ? (
             (userData?.user_type).toLowerCase() !== "sales" ? (

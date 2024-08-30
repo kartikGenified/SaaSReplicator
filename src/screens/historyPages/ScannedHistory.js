@@ -23,6 +23,7 @@ import InputDate from "../../components/atoms/input/InputDate";
 import PoppinsTextLeftMedium from "../../components/electrons/customFonts/PoppinsTextLeftMedium";
 import FilterModal from "../../components/modals/FilterModal";
 import { useTranslation } from "react-i18next";
+import { appIcon } from "../../utils/HandleClientSetup";
 
 const ScannedHistory = ({ navigation }) => {
   const [distinctDateArr, setDistinctDateArr] = useState();
@@ -476,12 +477,7 @@ const ScannedHistory = ({ navigation }) => {
             marginLeft:20
           }}
         >
-          {image !== null && (
-            <Image
-              style={{ height: 60, width: 60, resizeMode: "contain" }}
-              source={{ uri: image=='' ? null : image }}
-            ></Image>
-          )}
+          {image ? <Image style={{ height: 40, width: 40, resizeMode: "contain" }} source={{uri:image}}></Image>: <Image style={{ height: 40, width: 40, resizeMode: "contain" }} source={appIcon}></Image>}
         </View>
         <View
           style={{

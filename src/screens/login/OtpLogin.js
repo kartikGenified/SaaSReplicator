@@ -358,7 +358,7 @@ const OtpLogin = ({ navigation, route }) => {
           openModal={alert}
         ></AlertModal>
       )}
-      <ScrollView contentContainerStyle={{ flex: 1 }} style={{ width: "100%" }}>
+      <ScrollView contentContainerStyle={{ flex: 1 }} style={{ width: "93%" }}>
         <KeyboardAvoidingView>
           <View
             style={{
