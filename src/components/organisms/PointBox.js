@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import PoppinsTextLeftMedium from "../electrons/customFonts/PoppinsTextLeftMedium";
 import { useTranslation } from "react-i18next";
 import DisplayPoints from "../atoms/DisplayPoints";
+import { useNavigation } from "@react-navigation/native";
 // create a component
 const PointBox = (props) => {
     const [pointBalance , setPointBalance] = useState( props.pointBalance)
@@ -13,7 +14,7 @@ const PointBox = (props) => {
   const [numberWidth, setNumberWidth] = useState(0);
   const [buttonWidth, setButtonWidth] = useState(0)
   const { t } = useTranslation();
-
+  const navigation = useNavigation()
   const ternaryThemeColor = useSelector(
     (state) => state.apptheme.ternaryThemeColor
   );

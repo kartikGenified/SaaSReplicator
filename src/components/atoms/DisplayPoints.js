@@ -10,10 +10,34 @@ const [value, setValue] = useState(props.pointBalance)
 const [valueArr, setValueArr] = useState([])
 const [width,setWidth] = useState(15)
 const [timer, setTimer] = useState(3)
+
+    useEffect(()=>{
+    var val = props.pointBalance
+    const size = String(val).length
+    const min = 0;
+    const max = val;
+    const intervalID = setInterval(() => {
+       const tempRandom =   Math.trunc(Math.random()* (max-min)+min)
+       const tempRandomLen = String(tempRandom).length
+       if(tempRandom<Number(val) && size == tempRandomLen)
+       {
+        setValue(tempRandom)
+       }
+    // setValue()
+    console.log("tempRandom",tempRandom)
+    }, 1);
+
+    setTimeout(() => {
+        clearInterval(intervalID)
+        setValue(props.pointBalance)
+    }, 1000);
+
+    },[props.pointBalance])
+
     useEffect(()=>{
         var temp =[];
         var val = value;
-        console.log("useeffect value",val)
+        console.log("useeffect values",val)
         const str = String(val)
         if(str.length>5)
             {
@@ -24,9 +48,7 @@ const [timer, setTimer] = useState(3)
                 setWidth(8)
             }
         console.log("gsadashdjsbjdhascdcd", width)
-        const newPoint = String(val)
-        const changedP = '0'+newPoint
-        console.log("Bhang bhosda",Number(changedP))
+       
         
         if(val == 0)
             {

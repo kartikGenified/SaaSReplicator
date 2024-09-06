@@ -646,8 +646,7 @@ const Dashboard = ({ navigation }) => {
            
            <View style={{width:'90%',alignItems:'center',justifyContent:''}}>
             {/* <PointBox pointBalance ={Math.trunc(Number(userPointData?.body?.point_balance)) } ></PointBox> */}
-            <PointBox pointBalance ={Math.trunc(1000999)} ></PointBox>
-            
+            <PointBox pointBalance ={Math.trunc(0)} ></PointBox>
             </View>
       
 
