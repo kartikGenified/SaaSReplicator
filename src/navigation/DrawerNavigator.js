@@ -513,7 +513,7 @@ const CustomDrawer = () => {
         </View>
         <PoppinsTextMedium content={`Version : ${currentVersion}`} style={{ position: 'absolute', bottom: 4, right: 10, color: 'white', fontSize: 12 }}></PoppinsTextMedium>
       </View>
-      <ScrollView contentContainerStyle={{}} style={{ width: '100%', height: '100%' }} >
+      <ScrollView contentContainerStyle={{}} style={{ width: '100%', height: '100%',backgroundColor:'white' }} >
 
         {
           drawerData !== undefined && drawerData.app_menu.map((item, index) => {
@@ -611,6 +611,7 @@ const CustomDrawer = () => {
         {/* My Program ending*/}
 
         {/* Ozone Products Starting */}
+{/* 
         <View
           style={{
             minHeight: 54,
@@ -632,13 +633,10 @@ const CustomDrawer = () => {
             style={{
               width: '20%',
               alignItems: 'center',
-              // justifyContent: 'center',
               height: '100%',
               marginTop: 10
             }}>
 
-            {/* <SvgUri width={40} height={40} uri={image}></SvgUri> */}
-            {/* <Icon size={size} name="bars" color={ternaryThemeColor}></Icon> */}
             {!ozoneProductVisible && <Image style={{ height: 20, width: 20, resizeMode: 'contain', transform: [{ rotate: '270deg' }], marginTop: 4 }} source={require('../../assets/images/arrowDown.png')}></Image>}
             {ozoneProductVisible && <Image style={{ height: 20, width: 20, resizeMode: 'contain' }} source={require('../../assets/images/arrowDown.png')}></Image>}
           </TouchableOpacity>
@@ -679,11 +677,13 @@ const CustomDrawer = () => {
             }
 
           </View>
-        </View>
+        </View> */}
+
         {/* Ozone Products ending*/}
 
         {/* Community Starting */}
-        <View
+
+        {/* <View
           style={{
             minHeight: 54,
             width: '100%',
@@ -692,7 +692,6 @@ const CustomDrawer = () => {
             justifyContent: 'center',
             marginTop: 1,
             paddingBottom: 10,
-            // zIndex:1,
             borderBottomWidth: 1,
             borderColor: '#DDDDDD',
             backgroundColor: "white"
@@ -709,8 +708,7 @@ const CustomDrawer = () => {
               marginTop: 10
             }}>
 
-            {/* <SvgUri width={40} height={40} uri={image}></SvgUri> */}
-            {/* <Icon size={size} name="bars" color={ternaryThemeColor}></Icon> */}
+  
             {!communityVisible && <Image style={{ height: 20, width: 20, resizeMode: 'contain', transform: [{ rotate: '270deg' }], marginTop: 4 }} source={require('../../assets/images/arrowDown.png')}></Image>}
             {communityVisible && <Image style={{ height: 20, width: 20, resizeMode: 'contain' }} source={require('../../assets/images/arrowDown.png')}></Image>}
           </TouchableOpacity>
@@ -742,7 +740,6 @@ const CustomDrawer = () => {
                   console.log("images-1700639007902-188225481.pdf")
                   navigation.navigate("PdfComponent", { pdf: "images-1700639007902-188225481.pdf" })
 
-                  //  getPolicyData && navigation.navigate("PdfComponent",{pdf: getPolicyData?.body?.data?.[0]?.files?.[0]})
 
                 }}>
                   <Text style={{ fontSize: 15, color: ternaryThemeColor }}>{t("Program Content")}</Text>
@@ -755,11 +752,13 @@ const CustomDrawer = () => {
             }
 
           </View>
-        </View>
+        </View> */}
+
         {/* Community ending*/}
 
         {/* Knowledge Hub */}
-        <View
+
+        {/* <View
           style={{
             minHeight: 54,
             width: '100%',
@@ -785,8 +784,7 @@ const CustomDrawer = () => {
               marginTop: 10
             }}>
 
-            {/* <SvgUri width={40} height={40} uri={image}></SvgUri> */}
-            {/* <Icon size={size} name="bars" color={ternaryThemeColor}></Icon> */}
+
             {!KnowledgeHubVisible && <Image style={{ height: 20, width: 20, resizeMode: 'contain', transform: [{ rotate: '270deg' }], marginTop: 4 }} source={require('../../assets/images/arrowDown.png')}></Image>}
             {KnowledgeHubVisible && <Image style={{ height: 20, width: 20, resizeMode: 'contain' }} source={require('../../assets/images/arrowDown.png')}></Image>}
           </TouchableOpacity>
@@ -813,34 +811,27 @@ const CustomDrawer = () => {
                 }} style={{ marginTop: 5, marginBottom: 5 }}>
                   <Text style={{ fontSize: 15, color: ternaryThemeColor }}>{t("Installation Video")}</Text>
                 </TouchableOpacity>
-                {/* 
-              <TouchableOpacity style={{ marginTop:5,marginBottom:5 }} onPress={()=>{
-                navigation.navigate("ProductCatalogue")
-              }}>
-                <Text style={{  fontSize:15, color:ternaryThemeColor }}>Product Guideline</Text> 
-              </TouchableOpacity>     */}
-
-                {/* <TouchableOpacity style={{ marginTop:5,marginBottom:5 }} onPress={()=>{navigation.navigate("ListAddress")}}>
-                <Text style={{  fontSize:15, color:ternaryThemeColor }}>List Address</Text> 
-              </TouchableOpacity>     */}
+      =
               </View>
             }
 
           </View>
         </View>
-        {/* Knowledge Hub*/}
-
-        <TouchableOpacity style={{ backgroundColor: ternaryThemeColor, height: 70, justifyContent: 'center', width: '100%', alignItems: 'center' }} onPress={() => {
-
-          handleLogout()
-
-
-        }}>
-          <PoppinsTextLeftMedium style={{ color: 'white' }} content={t("LOG OUT")}></PoppinsTextLeftMedium>
-        <PoppinsTextLeftMedium style={{color:'white',fontSize:10,position:'absolute',bottom:2}} content ="Designed and developed by Genefied"></PoppinsTextLeftMedium>
-
-        </TouchableOpacity>
+         */}
+   
+ 
       </ScrollView>
+
+      <TouchableOpacity style={{ backgroundColor: ternaryThemeColor, height: 70, justifyContent: 'center', width: '100%', alignItems: 'center' }} onPress={() => {
+
+handleLogout()
+
+
+}}>
+<PoppinsTextLeftMedium style={{ color: 'white' }} content={t("LOG OUT")}></PoppinsTextLeftMedium>
+<PoppinsTextLeftMedium style={{color:'white',fontSize:10,position:'absolute',bottom:2}} content ="Designed and developed by Genefied"></PoppinsTextLeftMedium>
+
+</TouchableOpacity>
 
 
 

@@ -2,11 +2,12 @@
 import React, { useState,useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Tooltip from "react-native-walkthrough-tooltip";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PoppinsTextLeftMedium from "../electrons/customFonts/PoppinsTextLeftMedium";
 import { useTranslation } from "react-i18next";
 import DisplayPoints from "../atoms/DisplayPoints";
 import { useNavigation } from "@react-navigation/native";
+import { setStepId } from "../../../redux/slices/walkThroughSlice";
 // create a component
 const PointBox = (props) => {
     const [pointBalance , setPointBalance] = useState( props.pointBalance)
@@ -18,7 +19,9 @@ const PointBox = (props) => {
   const ternaryThemeColor = useSelector(
     (state) => state.apptheme.ternaryThemeColor
   );
-
+  const dispatch = useDispatch();
+  const stepId = useSelector((state) => state.walkThrough.stepId);
+  
   useEffect(()=>{
     const temp = String(pointBalance)
     console.log("qwertyuisdfzfgasdas",temp)
@@ -34,6 +37,17 @@ const PointBox = (props) => {
         }
     
   },[pointBalance])
+
+  useEffect(() => {
+    // Determine if tooltip should be shown
+    const showTooltip = stepId === 1;
+    if (showTooltip) {
+      setWalkThrough(true);
+    }
+    else{
+      setWalkThrough(false)
+    }
+  }, [stepId]);
 
 
   console.log("widfthsssss",numberWidth,buttonWidth,pointBalance)
