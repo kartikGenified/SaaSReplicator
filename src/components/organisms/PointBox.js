@@ -160,7 +160,7 @@ const PointBox = (props) => {
             borderTopRightRadius: 10,
           }}
         >
-            <DisplayPoints pointBalance = {pointBalance}/>
+            <DisplayPoints pointBalance = {pointBalance ? pointBalance : 0}/>
         </View>
 
           

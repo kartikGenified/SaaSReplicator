@@ -62,7 +62,7 @@ import {
   setStepId,
   setAlreadyWalkedThrough,
 } from "../../../redux/slices/walkThroughSlice";
-import DisplayPoints from "../../components/atoms/DisplayPoints";
+
 import PointBox from "../../components/organisms/PointBox";
 
 const Dashboard = ({ navigation }) => {
@@ -647,6 +647,7 @@ const Dashboard = ({ navigation }) => {
            <View style={{width:'90%',alignItems:'center',justifyContent:''}}>
             {/* <PointBox pointBalance ={Math.trunc(Number(userPointData?.body?.point_balance)) } ></PointBox> */}
             {/* <PointBox pointBalance ={Math.trunc(0)} ></PointBox> */}
+            {console.log("firstdkdkd", Math.trunc(Number(userPointData?.body?.point_balance)))}
             <PointBox pointBalance ={Math.trunc(Number(userPointData?.body?.point_balance)) } ></PointBox> 
             </View>
       

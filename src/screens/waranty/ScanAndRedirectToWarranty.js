@@ -286,8 +286,8 @@ else{
 
     navigation.navigate('ActivateWarranty', {
       workflowProgram: [],
-      rewardType: ''
-
+      rewardType: '',
+      activatedData: addedQrList,
     });
 
   };
